@@ -9,12 +9,10 @@
 
 namespace PowerLinks\OpenRtb\BidRequest;
 
-
-use PowerLinks\OpenRtb\BidRequest\Exception\ExceptionInvalidValue;
-use PowerLinks\OpenRtb\BidRequest\Interfaces\Arrayable;
 use PowerLinks\OpenRtb\BidRequest\Specification\BitType;
-use PowerLinks\OpenRtb\BidRequest\Validation\SetterValidation;
-use PowerLinks\OpenRtb\BidRequest\Validation\ToArray;
+use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
+use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
+use PowerLinks\OpenRtb\Tools\Traits\ToArray;
 
 class Site implements Arrayable
 {
@@ -181,7 +179,7 @@ class Site implements Arrayable
     /**
      * @param string $cat
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addCat($cat)
     {
@@ -211,7 +209,7 @@ class Site implements Arrayable
     /**
      * @param string $sectioncat
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addSectioncat($sectioncat)
     {
@@ -241,7 +239,7 @@ class Site implements Arrayable
     /**
      * @param string $pagecat
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addPagecat($pagecat)
     {
@@ -327,7 +325,7 @@ class Site implements Arrayable
     /**
      * @param int $mobile
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setMobile($mobile)
     {
@@ -347,7 +345,7 @@ class Site implements Arrayable
     /**
      * @param $privacypolicy
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setPrivacypolicy($privacypolicy)
     {
@@ -403,7 +401,7 @@ class Site implements Arrayable
     /**
      * @param string $keywords
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setKeywords($keywords)
     {

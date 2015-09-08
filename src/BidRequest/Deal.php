@@ -9,9 +9,9 @@
 
 namespace PowerLinks\OpenRtb\BidRequest;
 
-use PowerLinks\OpenRtb\BidRequest\Interfaces\Arrayable;
-use PowerLinks\OpenRtb\BidRequest\Validation\SetterValidation;
-use PowerLinks\OpenRtb\BidRequest\Validation\ToArray;
+use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
+use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
+use PowerLinks\OpenRtb\Tools\Traits\ToArray;
 
 class Deal implements Arrayable
 {
@@ -72,7 +72,7 @@ class Deal implements Arrayable
     /**
      * @param string $id
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setId($id)
     {
@@ -92,7 +92,7 @@ class Deal implements Arrayable
     /**
      * @param float $bidfloor
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setBidfloor($bidfloor)
     {
@@ -112,7 +112,7 @@ class Deal implements Arrayable
     /**
      * @param string $bidfloorcur
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setBidfloorcur($bidfloorcur)
     {
@@ -132,7 +132,7 @@ class Deal implements Arrayable
     /**
      * @param int $at
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setAt($at)
     {
@@ -152,7 +152,7 @@ class Deal implements Arrayable
     /**
      * @param string $wseat
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addWseat($wseat)
     {
@@ -182,7 +182,7 @@ class Deal implements Arrayable
     /**
      * @param string $wadomain
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addWadomain($wadomain)
     {

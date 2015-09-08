@@ -9,11 +9,11 @@
 
 namespace PowerLinks\OpenRtb\BidRequest;
 
-use PowerLinks\OpenRtb\BidRequest\Interfaces\Arrayable;
+use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
 use PowerLinks\OpenRtb\BidRequest\Specification\ApiFrameworks;
 use PowerLinks\OpenRtb\BidRequest\Specification\CreativeAttributes;
-use PowerLinks\OpenRtb\BidRequest\Validation\SetterValidation;
-use PowerLinks\OpenRtb\BidRequest\Validation\ToArray;
+use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
+use PowerLinks\OpenRtb\Tools\Traits\ToArray;
 
 class Native implements Arrayable
 {
@@ -65,7 +65,7 @@ class Native implements Arrayable
     /**
      * @param string $request
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setRequest($request)
     {
@@ -85,7 +85,7 @@ class Native implements Arrayable
     /**
      * @param string $ver
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setVer($ver)
     {
@@ -105,7 +105,7 @@ class Native implements Arrayable
     /**
      * @param int $api
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addApi($api)
     {
@@ -135,7 +135,7 @@ class Native implements Arrayable
     /**
      * @param int $battr
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addBattr($battr)
     {

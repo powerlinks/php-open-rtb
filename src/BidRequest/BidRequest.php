@@ -9,10 +9,10 @@
 
 namespace PowerLinks\OpenRtb\BidRequest;
 
-use PowerLinks\OpenRtb\BidRequest\Exception\ExceptionInvalidValue;
-use PowerLinks\OpenRtb\BidRequest\Interfaces\Arrayable;
-use PowerLinks\OpenRtb\BidRequest\Validation\SetterValidation;
-use PowerLinks\OpenRtb\BidRequest\Validation\ToArray;
+use PowerLinks\OpenRtb\BidRequest\Specification\BitType;
+use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
+use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
+use PowerLinks\OpenRtb\Tools\Traits\ToArray;
 use PowerLinks\OpenRtb\Collection\ArrayCollection;
 
 class BidRequest implements Arrayable
@@ -152,7 +152,7 @@ class BidRequest implements Arrayable
     /**
      * @param string $id
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setId($id)
     {
@@ -293,7 +293,7 @@ class BidRequest implements Arrayable
     /**
      * @param $test
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setTest($test)
     {
@@ -332,7 +332,7 @@ class BidRequest implements Arrayable
     /**
      * @param int $tmax
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setTmax($tmax)
     {
@@ -352,7 +352,7 @@ class BidRequest implements Arrayable
     /**
      * @param string $wseat
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addWseat($wseat)
     {
@@ -382,7 +382,7 @@ class BidRequest implements Arrayable
     /**
      * @param int $allimps
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setAllimps($allimps)
     {
@@ -402,7 +402,7 @@ class BidRequest implements Arrayable
     /**
      * @param string $cur
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addCur($cur)
     {
@@ -432,7 +432,7 @@ class BidRequest implements Arrayable
     /**
      * @param string $bcat
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addBcat($bcat)
     {
@@ -462,7 +462,7 @@ class BidRequest implements Arrayable
     /**
      * @param string $badv
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addBadv($badv)
     {

@@ -9,10 +9,10 @@
 
 namespace PowerLinks\OpenRtb\BidRequest;
 
-use PowerLinks\OpenRtb\BidRequest\Interfaces\Arrayable;
+use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
 use PowerLinks\OpenRtb\BidRequest\Specification\LocationType;
-use PowerLinks\OpenRtb\BidRequest\Validation\SetterValidation;
-use PowerLinks\OpenRtb\BidRequest\Validation\ToArray;
+use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
+use PowerLinks\OpenRtb\Tools\Traits\ToArray;
 
 class Geo implements Arrayable
 {
@@ -95,7 +95,7 @@ class Geo implements Arrayable
     /**
      * @param float $lat
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setLat($lat)
     {
@@ -115,7 +115,7 @@ class Geo implements Arrayable
     /**
      * @param float $lon
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setLon($lon)
     {
@@ -135,7 +135,7 @@ class Geo implements Arrayable
     /**
      * @param int $type
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setType($type)
     {
@@ -155,7 +155,7 @@ class Geo implements Arrayable
     /**
      * @param string $country
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setCountry($country)
     {
@@ -175,7 +175,7 @@ class Geo implements Arrayable
     /**
      * @param string $region
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setRegion($region)
     {
@@ -195,7 +195,7 @@ class Geo implements Arrayable
     /**
      * @param string $regionfips104
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setRegionfips104($regionfips104)
     {
@@ -215,7 +215,7 @@ class Geo implements Arrayable
     /**
      * @param string $metro
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setMetro($metro)
     {
@@ -235,7 +235,7 @@ class Geo implements Arrayable
     /**
      * @param string $city
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setCity($city)
     {
@@ -255,7 +255,7 @@ class Geo implements Arrayable
     /**
      * @param string $zip
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setZip($zip)
     {
@@ -275,7 +275,7 @@ class Geo implements Arrayable
     /**
      * @param int $utcoffset
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setUtcoffset($utcoffset)
     {

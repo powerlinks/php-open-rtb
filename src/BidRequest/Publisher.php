@@ -9,9 +9,9 @@
 
 namespace PowerLinks\OpenRtb\BidRequest;
 
-use PowerLinks\OpenRtb\BidRequest\Interfaces\Arrayable;
-use PowerLinks\OpenRtb\BidRequest\Validation\SetterValidation;
-use PowerLinks\OpenRtb\BidRequest\Validation\ToArray;
+use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
+use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
+use PowerLinks\OpenRtb\Tools\Traits\ToArray;
 
 class Publisher implements Arrayable
 {

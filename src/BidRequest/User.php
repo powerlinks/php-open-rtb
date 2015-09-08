@@ -9,10 +9,10 @@
 
 namespace PowerLinks\OpenRtb\BidRequest;
 
-use PowerLinks\OpenRtb\BidRequest\Interfaces\Arrayable;
 use PowerLinks\OpenRtb\BidRequest\Specification\Gender;
-use PowerLinks\OpenRtb\BidRequest\Validation\SetterValidation;
-use PowerLinks\OpenRtb\BidRequest\Validation\ToArray;
+use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
+use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
+use PowerLinks\OpenRtb\Tools\Traits\ToArray;
 use PowerLinks\OpenRtb\Collection\ArrayCollection;
 
 class User implements Arrayable
@@ -94,7 +94,7 @@ class User implements Arrayable
     /**
      * @param string $id
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setId($id)
     {
@@ -114,7 +114,7 @@ class User implements Arrayable
     /**
      * @param string $buyerid
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setBuyerid($buyerid)
     {
@@ -134,7 +134,7 @@ class User implements Arrayable
     /**
      * @param int $yob
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setYob($yob)
     {
@@ -154,7 +154,7 @@ class User implements Arrayable
     /**
      * @param string $gender
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setGender($gender)
     {
@@ -174,7 +174,7 @@ class User implements Arrayable
     /**
      * @param string $keywords
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setKeywords($keywords)
     {
@@ -194,7 +194,7 @@ class User implements Arrayable
     /**
      * @param string $customdata
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setCustomdata($customdata)
     {

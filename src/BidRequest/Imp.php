@@ -9,10 +9,10 @@
 
 namespace PowerLinks\OpenRtb\BidRequest;
 
-use PowerLinks\OpenRtb\BidRequest\Interfaces\Arrayable;
+use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
 use PowerLinks\OpenRtb\BidRequest\Specification\BitType;
-use PowerLinks\OpenRtb\BidRequest\Validation\SetterValidation;
-use PowerLinks\OpenRtb\BidRequest\Validation\ToArray;
+use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
+use PowerLinks\OpenRtb\Tools\Traits\ToArray;
 
 class Imp implements Arrayable
 {
@@ -117,7 +117,7 @@ class Imp implements Arrayable
     /**
      * @param string $id
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setId($id)
     {
@@ -191,7 +191,7 @@ class Imp implements Arrayable
     /**
      * @param string $displaymanager
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setDisplaymanager($displaymanager)
     {
@@ -211,7 +211,7 @@ class Imp implements Arrayable
     /**
      * @param string $displaymanagerver
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setDisplaymanagerver($displaymanagerver)
     {
@@ -231,7 +231,7 @@ class Imp implements Arrayable
     /**
      * @param int $instl
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setInstl($instl)
     {
@@ -251,7 +251,7 @@ class Imp implements Arrayable
     /**
      * @param string $tagid
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setTagid($tagid)
     {
@@ -271,7 +271,7 @@ class Imp implements Arrayable
     /**
      * @param float $bidfloor
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setBidfloor($bidfloor)
     {
@@ -291,7 +291,7 @@ class Imp implements Arrayable
     /**
      * @param string $bidfloorcur
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setBidfloorcur($bidfloorcur)
     {
@@ -311,7 +311,7 @@ class Imp implements Arrayable
     /**
      * @param int $secure
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setSecure($secure)
     {
@@ -331,7 +331,7 @@ class Imp implements Arrayable
     /**
      * @param string $iframebuster
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addIframebuster($iframebuster)
     {

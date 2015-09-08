@@ -7,9 +7,9 @@
  * Date: 07/09/15 - 13:28
  */
 
-namespace PowerLinks\OpenRtb\BidRequest\Validation;
+namespace PowerLinks\OpenRtb\Tools\Traits;
 
-use PowerLinks\OpenRtb\BidRequest\Exception\ExceptionMissingRequiredField;
+use PowerLinks\OpenRtb\Tools\Exceptions\ExceptionMissingRequiredField;
 use ReflectionClass;
 
 trait ToArray

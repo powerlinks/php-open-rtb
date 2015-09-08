@@ -9,7 +9,7 @@
 
 namespace PowerLinks\OpenRtb\BidRequest\Specification;
 
-use PowerLinks\OpenRtb\BidRequest\Specification\CommonMethods\GetConstants;
+use PowerLinks\OpenRtb\Tools\Traits\GetConstants;
 
 class BitType
 {

@@ -9,7 +9,7 @@
 
 namespace PowerLinks\OpenRtb\BidRequest\Specification;
 
-use PowerLinks\OpenRtb\BidRequest\Specification\CommonMethods\GetConstants;
+use PowerLinks\OpenRtb\Tools\Traits\GetConstants;
 
 /**
  * http://www.iab.net/media/file/OpenRTB-API-Specification-Version-2-3.pdf - 5.8

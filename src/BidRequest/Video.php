@@ -9,7 +9,6 @@
 
 namespace PowerLinks\OpenRtb\BidRequest;
 
-use PowerLinks\OpenRtb\BidRequest\Interfaces\Arrayable;
 use PowerLinks\OpenRtb\BidRequest\Specification\AdPosition;
 use PowerLinks\OpenRtb\BidRequest\Specification\ApiFrameworks;
 use PowerLinks\OpenRtb\BidRequest\Specification\BitType;
@@ -20,10 +19,10 @@ use PowerLinks\OpenRtb\BidRequest\Specification\VideoBidResponseProtocols;
 use PowerLinks\OpenRtb\BidRequest\Specification\VideoLinearity;
 use PowerLinks\OpenRtb\BidRequest\Specification\VideoMimeType;
 use PowerLinks\OpenRtb\BidRequest\Specification\VideoPlaybackMethods;
-use PowerLinks\OpenRtb\BidRequest\Validation\SetterValidation;
-use PowerLinks\OpenRtb\BidRequest\Validation\ToArray;
+use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
+use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
+use PowerLinks\OpenRtb\Tools\Traits\ToArray;
 use PowerLinks\OpenRtb\Collection\ArrayCollection;
-use PowerLinks\OpenRtb\BidRequest\Exception\ExceptionInvalidValue;
 
 class Video implements Arrayable
 {
@@ -198,7 +197,7 @@ class Video implements Arrayable
     /**
      * @param string $mimes
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addMimes($mimes)
     {
@@ -228,7 +227,7 @@ class Video implements Arrayable
     /**
      * @param int $minduration
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setMinduration($minduration)
     {
@@ -248,7 +247,7 @@ class Video implements Arrayable
     /**
      * @param int $maxduration
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setMaxduration($maxduration)
     {
@@ -289,7 +288,7 @@ class Video implements Arrayable
     /**
      * @param int $protocols
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addProtocols($protocols)
     {
@@ -319,7 +318,7 @@ class Video implements Arrayable
     /**
      * @param int $w
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setW($w)
     {
@@ -339,7 +338,7 @@ class Video implements Arrayable
     /**
      * @param int $h
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setH($h)
     {
@@ -359,7 +358,7 @@ class Video implements Arrayable
     /**
      * @param int $startdelay
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setStartdelay($startdelay)
     {
@@ -379,7 +378,7 @@ class Video implements Arrayable
     /**
      * @param int $linearity
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setLinearity($linearity)
     {
@@ -399,7 +398,7 @@ class Video implements Arrayable
     /**
      * @param int $sequence
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setSequence($sequence)
     {
@@ -419,7 +418,7 @@ class Video implements Arrayable
     /**
      * @param int $battr
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addBattr($battr)
     {
@@ -449,7 +448,7 @@ class Video implements Arrayable
     /**
      * @param int $maxextended
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setMaxextended($maxextended)
     {
@@ -469,7 +468,7 @@ class Video implements Arrayable
     /**
      * @param int $minbitrate
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setMinbitrate($minbitrate)
     {
@@ -489,7 +488,7 @@ class Video implements Arrayable
     /**
      * @param int $maxbitrate
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setMaxbitrate($maxbitrate)
     {
@@ -509,7 +508,7 @@ class Video implements Arrayable
     /**
      * @param int $boxingallowed
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setBoxingallowed($boxingallowed)
     {
@@ -529,7 +528,7 @@ class Video implements Arrayable
     /**
      * @param int $playbackmethod
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addPlaybackmethod($playbackmethod)
     {
@@ -559,7 +558,7 @@ class Video implements Arrayable
     /**
      * @param int $delivery
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addDelivery($delivery)
     {
@@ -589,7 +588,7 @@ class Video implements Arrayable
     /**
      * @param int $pos
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setPos($pos)
     {
@@ -637,7 +636,7 @@ class Video implements Arrayable
     /**
      * @param int $api
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addApi($api)
     {
@@ -667,7 +666,7 @@ class Video implements Arrayable
     /**
      * @param $companiontype
      * @return $this
-     * @throws ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addCompaniontype($companiontype)
     {

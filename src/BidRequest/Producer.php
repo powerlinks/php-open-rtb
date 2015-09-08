@@ -9,10 +9,9 @@
 
 namespace PowerLinks\OpenRtb\BidRequest;
 
-
-use PowerLinks\OpenRtb\BidRequest\Interfaces\Arrayable;
-use PowerLinks\OpenRtb\BidRequest\Validation\SetterValidation;
-use PowerLinks\OpenRtb\BidRequest\Validation\ToArray;
+use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
+use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
+use PowerLinks\OpenRtb\Tools\Traits\ToArray;
 
 class Producer implements Arrayable
 {
@@ -58,7 +57,7 @@ class Producer implements Arrayable
     /**
      * @param string $id
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setId($id)
     {
@@ -78,7 +77,7 @@ class Producer implements Arrayable
     /**
      * @param $name
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setName($name)
     {
@@ -98,7 +97,7 @@ class Producer implements Arrayable
     /**
      * @param string $cat
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addCat($cat)
     {
@@ -128,7 +127,7 @@ class Producer implements Arrayable
     /**
      * @param string $domain
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setDomain($domain)
     {

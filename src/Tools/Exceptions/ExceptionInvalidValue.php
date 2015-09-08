@@ -7,7 +7,7 @@
  * Date: 01/09/15 - 09:44
  */
 
-namespace PowerLinks\OpenRtb\BidRequest\Exception;
+namespace PowerLinks\OpenRtb\Tools\Exceptions;
 
 use Exception;
 

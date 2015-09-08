@@ -9,12 +9,12 @@
 
 namespace PowerLinks\OpenRtb\BidRequest;
 
-use PowerLinks\OpenRtb\BidRequest\Interfaces\Arrayable;
+use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
 use PowerLinks\OpenRtb\BidRequest\Specification\BitType;
 use PowerLinks\OpenRtb\BidRequest\Specification\ConnectionType;
 use PowerLinks\OpenRtb\BidRequest\Specification\DeviceType;
-use PowerLinks\OpenRtb\BidRequest\Validation\SetterValidation;
-use PowerLinks\OpenRtb\BidRequest\Validation\ToArray;
+use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
+use PowerLinks\OpenRtb\Tools\Traits\ToArray;
 
 class Device implements Arrayable
 {
@@ -218,7 +218,7 @@ class Device implements Arrayable
     /**
      * @param string $ua
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setUa($ua)
     {
@@ -256,7 +256,7 @@ class Device implements Arrayable
     /**
      * @param int $dnt
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setDnt($dnt)
     {
@@ -276,7 +276,7 @@ class Device implements Arrayable
     /**
      * @param int $lmt
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setLmt($lmt)
     {
@@ -296,7 +296,7 @@ class Device implements Arrayable
     /**
      * @param string $ip
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setIp($ip)
     {
@@ -316,7 +316,7 @@ class Device implements Arrayable
     /**
      * @param string $ipv6
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setIpv6($ipv6)
     {
@@ -336,7 +336,7 @@ class Device implements Arrayable
     /**
      * @param int $devicetype
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setDevicetype($devicetype)
     {
@@ -356,7 +356,7 @@ class Device implements Arrayable
     /**
      * @param string $make
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setMake($make)
     {
@@ -376,7 +376,7 @@ class Device implements Arrayable
     /**
      * @param string $model
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setModel($model)
     {
@@ -396,7 +396,7 @@ class Device implements Arrayable
     /**
      * @param string $os
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setOs($os)
     {
@@ -416,7 +416,7 @@ class Device implements Arrayable
     /**
      * @param string $osv
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setOsv($osv)
     {
@@ -436,7 +436,7 @@ class Device implements Arrayable
     /**
      * @param string $hwv
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setHwv($hwv)
     {
@@ -456,7 +456,7 @@ class Device implements Arrayable
     /**
      * @param int $h
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setH($h)
     {
@@ -476,7 +476,7 @@ class Device implements Arrayable
     /**
      * @param int $w
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setW($w)
     {
@@ -496,7 +496,7 @@ class Device implements Arrayable
     /**
      * @param int $ppi
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setPpi($ppi)
     {
@@ -516,7 +516,7 @@ class Device implements Arrayable
     /**
      * @param float $pxratio
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setPxratio($pxratio)
     {
@@ -536,7 +536,7 @@ class Device implements Arrayable
     /**
      * @param int $js
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setJs($js)
     {
@@ -556,7 +556,7 @@ class Device implements Arrayable
     /**
      * @param string $flashver
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setFlashver($flashver)
     {
@@ -576,7 +576,7 @@ class Device implements Arrayable
     /**
      * @param string $language
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setLanguage($language)
     {
@@ -596,7 +596,7 @@ class Device implements Arrayable
     /**
      * @param string $carrier
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setCarrier($carrier)
     {
@@ -616,7 +616,7 @@ class Device implements Arrayable
     /**
      * @param int $connectiontype
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setConnectiontype($connectiontype)
     {
@@ -636,7 +636,7 @@ class Device implements Arrayable
     /**
      * @param string $ifa
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setIfa($ifa)
     {
@@ -656,7 +656,7 @@ class Device implements Arrayable
     /**
      * @param string $didsha1
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setDidsha1($didsha1)
     {
@@ -676,7 +676,7 @@ class Device implements Arrayable
     /**
      * @param string $didmd5
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setDidmd5($didmd5)
     {
@@ -696,7 +696,7 @@ class Device implements Arrayable
     /**
      * @param string $dpidsha1
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setDpidsha1($dpidsha1)
     {
@@ -716,7 +716,7 @@ class Device implements Arrayable
     /**
      * @param string $dpidmd5
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setDpidmd5($dpidmd5)
     {
@@ -736,7 +736,7 @@ class Device implements Arrayable
     /**
      * @param string $macsha1
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setMacsha1($macsha1)
     {
@@ -756,7 +756,7 @@ class Device implements Arrayable
     /**
      * @param string $macmd5
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setMacmd5($macmd5)
     {

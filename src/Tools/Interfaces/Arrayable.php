@@ -7,7 +7,7 @@
  * Date: 07/09/15 - 13:26
  */
 
-namespace PowerLinks\OpenRtb\BidRequest\Interfaces;
+namespace PowerLinks\OpenRtb\Tools\Interfaces;
 
 interface Arrayable
 {

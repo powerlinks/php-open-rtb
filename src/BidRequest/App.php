@@ -9,10 +9,10 @@
 
 namespace PowerLinks\OpenRtb\BidRequest;
 
-use PowerLinks\OpenRtb\BidRequest\Interfaces\Arrayable;
+use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
 use PowerLinks\OpenRtb\BidRequest\Specification\BitType;
-use PowerLinks\OpenRtb\BidRequest\Validation\SetterValidation;
-use PowerLinks\OpenRtb\BidRequest\Validation\ToArray;
+use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
+use PowerLinks\OpenRtb\Tools\Traits\ToArray;
 
 class App implements Arrayable
 {
@@ -130,7 +130,7 @@ class App implements Arrayable
     /**
      * @param string $id
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setId($id)
     {
@@ -150,7 +150,7 @@ class App implements Arrayable
     /**
      * @param string $name
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setName($name)
     {
@@ -170,7 +170,7 @@ class App implements Arrayable
     /**
      * @param string $bundle
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setBundle($bundle)
     {
@@ -190,7 +190,7 @@ class App implements Arrayable
     /**
      * @param string $domain
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setDomain($domain)
     {
@@ -210,7 +210,7 @@ class App implements Arrayable
     /**
      * @param string $storeurl
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setStoreurl($storeurl)
     {
@@ -230,7 +230,7 @@ class App implements Arrayable
     /**
      * @param string $cat
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addCat($cat)
     {
@@ -260,7 +260,7 @@ class App implements Arrayable
     /**
      * @param string $sectioncat
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addSectioncat($sectioncat)
     {
@@ -290,7 +290,7 @@ class App implements Arrayable
     /**
      * @param string $pagecat
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function addPagecat($pagecat)
     {
@@ -320,7 +320,7 @@ class App implements Arrayable
     /**
      * @param string $ver
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setVer($ver)
     {
@@ -340,7 +340,7 @@ class App implements Arrayable
     /**
      * @param int $privacypolicy
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setPrivacypolicy($privacypolicy)
     {
@@ -360,7 +360,7 @@ class App implements Arrayable
     /**
      * @param int $paid
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setPaid($paid)
     {
@@ -416,7 +416,7 @@ class App implements Arrayable
     /**
      * @param string $keywords
      * @return $this
-     * @throws Exception\ExceptionInvalidValue
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
     public function setKeywords($keywords)
     {

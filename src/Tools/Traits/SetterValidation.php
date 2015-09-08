@@ -7,9 +7,9 @@
  * Date: 03/09/15 - 09:45
  */
 
-namespace PowerLinks\OpenRtb\BidRequest\Validation;
+namespace PowerLinks\OpenRtb\Tools\Traits;
 
-use PowerLinks\OpenRtb\BidRequest\Exception\ExceptionInvalidValue;
+use PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue;
 
 trait SetterValidation
 {

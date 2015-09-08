@@ -7,7 +7,7 @@
  * Date: 03/09/15 - 10:24
  */
 
-namespace PowerLinks\OpenRtb\BidRequest\Specification\CommonMethods;
+namespace PowerLinks\OpenRtb\Tools\Traits;
 
 use ReflectionClass;
 
