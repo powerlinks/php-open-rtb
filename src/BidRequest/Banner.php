@@ -99,7 +99,7 @@ class Banner implements Arrayable
     protected $api;
 
     /**
-     * @var
+     * @var Ext
      */
     protected $ext;
 
@@ -434,7 +434,7 @@ class Banner implements Arrayable
     }
 
     /**
-     * @return mixed
+     * @return Ext
      */
     public function getExt()
     {
@@ -442,10 +442,10 @@ class Banner implements Arrayable
     }
 
     /**
-     * @param $ext
+     * @param Ext $ext
      * @return $this
      */
-    public function setExt($ext)
+    public function setExt(Ext $ext)
     {
         $this->ext = $ext;
         return $this;

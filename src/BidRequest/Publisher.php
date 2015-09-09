@@ -41,7 +41,7 @@ class Publisher implements Arrayable
     protected $domain;
 
     /**
-     * @var
+     * @var Ext
      */
     protected $ext;
 
@@ -132,7 +132,7 @@ class Publisher implements Arrayable
     }
 
     /**
-     * @return mixed
+     * @return Ext
      */
     public function getExt()
     {
@@ -140,14 +140,12 @@ class Publisher implements Arrayable
     }
 
     /**
-     * @param $ext
+     * @param Ext $ext
      * @return $this
      */
-    public function setExt($ext)
+    public function setExt(Ext $ext)
     {
         $this->ext = $ext;
         return $this;
     }
-
-
 }

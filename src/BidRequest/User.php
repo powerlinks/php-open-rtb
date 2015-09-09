@@ -68,7 +68,7 @@ class User implements Arrayable
     protected $data;
 
     /**
-     * @var
+     * @var Ext
      */
     protected $ext;
 
@@ -253,7 +253,7 @@ class User implements Arrayable
     }
 
     /**
-     * @return mixed
+     * @return Ext
      */
     public function getExt()
     {
@@ -261,10 +261,10 @@ class User implements Arrayable
     }
 
     /**
-     * @param $ext
+     * @param Ext $ext
      * @return $this
      */
-    public function setExt($ext)
+    public function setExt(Ext $ext)
     {
         $this->ext = $ext;
         return $this;

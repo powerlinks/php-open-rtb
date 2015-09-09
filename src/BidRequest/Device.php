@@ -193,7 +193,7 @@ class Device implements Arrayable
     protected $macmd5;
 
     /**
-     * @var
+     * @var Ext
      */
     protected $ext;
 
@@ -766,7 +766,7 @@ class Device implements Arrayable
     }
 
     /**
-     * @return mixed
+     * @return Ext
      */
     public function getExt()
     {
@@ -774,12 +774,12 @@ class Device implements Arrayable
     }
 
     /**
-     * @param mixed $ext
+     * @param Ext $ext
+     * @return $this
      */
-    public function setExt($ext)
+    public function setExt(Ext $ext)
     {
         $this->ext = $ext;
+        return $this;
     }
-
-
 }

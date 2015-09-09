@@ -9,6 +9,7 @@
 
 namespace PowerLinks\OpenRtb\BidRequest;
 
+use PowerLinks\OpenRtb\NativeAdRequest\NativeAdRequest;
 use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
 use PowerLinks\OpenRtb\BidRequest\Specification\ApiFrameworks;
 use PowerLinks\OpenRtb\BidRequest\Specification\CreativeAttributes;
@@ -45,7 +46,7 @@ class Native implements Arrayable
     protected $battr;
 
     /**
-     * @var
+     * @var Ext
      */
     protected $ext;
 
@@ -57,9 +58,9 @@ class Native implements Arrayable
         return $this->request;
     }
 
-    public function setRequestViaNativeObject($request)
+    public function setRequestViaNativeAdRequest(NativeAdRequest $nativeAdRequest)
     {
-        // TODO: create the NativeObject
+        $this->setRequest($nativeAdRequest->getRequest());
     }
 
     /**
@@ -155,7 +156,7 @@ class Native implements Arrayable
     }
 
     /**
-     * @return mixed
+     * @return Ext
      */
     public function getExt()
     {
@@ -163,14 +164,12 @@ class Native implements Arrayable
     }
 
     /**
-     * @param $ext
+     * @param Ext $ext
      * @return $this
      */
-    public function setExt($ext)
+    public function setExt(Ext $ext)
     {
         $this->ext = $ext;
         return $this;
     }
-
-
 }

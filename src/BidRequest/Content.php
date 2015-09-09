@@ -132,7 +132,7 @@ class Content implements Arrayable
     protected $embeddable;
 
     /**
-     * @var
+     * @var Ext
      */
     protected $ext;
 
@@ -518,7 +518,7 @@ class Content implements Arrayable
     }
 
     /**
-     * @return mixed
+     * @return Ext
      */
     public function getExt()
     {
@@ -526,14 +526,12 @@ class Content implements Arrayable
     }
 
     /**
-     * @param $ext
+     * @param Ext $ext
      * @return $this
      */
-    public function setExt($ext)
+    public function setExt(Ext $ext)
     {
         $this->ext = $ext;
         return $this;
     }
-
-
 }

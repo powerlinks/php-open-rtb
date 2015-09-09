@@ -104,7 +104,7 @@ class App implements Arrayable
     protected $keywords;
 
     /**
-     * @var
+     * @var Ext
      */
     protected $ext;
 
@@ -426,7 +426,7 @@ class App implements Arrayable
     }
 
     /**
-     * @return mixed
+     * @return Ext
      */
     public function getExt()
     {
@@ -434,12 +434,10 @@ class App implements Arrayable
     }
 
     /**
-     * @param mixed $ext
+     * @param Ext $ext
      */
-    public function setExt($ext)
+    public function setExt(Ext $ext)
     {
         $this->ext = $ext;
     }
-
-
 }

@@ -25,6 +25,8 @@ class BidRequestTest extends PHPUnit_Framework_TestCase
             ->setId('aaa')
             ->addImp($imp)
         ;
+
+        print_r($bidRequest->toArray());
         $this->assertTrue(is_array($bidRequest->toArray()));
     }
 }

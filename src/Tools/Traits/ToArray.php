@@ -10,7 +10,7 @@
 namespace PowerLinks\OpenRtb\Tools\Traits;
 
 use PowerLinks\OpenRtb\Tools\Exceptions\ExceptionMissingRequiredField;
-use ReflectionClass;
+use PowerLinks\OpenRtb\Tools\ObjectAnalyzer\ObjectDescriber;
 
 trait ToArray
 {
@@ -22,32 +22,34 @@ trait ToArray
     {
         $result = [];
         $properties = $this->getProperties();
-        foreach ($properties as $propertyName => $required) {
+        foreach ($properties as $propertyName => $property) {
             if (is_object($this->$propertyName)) {
-                $this->addResult($result, $propertyName, $this->getArrayFromObject($this->$propertyName),$required);
+                $this->addResult(
+                    $result,
+                    $propertyName,
+                    $this->getArrayFromObject($this->$propertyName),
+                    $property->isRequired()
+                );
                 continue;
             }
-            $this->addResult($result, $propertyName, $this->$propertyName, $required);
+            $this->addResult(
+                $result,
+                $propertyName,
+                $this->$propertyName,
+                $property->isRequired()
+            );
         }
         return $result;
     }
 
     /**
-     * @return array
+     * @return \PowerLinks\OpenRtb\Tools\ObjectAnalyzer\ParametersBag
+     * @throws \Exception
      */
     private function getProperties()
     {
-        $result = [];
-        $self = new ReflectionClass(__CLASS__);
-        $properties = $self->getProperties();
-        foreach ($properties as $property) {
-            $required = false;
-            if (preg_match_all('/@(required)/', $property->getDocComment())) {
-                $required = true;
-            };
-            $result[$property->getName()] = $required;
-        }
-        return $result;
+        $objectDescriptor = ObjectDescriber::factory(__CLASS__);
+        return $objectDescriptor->properties;
     }
 
     /**
@@ -68,10 +70,10 @@ trait ToArray
     }
 
     /**
-     * @param $result
-     * @param $key
-     * @param $value
-     * @param $required
+     * @param array $result
+     * @param string $key
+     * @param mixed $value
+     * @param bool $required
      * @throws ExceptionMissingRequiredField
      */
     private function addResult(&$result, $key, $value, $required)

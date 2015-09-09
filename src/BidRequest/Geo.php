@@ -80,7 +80,7 @@ class Geo implements Arrayable
     protected $utcoffset;
 
     /**
-     * @var
+     * @var Ext
      */
     protected $ext;
 
@@ -285,7 +285,7 @@ class Geo implements Arrayable
     }
 
     /**
-     * @return mixed
+     * @return Ext
      */
     public function getExt()
     {
@@ -293,14 +293,12 @@ class Geo implements Arrayable
     }
 
     /**
-     * @param $ext
+     * @param Ext $ext
      * @return $this
      */
-    public function setExt($ext)
+    public function setExt(Ext $ext)
     {
         $this->ext = $ext;
         return $this;
     }
-
-
 }

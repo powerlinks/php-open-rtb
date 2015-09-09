@@ -92,7 +92,7 @@ class Imp implements Arrayable
     protected $pmp;
 
     /**
-     * @var
+     * @var Ext
      */
     protected $ext;
 
@@ -369,7 +369,7 @@ class Imp implements Arrayable
     }
 
     /**
-     * @return mixed
+     * @return Ext
      */
     public function getExt()
     {
@@ -377,10 +377,10 @@ class Imp implements Arrayable
     }
 
     /**
-     * @param $ext
+     * @param Ext $ext
      * @return $this
      */
-    public function setExt($ext)
+    public function setExt(Ext $ext)
     {
         $this->ext = $ext;
         return $this;
