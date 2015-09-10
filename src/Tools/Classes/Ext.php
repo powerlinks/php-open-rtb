@@ -19,6 +19,16 @@ abstract class Ext implements Arrayable
     protected $parameters = [];
 
     /**
+     * @param array $parameters
+     * @return $this
+     */
+    public function add(array $parameters = array())
+    {
+        $this->parameters = array_replace($this->parameters, $parameters);
+        return $this;
+    }
+
+    /**
      * @param $key
      * @param $value
      * @return $this

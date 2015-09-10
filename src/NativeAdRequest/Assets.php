@@ -1,6 +1,6 @@
 <?php
 /**
- * Asset.php
+ * Assets.php
  *
  * @copyright PowerLinks
  * @author Manuel Kanah <manuel@powerlinks.com>
@@ -14,7 +14,7 @@ use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
 use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
 use PowerLinks\OpenRtb\Tools\Traits\ToArray;
 
-class Asset implements Arrayable
+class Assets implements Arrayable
 {
     use SetterValidation;
     use ToArray;

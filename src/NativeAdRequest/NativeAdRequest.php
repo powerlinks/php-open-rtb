@@ -78,7 +78,7 @@ class NativeAdRequest implements Arrayable
      */
     public function getRequest()
     {
-        return json_encode($this->toArray());
+        return json_encode(['native' => $this->toArray()]);
     }
 
     /**
@@ -190,10 +190,10 @@ class NativeAdRequest implements Arrayable
     }
 
     /**
-     * @param Asset $assets
+     * @param Assets $assets
      * @return $this
      */
-    public function addAssets(Asset $assets)
+    public function addAssets(Assets $assets)
     {
         $this->assets->add($assets);
         return $this;

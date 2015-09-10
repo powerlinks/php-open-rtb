@@ -35,9 +35,20 @@ class ObjectDescriber
 
     public function initialize($className)
     {
+
         $this->reflectionClass = new ReflectionClass($className);
         $this->properties = $this->createPropertiesBag($this->reflectionClass);
         $this->methods = $this->createMethodsBag($this->reflectionClass);
+    }
+
+    public function getNamespace()
+    {
+        return $this->reflectionClass->getNamespaceName();
+    }
+
+    public function getClassName()
+    {
+        return $this->reflectionClass->getName();
     }
 
     /**
@@ -74,6 +85,9 @@ class ObjectDescriber
 
     public static function factory($className)
     {
+        if (is_object($className)) {
+            $className = get_class($className);
+        }
         if ( ! class_exists($className)) {
             throw new \Exception('Class does not exist');
         }

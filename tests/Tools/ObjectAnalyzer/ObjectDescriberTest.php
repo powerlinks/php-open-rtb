@@ -18,6 +18,9 @@ class ObjectDescriberTest extends PHPUnit_Framework_TestCase
     {
         $descriptor = new ObjectDescriber('PowerLinks\OpenRtb\BidRequest\BidRequest');
 
+        $this->assertEquals('PowerLinks\OpenRtb\BidRequest\BidRequest', $descriptor->getClassName());
+        $this->assertEquals('PowerLinks\OpenRtb\BidRequest', $descriptor->getNamespace());
+
         $this->assertEquals(16, $descriptor->properties->count());
         $this->assertInstanceOf('Traversable', $descriptor->properties);
 

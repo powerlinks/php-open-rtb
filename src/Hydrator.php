@@ -9,37 +9,95 @@
 
 namespace PowerLinks\OpenRtb;
 
+use PowerLinks\OpenRtb\Tools\ObjectAnalyzer\ObjectDescriber;
+
 class Hydrator
 {
     /**
      * @param array $data
      * @param $object
-     * @return object
+     * @return mixed
+     * @throws \Exception
      */
     public static function hydrate(array $data, $object)
     {
+
+        $objectDescriptor = ObjectDescriber::factory($object);
+
         $object;
         foreach ($data as $key => $value) {
-
+            if (
+                is_array($value) &&
+                $objectDescriptor->properties->has($key) &&
+                $objectDescriptor->properties->get($key)->isObject() &&
+                $objectDescriptor->properties->get($key)->get('var') == 'ArrayCollection'
+            ) {
+                self::set($object, $key, self::getDependencyObject($objectDescriptor, $key));
+                $method = 'add'.ucfirst($key);
+                if ( ! $objectDescriptor->methods->has($method)) {
+                    throw new \Exception(sprintf('Method %s does not exist', $method));
+                }
+                foreach ($value as $item) {
+                    $object->$method(self::hydrate($item, self::getDependencyObject($objectDescriptor, ucfirst($key), false)));
+                }
+            } elseif (
+                is_array($value) &&
+                $objectDescriptor->properties->has($key) &&
+                $objectDescriptor->properties->get($key)->isObject()
+            ) {
+                self::set($object, $key, self::hydrate($value, self::getDependencyObject($objectDescriptor, $key)));
+            } elseif ($objectDescriptor->properties->has($key)) {
+                self::set($object, $key, $value);
+            }
         }
         return $object;
     }
 
     /**
-     * @return array
+     * @param ObjectDescriber $objectDescriptor
+     * @param string $key
+     * @param bool $getClassNameFromAnnotation
+     * @return mixed
+     * @throws \Exception
      */
-    private function getProperties()
+    protected static function getDependencyObject($objectDescriptor, $key, $getClassNameFromAnnotation = true)
     {
-        $result = [];
-        $self = new ReflectionClass(__CLASS__);
-        $properties = $self->getProperties();
-        foreach ($properties as $property) {
-            $required = false;
-            if (preg_match_all('/@(required)/', $property->getDocComment())) {
-                $required = true;
-            };
-            $result[$property->getName()] = $required;
+        $newClassName = self::getDependencyClassName($objectDescriptor, $key, $getClassNameFromAnnotation);
+        if ( ! class_exists($newClassName)) {
+            throw new \Exception(sprintf('Class %s does not exist', $newClassName));
         }
-        return $result;
+        return new $newClassName;
+    }
+
+    /**
+     * @param ObjectDescriber $objectDescriptor
+     * @param string $key
+     * @param bool $getClassNameFromAnnotation
+     * @return string
+     */
+    protected static function getDependencyClassName($objectDescriptor, $key, $getClassNameFromAnnotation = true)
+    {
+        if ($getClassNameFromAnnotation) {
+            $key = $objectDescriptor->properties->get($key)->get('var');
+        }
+        if ($key == 'ArrayCollection') {
+            return 'PowerLinks\OpenRtb\Collection\ArrayCollection';
+        }
+        return $objectDescriptor->getNamespace().'\\'.$key;
+    }
+
+    /**
+     * @param object $object
+     * @param string $key
+     * @param mixed $value
+     * @throws \Exception
+     */
+    protected static function set($object, $key, $value)
+    {
+        $method = 'set'.ucfirst($key);
+        if ( ! method_exists($object, $method)) {
+            throw new \Exception(sprintf('Method %s does not exist', $method));
+        }
+        $object->$method($value);
     }
 }
