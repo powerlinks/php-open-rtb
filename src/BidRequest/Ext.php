@@ -13,5 +13,4 @@ use PowerLinks\OpenRtb\Tools\Classes\Ext as AbstractExt;
 
 class Ext extends AbstractExt
 {
-
 }

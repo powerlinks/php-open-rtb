@@ -4,10 +4,10 @@
  *
  * @copyright PowerLinks
  * @author Manuel Kanah <manuel@powerlinks.com>
- * Date: 09/09/15 - 15:35
+ * Date: 10/09/15 - 17:07
  */
 
-namespace PowerLinks\OpenRtb\NativeAdRequest;
+namespace PowerLinks\OpenRtb\BidResponse;
 
 use PowerLinks\OpenRtb\Tools\Classes\Ext as AbstractExt;
 
