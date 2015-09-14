@@ -18,6 +18,30 @@ class Video implements Arrayable
     use SetterValidation;
     use ToArray;
 
-    protected $vasttag required string - VAST xml.
+    /**
+     * VAST xml
+     * @required
+     * @var string
+     */
+    protected $vasttag;
 
+    /**
+     * @return string
+     */
+    public function getVasttag()
+    {
+        return $this->vasttag;
+    }
+
+    /**
+     * @param string $vasttag
+     * @return $this
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     */
+    public function setVasttag($vasttag)
+    {
+        $this->validateString($vasttag, __LINE__);
+        $this->vasttag = $vasttag;
+        return $this;
+    }
 }

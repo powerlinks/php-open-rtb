@@ -18,12 +18,79 @@ class Data implements Arrayable
     use SetterValidation;
     use ToArray;
 
-    protected $label optional string - The optional formatted string
-name of the data type to be
-displayed.
-    protected $value required string - The formatted string of data to
-be displayed. Can contain a
-formatted value such as “5 stars”
-or “$10” or “3.4 stars out of 5”.
-    protected $ext
+    /**
+     * The optional formatted string name of the data type to be displayed
+     * @var string
+     */
+    protected $label;
+
+    /**
+     * The formatted string of data to be displayed
+     * @required
+     * @var string
+     */
+    protected $value;
+
+    /**
+     * @var Ext
+     */
+    protected $ext;
+
+    /**
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * @param string $label
+     * @return $this
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     */
+    public function setLabel($label)
+    {
+        $this->validateString($label, __LINE__);
+        $this->label = $label;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param string $value
+     * @return $this
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     */
+    public function setValue($value)
+    {
+        $this->validateString($value, __LINE__);
+        $this->value = $value;
+        return $this;
+    }
+
+    /**
+     * @return Ext
+     */
+    public function getExt()
+    {
+        return $this->ext;
+    }
+
+    /**
+     * @param Ext $ext
+     * @return $this
+     */
+    public function setExt(Ext $ext)
+    {
+        $this->ext = $ext;
+        return $this;
+    }
 }

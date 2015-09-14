@@ -18,7 +18,53 @@ class Title implements Arrayable
     use SetterValidation;
     use ToArray;
 
-    protected $text required String - The text associated with the text
-element.
-    protected $ext
+    /**
+     * The text associated with the text element
+     * @required
+     * @var string
+     */
+    protected $text;
+
+    /**
+     * @var Ext
+     */
+    protected $ext;
+
+    /**
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * @param string $text
+     * @return $this
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     */
+    public function setText($text)
+    {
+        $this->validateString($text, __LINE__);
+        $this->text = $text;
+        return $this;
+    }
+
+    /**
+     * @return Ext
+     */
+    public function getExt()
+    {
+        return $this->ext;
+    }
+
+    /**
+     * @param $ext
+     * @return $this
+     */
+    public function setExt(Ext $ext)
+    {
+        $this->ext = $ext;
+        return $this;
+    }
 }

@@ -18,31 +18,200 @@ class Assets implements Arrayable
     use SetterValidation;
     use ToArray;
 
-    protected $id required int - Unique asset ID, assigned by
-exchange, must match one of
-the asset IDs in request
-    protected $required optional int 0 Set to 1 if asset is required.
-(bidder requires it to be
-displayed).
-    protected $title optional1 object - Title object for title assets. See
-Title Object definition.
-    protected $img optional1 object - Image object for image assets.
-See Image Object definition.
-    protected $video optional1 object - Video object for video assets.
-See Video Object definition.
-Note that in-stream video ads
-are not part of Native. Native
-ads may contain a video as the
-ad creative itself.
-    protected $data optional1 object - Data object for ratings, prices
-etc.
+    /**
+     * Unique asset ID, assigned by exchange, must match one of the asset IDs in request
+     * @required
+     * @var int
+     */
+    protected $id ;
 
-    protected $link optional object - Link object for call to actions.
-The link object applies if the
-asset item is activated (clicked).
-If there is no link object on the
-asset, the parent link object on
-the bid response applies.
-    protected $ext
+    /**
+     * Set to 1 if asset is required
+     * @default 0
+     * @var int
+     */
+    protected $required;
 
+    /**
+     * Title object for title assets
+     * @var Title
+     */
+    protected $title;
+
+    /**
+     * Image object for image assets
+     * @var Image
+     */
+    protected $img;
+
+    /**
+     * Video object for video assets
+     * @var Video
+     */
+    protected $video;
+
+    /**
+     * Data object for ratings, prices etc
+     * @var Data
+     */
+    protected $data;
+
+    /**
+     * Link object for call to actions
+     * @var Link
+     */
+    protected $link;
+
+    /**
+     * @var Ext
+     */
+    protected $ext;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     * @return $this
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     */
+    public function setId($id)
+    {
+        $this->validateInt($id, __LINE__);
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRequired()
+    {
+        return $this->required;
+    }
+
+    /**
+     * @param int $required
+     * @return $this
+     * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     */
+    public function setRequired($required)
+    {
+        $this->validateInt($required, __LINE__);
+        $this->required = $required;
+        return $this;
+    }
+
+    /**
+     * @return Title
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param Title $title
+     * @return $this
+     */
+    public function setTitle(Title $title)
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    /**
+     * @return Image
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * @param Image $img
+     * @return $this
+     */
+    public function setImg(Image $img)
+    {
+        $this->img = $img;
+        return $this;
+    }
+
+    /**
+     * @return Video
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
+
+    /**
+     * @param Video $video
+     * @return $this
+     */
+    public function setVideo(Video $video)
+    {
+        $this->video = $video;
+        return $this;
+    }
+
+    /**
+     * @return Data
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * @param Data $data
+     * @return $this
+     */
+    public function setData(Data $data)
+    {
+        $this->data = $data;
+        return $this;
+    }
+
+    /**
+     * @return Link
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    /**
+     * @param Link $link
+     * @return $this
+     */
+    public function setLink(Link $link)
+    {
+        $this->link = $link;
+        return $this;
+    }
+
+    /**
+     * @return Ext
+     */
+    public function getExt()
+    {
+        return $this->ext;
+    }
+
+    /**
+     * @param Ext $ext
+     * @return $this
+     */
+    public function setExt(Ext $ext)
+    {
+        $this->ext = $ext;
+        return $this;
+    }
 }

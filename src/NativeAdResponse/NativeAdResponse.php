@@ -41,6 +41,4 @@ class NativeAdResponse implements Arrayable
         $this->native = $native;
         return $this;
     }
-
-
 }
