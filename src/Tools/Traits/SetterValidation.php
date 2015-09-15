@@ -14,8 +14,9 @@ use PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue;
 trait SetterValidation
 {
     /**
-     * @param $string
+     * @param string $string
      * @param string $line
+     * @return bool
      * @throws ExceptionInvalidValue
      */
     protected function validateString($string, $line = '')
@@ -25,11 +26,13 @@ trait SetterValidation
                 sprintf('Argument\'s value is not a string - %s : %s', __CLASS__, $line)
             );
         }
+        return true;
     }
 
     /**
-     * @param $int
+     * @param int $int
      * @param string $line
+     * @return bool
      * @throws ExceptionInvalidValue
      */
     protected function validateInt($int, $line = '')
@@ -39,11 +42,13 @@ trait SetterValidation
                 sprintf('Argument\'s value is not an integer - %s : %s', __CLASS__, $line)
             );
         }
+        return true;
     }
 
     /**
-     * @param $int
+     * @param int $int
      * @param string $line
+     * @return bool
      * @throws ExceptionInvalidValue
      */
     protected function validatePositiveInt($int, $line = '')
@@ -53,11 +58,13 @@ trait SetterValidation
                 sprintf('Argument\'s value is not a valid integer - %s : %s', __CLASS__, $line)
             );
         }
+        return true;
     }
 
     /**
-     * @param $float
+     * @param float $float
      * @param string $line
+     * @return bool
      * @throws ExceptionInvalidValue
      */
     protected function validateFloat($float, $line = '')
@@ -67,11 +74,13 @@ trait SetterValidation
                 sprintf('Argument\'s value is not a float - %s : %s', __CLASS__, $line)
             );
         }
+        return true;
     }
 
     /**
-     * @param $float
+     * @param float $float
      * @param string $line
+     * @return bool
      * @throws ExceptionInvalidValue
      */
     protected function validatePositiveFloat($float, $line = '')
@@ -81,12 +90,14 @@ trait SetterValidation
                 sprintf('Argument\'s value is not a float - %s : %s', __CLASS__, $line)
             );
         }
+        return true;
     }
 
     /**
-     * @param $value
+     * @param mixed $value
      * @param array $values
      * @param string $line
+     * @return bool
      * @throws ExceptionInvalidValue
      */
     protected function validateIn($value, array $values, $line = '')
@@ -96,33 +107,38 @@ trait SetterValidation
                 sprintf('Argument\'s value is not allowed - %s : %s', __CLASS__, $line)
             );
         }
+        return true;
     }
 
     /**
-     * @param $md5
+     * @param string $md5
      * @param string $line
+     * @return bool
      * @throws ExceptionInvalidValue
      */
     protected function validateMd5($md5, $line = '')
     {
-        if ( ! (bool) preg_match('/^[0-9a-f]{32}$/i', $md5)) {
+        if ( ! is_string($md5) || ! (bool) preg_match('/^[0-9a-f]{32}$/i', $md5)) {
             throw new ExceptionInvalidValue(
                 sprintf('Argument\'s value is not an MD5 - %s : %s', __CLASS__, $line)
             );
         }
+        return true;
     }
 
     /**
-     * @param $sha1
+     * @param string $sha1
      * @param string $line
+     * @return bool
      * @throws ExceptionInvalidValue
      */
     protected function validateSha1($sha1, $line = '')
     {
-        if ( ! (bool) preg_match('/^[0-9a-f]{40}$/i', $sha1)) {
+        if ( ! is_string($sha1) || ! (bool) preg_match('/^[0-9a-f]{40}$/i', $sha1)) {
             throw new ExceptionInvalidValue(
                 sprintf('Argument\'s value is not a SHA1 - %s : %s', __CLASS__, $line)
             );
         }
+        return true;
     }
 }
