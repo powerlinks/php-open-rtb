@@ -30,7 +30,7 @@ class MapFactoryTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('native', $map->get('BidRequest.Imp[].Native.Request')->getValue());
 
         foreach ($map as $item) {
-            $this->assertInstanceOf('PowerLinks\NonStandardExchange\Mapper\MapItem', $item);
+            $this->assertInstanceOf('PowerLinks\OpenRtb\Mapper\MapItem', $item);
         }
     }
 
