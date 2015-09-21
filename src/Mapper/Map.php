@@ -7,7 +7,7 @@
  * Date: 18/09/15 - 16:36
  */
 
-namespace PowerLinks\NonStandardExchange\Mapper;
+namespace PowerLinks\OpenRtb\Mapper;
 
 use Countable;
 use IteratorAggregate;

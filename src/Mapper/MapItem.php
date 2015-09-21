@@ -7,7 +7,7 @@
  * Date: 21/09/15 - 14:33
  */
 
-namespace PowerLinks\NonStandardExchange\Mapper;
+namespace PowerLinks\OpenRtb\Mapper;
 
 
 class MapItem

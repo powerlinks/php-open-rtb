@@ -6,7 +6,7 @@
  * @author Ollie Finn <ollie@powerlinks.com>
  * Date: 17/09/2015 - 11:44
  */
-namespace PowerLinks\NonStandardExchange\Mapper;
+namespace PowerLinks\OpenRtb\Mapper;
 
 class Mapper
 {
