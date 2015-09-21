@@ -31,7 +31,7 @@ class HydratorTest extends PHPUnit_Framework_TestCase
 
         $this->assertSame($object, $result);
         $this->assertEquals('aaa', $object->getId());
-        $this->assertInstanceOf('PowerLinks\OpenRtb\Collection\ArrayCollection', $object->getImp());
+        $this->assertInstanceOf('PowerLinks\OpenRtb\Tools\Classes\ArrayCollection', $object->getImp());
         $this->assertInstanceOf('PowerLinks\OpenRtb\BidRequest\Imp', $object->getImp()->current());
         $this->assertEquals('bbb', $object->getImp()->current()->getId());
     }

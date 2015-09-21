@@ -81,7 +81,7 @@ class Hydrator
             $key = $objectDescriptor->properties->get($key)->get('var');
         }
         if ($key == 'ArrayCollection') {
-            return 'PowerLinks\OpenRtb\Collection\ArrayCollection';
+            return 'PowerLinks\OpenRtb\Tools\Classes\ArrayCollection';
         }
         return $objectDescriptor->getNamespace().'\\'.$key;
     }

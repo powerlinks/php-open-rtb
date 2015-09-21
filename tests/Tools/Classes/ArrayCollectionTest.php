@@ -7,10 +7,10 @@
  * Date: 01/09/15 - 15:01
  */
 
-namespace PowerLinks\OpenRtb\Tests\Collection;
+namespace PowerLinks\OpenRtb\Tests\Tools\Classes\Collection;
 
 use PHPUnit_Framework_TestCase;
-use PowerLinks\OpenRtb\Collection\ArrayCollection;
+use PowerLinks\OpenRtb\Tools\Classes\ArrayCollection;
 
 class ArrayCollectionTest extends PHPUnit_Framework_TestCase
 {

@@ -59,7 +59,7 @@ trait ToArray
     private function getArrayFromObject($object)
     {
         $result = [];
-        if ($object instanceof \PowerLinks\OpenRtb\Collection\ArrayCollection && ! $object->isEmpty()) {
+        if ($object instanceof \PowerLinks\OpenRtb\Tools\Classes\ArrayCollection && ! $object->isEmpty()) {
             foreach ($object as $item) {
                 $result[] = $item->toArray();
             }
