@@ -7,7 +7,7 @@
  * Date: 01/09/15 - 11:59
  */
 
-namespace PowerLinks\OpenRtb\Collection;
+namespace PowerLinks\OpenRtb\Tools\Classes;
 
 use ArrayAccess;
 use Countable;

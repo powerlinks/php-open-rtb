@@ -9,7 +9,7 @@
 
 namespace PowerLinks\OpenRtb\NativeAdResponse;
 
-use PowerLinks\OpenRtb\Collection\ArrayCollection;
+use PowerLinks\OpenRtb\Tools\Classes\ArrayCollection;
 use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
 use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
 use PowerLinks\OpenRtb\Tools\Traits\ToArray;

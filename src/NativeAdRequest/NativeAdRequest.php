@@ -9,7 +9,7 @@
 
 namespace PowerLinks\OpenRtb\NativeAdRequest;
 
-use PowerLinks\OpenRtb\Collection\ArrayCollection;
+use PowerLinks\OpenRtb\Tools\Classes\ArrayCollection;
 use PowerLinks\OpenRtb\NativeAdRequest\Specification\NativeLayout;
 use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
 use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;

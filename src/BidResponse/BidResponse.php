@@ -13,7 +13,7 @@ use PowerLinks\OpenRtb\BidResponse\Specification\NoBidReason;
 use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
 use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
 use PowerLinks\OpenRtb\Tools\Traits\ToArray;
-use PowerLinks\OpenRtb\Collection\ArrayCollection;
+use PowerLinks\OpenRtb\Tools\Classes\ArrayCollection;
 
 class BidResponse implements Arrayable
 {

@@ -13,7 +13,7 @@ use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
 use PowerLinks\OpenRtb\BidRequest\Specification\BitType;
 use PowerLinks\OpenRtb\Tools\Traits\SetterValidation;
 use PowerLinks\OpenRtb\Tools\Traits\ToArray;
-use PowerLinks\OpenRtb\Collection\ArrayCollection;
+use PowerLinks\OpenRtb\Tools\Classes\ArrayCollection;
 
 class Pmp implements Arrayable
 {
