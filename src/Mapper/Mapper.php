@@ -51,6 +51,11 @@ class Mapper
         return $result;
     }
 
+    /**
+     * @param string $path
+     * @param mixed $value
+     * @return array
+     */
     protected function processPath($path, $value)
     {
         $result = [];
@@ -66,6 +71,11 @@ class Mapper
         return $result;
     }
 
+    /**
+     * @param string $node
+     * @param mixed $value
+     * @return array
+     */
     protected function createNode($node, $value)
     {
         $matches = $this->parseNode($node);
@@ -83,6 +93,10 @@ class Mapper
         return $result;
     }
 
+    /**
+     * @param string $node
+     * @return array
+     */
     public function parseNode($node)
     {
         $regex = "/(?<key>[\\w]+)(?<array>\\[(?<arrayKey>.*)\\])?/i";
