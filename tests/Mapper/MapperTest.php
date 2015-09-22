@@ -27,20 +27,37 @@ class MapperTest extends PHPUnit_Framework_TestCase
         $map = MapFactory::create($demoMap);
 
         $mapper = new Mapper();
-
-
         $arrayMapped = $mapper->mapFromValues($map, new BidRequest());
 
-
-        var_dump(json_encode($arrayMapped));
-
         $myObject = new BidRequest();
-
         Hydrator::hydrate($arrayMapped, $myObject);
 
-        var_dump($myObject->getImp()->count());
-        var_dump($myObject->getImp()->current()->getId());
-        var_dump($myObject->getImp()->current()->getNative()->getRequest());
+        $this->assertEquals(1, $myObject->getImp()->count());
+        $this->assertEquals('id', $myObject->getImp()->current()->getId());
+        $this->assertEquals('native', $myObject->getImp()->current()->getNative()->getRequest());
+    }
 
+    public function testMapFromArray()
+    {
+        $demoMap = [
+            'BidRequest.Imp[].Native.Request:@required' => 'request',
+            'BidRequest.Imp[].Id' => 'id'
+        ];
+        $map = MapFactory::create($demoMap);
+
+        $source = [
+            'request' => 'native',
+            'id' => '123'
+        ];
+
+        $mapper = new Mapper();
+        $arrayMapped = $mapper->mapFromArray($map, $source);
+
+        $myObject = new BidRequest();
+        Hydrator::hydrate($arrayMapped, $myObject);
+
+        $this->assertEquals(1, $myObject->getImp()->count());
+        $this->assertEquals('123', $myObject->getImp()->current()->getId());
+        $this->assertEquals('native', $myObject->getImp()->current()->getNative()->getRequest());
     }
 }

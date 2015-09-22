@@ -26,13 +26,19 @@ class Mapper
 
     /**
      * @param Map $map
-     * @param object $object
      * @param array $source
-     * @return object
+     * @return array
      */
-    public function mapFromArray(Map $map, $object, array $source)
+    public function mapFromArray(Map $map, array $source)
     {
-        return $object;
+        $result = [];
+        foreach ($map as $item) {
+            $result = array_merge_recursive(
+                $result,
+                $this->processPath($item->getObjectPath(), $source[$item->getValue()])
+            );
+        }
+        return $result;
     }
 
     /**
