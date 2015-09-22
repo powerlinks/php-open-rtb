@@ -21,10 +21,9 @@ class Hydrator
      */
     public static function hydrate(array $data, $object)
     {
-
         $objectDescriptor = ObjectDescriber::factory($object);
+        $data = self::checkFirstArrayKey($data, $objectDescriptor);
 
-        $object;
         foreach ($data as $key => $value) {
             if (
                 is_array($value) &&
@@ -51,6 +50,19 @@ class Hydrator
             }
         }
         return $object;
+    }
+
+    /**
+     * @param array $data
+     * @param ObjectDescriber $objectDescriptor
+     * @return array
+     */
+    protected static function checkFirstArrayKey(array $data, $objectDescriptor)
+    {
+        if (strtolower(current(array_keys($data))) == strtolower($objectDescriptor->getClassNameWithoutNamespace())) {
+            return current($data);
+        }
+        return $data;
     }
 
     /**

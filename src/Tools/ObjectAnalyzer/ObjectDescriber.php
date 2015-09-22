@@ -28,11 +28,17 @@ class ObjectDescriber
      */
     public $methods;
 
+    /**
+     * @param object $className
+     */
     public function __construct($className)
     {
         $this->initialize($className);
     }
 
+    /**
+     * @param object $className
+     */
     public function initialize($className)
     {
 
@@ -41,14 +47,28 @@ class ObjectDescriber
         $this->methods = $this->createMethodsBag($this->reflectionClass);
     }
 
+    /**
+     * @return string
+     */
     public function getNamespace()
     {
         return $this->reflectionClass->getNamespaceName();
     }
 
+    /**
+     * @return string
+     */
     public function getClassName()
     {
         return $this->reflectionClass->getName();
+    }
+
+    /**
+     * @return string
+     */
+    public function getClassNameWithoutNamespace()
+    {
+        return current(array_reverse(explode('\\', $this->reflectionClass->getName())));
     }
 
     /**
