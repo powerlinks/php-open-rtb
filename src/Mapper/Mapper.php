@@ -8,8 +8,6 @@
  */
 namespace PowerLinks\OpenRtb\Mapper;
 
-use PowerLinks\OpenRtb\Tools\ObjectAnalyzer\ObjectDescriber;
-
 class Mapper
 {
     /**
@@ -17,10 +15,15 @@ class Mapper
      * @param object $object
      * @return array
      */
-    public function mapTo(Map $map, $object)
+    public function mapFromObject(Map $map, $object)
     {
         $result = [];
-
+        foreach ($map as $item) {
+            $result = array_merge_recursive(
+                $result,
+                $this->processPath($item->getObjectPath(), $this->getValueFromObject($object, $item->getValue()))
+            );
+        }
         return $result;
     }
 
@@ -53,6 +56,22 @@ class Mapper
                 $result,
                 $this->processPath($item->getObjectPath(), $item->getValue())
             );
+        }
+        return $result;
+    }
+
+    protected function getValueFromObject($object, $path)
+    {
+        $result = $object;
+        $path = explode('.', $path);
+        foreach ($path as $node) {
+            $matches = $this->parseNode($node);
+            $get = 'get'.$matches['key'];
+            if (isset($matches['array'])) {
+                $result = $result->{$get}()->current();
+            } else {
+                $result = $result->{$get}();
+            }
         }
         return $result;
     }

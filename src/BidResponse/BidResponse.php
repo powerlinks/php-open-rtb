@@ -76,6 +76,14 @@ class BidResponse implements Arrayable
     /**
      * @return string
      */
+    public function getBidResponse()
+    {
+        return json_encode($this->toArray());
+    }
+
+    /**
+     * @return string
+     */
     public function getId()
     {
         return $this->id;

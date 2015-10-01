@@ -136,9 +136,18 @@ class BidRequest implements Arrayable
     /**
      * @return string
      */
-    public function getRequest()
+    public function getBidRequest()
     {
         return json_encode($this->toArray());
+    }
+
+    /**
+     * @deprecated
+     * @return string
+     */
+    public function getRequest()
+    {
+        return $this->getBidRequest();
     }
 
     /**
