@@ -9,6 +9,7 @@
 
 namespace PowerLinks\OpenRtb\NativeAdRequest;
 
+use PowerLinks\OpenRtb\NativeAdRequest\Specification\NativeAdUnit;
 use PowerLinks\OpenRtb\Tools\Classes\ArrayCollection;
 use PowerLinks\OpenRtb\NativeAdRequest\Specification\NativeLayout;
 use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
@@ -136,7 +137,7 @@ class NativeAdRequest implements Arrayable
      */
     public function setAdunit($adunit)
     {
-        $this->validateInt($adunit, __LINE__);
+        $this->validateIn($adunit, NativeAdUnit::getAll(), __LINE__);
         $this->adunit = $adunit;
         return $this;
     }
