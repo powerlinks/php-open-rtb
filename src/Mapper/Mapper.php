@@ -107,7 +107,7 @@ class Mapper
         $result = [];
         if (isset($matches['array'])) {
             if (isset($matches['arrayKey'])) {
-                $result[strtolower($matches['key'])] = [strtolower($matches['arrayKey']) => $value];
+                $result[strtolower($matches['key'])] = [$this->getValidArrayKey($matches['arrayKey']) => $value];
             } else {
                 $result[strtolower($matches['key'])] = [$value];
             }
@@ -116,6 +116,18 @@ class Mapper
         }
 
         return $result;
+    }
+
+    /**
+     * @param mixed $arrayKey
+     * @return string
+     */
+    protected function getValidArrayKey($arrayKey)
+    {
+        if (is_numeric($arrayKey)) {
+            $arrayKey = 'id'.$arrayKey;
+        }
+        return strtolower($arrayKey);
     }
 
     /**
