@@ -300,7 +300,7 @@ class Device implements Arrayable
      */
     public function setIp($ip)
     {
-        $this->validateString($ip, __LINE__);
+        $this->validateIp($ip, __LINE__);
         $this->ip = $ip;
         return $this;
     }

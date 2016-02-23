@@ -141,4 +141,20 @@ trait SetterValidation
         }
         return true;
     }
+
+    /**
+     * @param string $ip
+     * @param string $line
+     * @return bool
+     * @throws ExceptionInvalidValue
+     */
+    protected function validateIp($ip, $line = '')
+    {
+        if ( ! is_string($ip) || ! (bool) preg_match('/^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$/', $ip)) {
+            throw new ExceptionInvalidValue(
+                sprintf('Argument\'s value is not a valid IP - %s : %s', __CLASS__, $line)
+            );
+        }
+        return true;
+    }
 }
