@@ -62,13 +62,18 @@ trait SetterValidation
     }
 
     /**
-     * @param float $float
+     * @param float|int $float
      * @param string $line
+     * @param bool $strict
      * @return bool
      * @throws ExceptionInvalidValue
      */
-    protected function validateFloat($float, $line = '')
+    protected function validateFloat(&$float, $line = '', $strict = false)
     {
+        if (!$strict && is_int($float)) {
+            $float = (float)$float;
+            return true;
+        }
         if ( ! is_float($float)) {
             throw new ExceptionInvalidValue(
                 sprintf('Argument\'s value is not a float - %s : %s', __CLASS__, $line)
