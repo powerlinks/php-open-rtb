@@ -99,7 +99,7 @@ class Geo implements Arrayable
      */
     public function setLat($lat)
     {
-        $this->validateFloat($lat, __LINE__);
+        $this->validateNumericToFloat($lat, __LINE__);
         $this->lat = $lat;
         return $this;
     }
@@ -119,7 +119,7 @@ class Geo implements Arrayable
      */
     public function setLon($lon)
     {
-        $this->validateFloat($lon, __LINE__);
+        $this->validateNumericToFloat($lon, __LINE__);
         $this->lon = $lon;
         return $this;
     }

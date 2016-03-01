@@ -520,7 +520,7 @@ class Device implements Arrayable
      */
     public function setPxratio($pxratio)
     {
-        $this->validateFloat($pxratio, __LINE__);
+        $this->validateNumericToFloat($pxratio, __LINE__);
         $this->pxratio = $pxratio;
         return $this;
     }

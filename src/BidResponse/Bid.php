@@ -180,7 +180,7 @@ class Bid implements Arrayable
      */
     public function setPrice($price)
     {
-        $this->validateFloat($price, __LINE__);
+        $this->validateNumericToFloat($price, __LINE__);
         $this->price = $price;
         return $this;
     }

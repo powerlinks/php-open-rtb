@@ -64,16 +64,31 @@ trait SetterValidation
     /**
      * @param float|int $float
      * @param string $line
-     * @param bool $strict
      * @return bool
      * @throws ExceptionInvalidValue
      */
-    protected function validateFloat(&$float, $line = '', $strict = false)
+    protected function validateNumericToFloat($float, $line = '')
     {
-        if (!$strict && is_int($float)) {
-            $float = (float)$float;
-            return true;
+        if (is_numeric($float)) {
+            $float = (float) $float;
         }
+
+        if ( ! is_float($float)) {
+            throw new ExceptionInvalidValue(
+                sprintf('Argument\'s value is not a float - %s : %s', __CLASS__, $line)
+            );
+        }
+        return $float;
+    }
+
+    /**
+     * @param float $float
+     * @param string $line
+     * @return bool
+     * @throws ExceptionInvalidValue
+     */
+    protected function validateFloat($float, $line = '')
+    {
         if ( ! is_float($float)) {
             throw new ExceptionInvalidValue(
                 sprintf('Argument\'s value is not a float - %s : %s', __CLASS__, $line)
@@ -92,7 +107,7 @@ trait SetterValidation
     {
         if ( ! is_float($float) || $float < 0) {
             throw new ExceptionInvalidValue(
-                sprintf('Argument\'s value is not a float - %s : %s', __CLASS__, $line)
+                sprintf('Argument\'s value is not a positive float - %s : %s', __CLASS__, $line)
             );
         }
         return true;
