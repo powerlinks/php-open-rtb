@@ -16,6 +16,7 @@ class CustomNativeAdUnit
     use GetConstants;
 
     //500+ Reserved for Exchange specific formats.
+    const UNSPECIFIED = 500;
     const IN_FEED = 501;
     const END_OF_POST = 502;
     const IN_ARTICLE = 503;
