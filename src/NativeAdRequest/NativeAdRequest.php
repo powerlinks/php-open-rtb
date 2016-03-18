@@ -9,6 +9,7 @@
 
 namespace PowerLinks\OpenRtb\NativeAdRequest;
 
+use PowerLinks\OpenRtb\NativeAdRequest\Specification\Custom\CustomNativeLayout;
 use PowerLinks\OpenRtb\NativeAdRequest\Specification\NativeAdUnit;
 use PowerLinks\OpenRtb\NativeAdRequest\Specification\Custom\CustomNativeAdUnit;
 use PowerLinks\OpenRtb\Tools\Classes\ArrayCollection;
@@ -98,7 +99,7 @@ class NativeAdRequest implements Arrayable
      */
     public function setVer($ver)
     {
-        $this->validateString($ver, __LINE__);
+        $this->validateNumericString($ver, __LINE__);
         $this->ver = $ver;
         return $this;
     }
@@ -118,7 +119,7 @@ class NativeAdRequest implements Arrayable
      */
     public function setLayout($layout)
     {
-        $this->validateIn($layout, NativeLayout::getAll(), __LINE__);
+        $this->validateIn($layout, NativeLayout::getAll() + CustomNativeLayout::getAll(), __LINE__);
         $this->layout = $layout;
         return $this;
     }

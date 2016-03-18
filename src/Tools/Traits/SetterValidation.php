@@ -19,6 +19,26 @@ trait SetterValidation
      * @return bool
      * @throws ExceptionInvalidValue
      */
+    protected function validateNumericString($string, $line = '')
+    {
+        if (is_numeric($string)) {
+            $string = (string)$string;
+        }
+
+        if ( ! is_string($string)) {
+            throw new ExceptionInvalidValue(
+                sprintf('Argument\'s value (%s of type %s) is not a string - %s : %s', $string, gettype($string), __CLASS__, $line)
+            );
+        }
+        return true;
+    }
+
+    /**
+     * @param string $string
+     * @param string $line
+     * @return bool
+     * @throws ExceptionInvalidValue
+     */
     protected function validateString($string, $line = '')
     {
         if ( ! is_string($string)) {
@@ -37,6 +57,10 @@ trait SetterValidation
      */
     protected function validateInt($int, $line = '')
     {
+        if (is_numeric($int)) {
+            $int = (int)$int;
+        }
+
         if ( ! is_int($int)) {
             throw new ExceptionInvalidValue(
                 sprintf('Argument\'s value (%s of type %s) is not an integer - %s : %s', $int, gettype($int), __CLASS__, $line)
@@ -53,6 +77,10 @@ trait SetterValidation
      */
     protected function validatePositiveInt($int, $line = '')
     {
+        if (is_numeric($int)) {
+            $int = (int)$int;
+        }
+
         if ( ! is_int($int) || $int < 0) {
             throw new ExceptionInvalidValue(
                 sprintf('Argument\'s value (%s of type %s) is not a valid integer - %s : %s', $int, gettype($int), __CLASS__, $line)
@@ -105,6 +133,10 @@ trait SetterValidation
      */
     protected function validatePositiveFloat($float, $line = '')
     {
+        if (is_numeric($float)) {
+            $float = (float) $float;
+        }
+
         if ( ! is_float($float) || $float < 0) {
             throw new ExceptionInvalidValue(
                 sprintf('Argument\'s value (%s of type %s) is not a positive float - %s : %s', $float, gettype($float), __CLASS__, $line)
