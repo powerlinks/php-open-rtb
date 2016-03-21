@@ -231,8 +231,7 @@ class Video implements Arrayable
      */
     public function setMinduration($minduration)
     {
-        $this->validateInt($minduration, __LINE__);
-        $this->minduration = $minduration;
+        $this->minduration = $this->validateInt($minduration, __LINE__);
         return $this;
     }
 
@@ -251,8 +250,7 @@ class Video implements Arrayable
      */
     public function setMaxduration($maxduration)
     {
-        $this->validateInt($maxduration, __LINE__);
-        $this->maxduration = $maxduration;
+        $this->maxduration = $this->validateInt($maxduration, __LINE__);
         return $this;
     }
 
@@ -272,8 +270,7 @@ class Video implements Arrayable
      */
     public function setProtocol($protocol)
     {
-        $this->validateInt($protocol, __LINE__);
-        $this->protocol = $protocol;
+        $this->protocol = $this->validateInt($protocol, __LINE__);
         return $this;
     }
 
@@ -322,8 +319,7 @@ class Video implements Arrayable
      */
     public function setW($w)
     {
-        $this->validateInt($w, __LINE__);
-        $this->w = $w;
+        $this->w = $this->validateInt($w, __LINE__);
         return $this;
     }
 
@@ -342,8 +338,7 @@ class Video implements Arrayable
      */
     public function setH($h)
     {
-        $this->validateInt($h, __LINE__);
-        $this->h = $h;
+        $this->h = $this->validateInt($h, __LINE__);
         return $this;
     }
 
@@ -362,8 +357,7 @@ class Video implements Arrayable
      */
     public function setStartdelay($startdelay)
     {
-        $this->validateInt($startdelay, __LINE__);
-        $this->startdelay = $startdelay;
+        $this->startdelay = $this->validateInt($startdelay, __LINE__);
         return $this;
     }
 
@@ -402,8 +396,7 @@ class Video implements Arrayable
      */
     public function setSequence($sequence)
     {
-        $this->validateInt($sequence, __LINE__);
-        $this->sequence = $sequence;
+        $this->sequence = $this->validateInt($sequence, __LINE__);
         return $this;
     }
 
@@ -452,8 +445,7 @@ class Video implements Arrayable
      */
     public function setMaxextended($maxextended)
     {
-        $this->validateInt($maxextended, __LINE__);
-        $this->maxextended = $maxextended;
+        $this->maxextended = $this->validateInt($maxextended, __LINE__);
         return $this;
     }
 
@@ -472,8 +464,7 @@ class Video implements Arrayable
      */
     public function setMinbitrate($minbitrate)
     {
-        $this->validateInt($minbitrate, __LINE__);
-        $this->minbitrate = $minbitrate;
+        $this->minbitrate = $this->validateInt($minbitrate, __LINE__);
         return $this;
     }
 
@@ -492,8 +483,7 @@ class Video implements Arrayable
      */
     public function setMaxbitrate($maxbitrate)
     {
-        $this->validateInt($maxbitrate, __LINE__);
-        $this->maxbitrate = $maxbitrate;
+        $this->maxbitrate = $this->validateInt($maxbitrate, __LINE__);
         return $this;
     }
 

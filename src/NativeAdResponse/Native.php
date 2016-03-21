@@ -83,8 +83,7 @@ class Native implements Arrayable
      */
     public function setVer($ver)
     {
-        $this->validateInt($ver, __LINE__);
-        $this->ver = $ver;
+        $this->ver = $this->validateInt($ver, __LINE__);
         return $this;
     }
 

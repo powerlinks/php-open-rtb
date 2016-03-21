@@ -99,8 +99,7 @@ class Geo implements Arrayable
      */
     public function setLat($lat)
     {
-        $this->validateNumericToFloat($lat, __LINE__);
-        $this->lat = $lat;
+        $this->lat = $this->validateNumericToFloat($lat, __LINE__);
         return $this;
     }
 
@@ -119,8 +118,7 @@ class Geo implements Arrayable
      */
     public function setLon($lon)
     {
-        $this->validateNumericToFloat($lon, __LINE__);
-        $this->lon = $lon;
+        $this->lon = $this->validateNumericToFloat($lon, __LINE__);
         return $this;
     }
 
@@ -279,8 +277,7 @@ class Geo implements Arrayable
      */
     public function setUtcoffset($utcoffset)
     {
-        $this->validateInt($utcoffset, __LINE__);
-        $this->utcoffset = $utcoffset;
+        $this->utcoffset = $this->validateInt($utcoffset, __LINE__);
         return $this;
     }
 

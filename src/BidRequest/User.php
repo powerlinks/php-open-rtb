@@ -138,8 +138,7 @@ class User implements Arrayable
      */
     public function setYob($yob)
     {
-        $this->validatePositiveInt($yob, __LINE__);
-        $this->yob = $yob;
+        $this->yob = $this->validatePositiveInt($yob, __LINE__);
         return $this;
     }
 

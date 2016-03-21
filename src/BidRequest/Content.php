@@ -179,8 +179,7 @@ class Content implements Arrayable
      */
     public function setEpisode($episode)
     {
-        $this->validatePositiveInt($episode, __LINE__);
-        $this->episode = $episode;
+        $this->episode = $this->validatePositiveInt($episode, __LINE__);
         return $this;
     }
 
@@ -321,8 +320,7 @@ class Content implements Arrayable
      */
     public function setVideoquality($videoquality)
     {
-        $this->validateInt($videoquality, __LINE__);
-        $this->videoquality = $videoquality;
+        $this->videoquality = $this->validateInt($videoquality, __LINE__);
         return $this;
     }
 
@@ -474,8 +472,7 @@ class Content implements Arrayable
      */
     public function setLen($len)
     {
-        $this->validatePositiveInt($len, __LINE__);
-        $this->len = $len;
+        $this->len = $this->validatePositiveInt($len, __LINE__);
         return $this;
     }
 

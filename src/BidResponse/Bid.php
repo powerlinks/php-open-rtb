@@ -19,9 +19,6 @@ class Bid implements Arrayable
     use SetterValidation;
     use ToArray;
 
-    const TYPE_STANDARD = 1;
-    const TYPE_NATIVE = 2;
-
     /**
      * Bidder generated bid ID to assist with logging/tracking
      * @required
@@ -183,8 +180,7 @@ class Bid implements Arrayable
      */
     public function setPrice($price)
     {
-        $this->validateNumericToFloat($price, __LINE__);
-        $this->price = $price;
+        $this->price = $this->validateNumericToFloat($price, __LINE__);
         return $this;
     }
 
@@ -453,8 +449,7 @@ class Bid implements Arrayable
      */
     public function setH($h)
     {
-        $this->validateInt($h, __LINE__);
-        $this->h = $h;
+        $this->h = $this->validateInt($h, __LINE__);
         return $this;
     }
 
@@ -473,8 +468,7 @@ class Bid implements Arrayable
      */
     public function setW($w)
     {
-        $this->validateInt($w, __LINE__);
-        $this->w = $w;
+        $this->w = $this->validateInt($w, __LINE__);
         return $this;
     }
 
@@ -494,25 +488,5 @@ class Bid implements Arrayable
     {
         $this->ext = $ext;
         return $this;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getType()
-    {
-        $adm = $this->getAdm();
-
-        if (is_string($adm)) {
-            if (stristr(substr($adm, 0, 10), 'native')) {
-                return self::TYPE_NATIVE;
-            } else {
-                return self::TYPE_STANDARD;
-            }
-        } elseif (is_object($adm)) {
-            return self::TYPE_NATIVE;
-        }
-
-        return null;
     }
 }

@@ -325,8 +325,7 @@ class BidRequest implements Arrayable
      */
     public function setAt($at)
     {
-        $this->validateInt($at, __LINE__);
-        $this->at = $at;
+        $this->at = $this->validateInt($at, __LINE__);
         return $this;
     }
 
@@ -345,8 +344,7 @@ class BidRequest implements Arrayable
      */
     public function setTmax($tmax)
     {
-        $this->validatePositiveInt($tmax, __LINE__);
-        $this->tmax = $tmax;
+        $this->tmax = $this->validatePositiveInt($tmax, __LINE__);
         return $this;
     }
 

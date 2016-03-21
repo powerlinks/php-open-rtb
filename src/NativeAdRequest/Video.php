@@ -98,8 +98,7 @@ class Video implements Arrayable
      */
     public function setMinduration($minduration)
     {
-        $this->validateInt($minduration, __LINE__);
-        $this->minduration = $minduration;
+        $this->minduration = $this->validateInt($minduration, __LINE__);
         return $this;
     }
 
@@ -118,8 +117,7 @@ class Video implements Arrayable
      */
     public function setMaxduration($maxduration)
     {
-        $this->validateInt($maxduration, __LINE__);
-        $this->maxduration = $maxduration;
+        $this->maxduration = $this->validateInt($maxduration, __LINE__);
         return $this;
     }
 

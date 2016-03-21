@@ -275,8 +275,7 @@ class Imp implements Arrayable
      */
     public function setBidfloor($bidfloor)
     {
-        $this->validateNumericToFloat($bidfloor, __LINE__);
-        $this->bidfloor = $bidfloor;
+        $this->bidfloor = $this->validateNumericToFloat($bidfloor, __LINE__);
         return $this;
     }
 

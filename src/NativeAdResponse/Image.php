@@ -79,8 +79,7 @@ class Image implements Arrayable
      */
     public function setW($w)
     {
-        $this->validateInt($w, __LINE__);
-        $this->w = $w;
+        $this->w = $this->validateInt($w, __LINE__);
         return $this;
     }
 
@@ -99,8 +98,7 @@ class Image implements Arrayable
      */
     public function setH($h)
     {
-        $this->validateInt($h, __LINE__);
-        $this->h = $h;
+        $this->h = $this->validateInt($h, __LINE__);
         return $this;
     }
 

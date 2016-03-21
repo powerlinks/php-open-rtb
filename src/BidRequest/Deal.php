@@ -96,8 +96,7 @@ class Deal implements Arrayable
      */
     public function setBidfloor($bidfloor)
     {
-        $this->validatePositiveFloat($bidfloor, __LINE__);
-        $this->bidfloor = $bidfloor;
+        $this->bidfloor = $this->validatePositiveFloat($bidfloor, __LINE__);
         return $this;
     }
 
@@ -136,8 +135,7 @@ class Deal implements Arrayable
      */
     public function setAt($at)
     {
-        $this->validateInt($at, __LINE__);
-        $this->at = $at;
+        $this->at = $this->validateInt($at, __LINE__);
         return $this;
     }
 

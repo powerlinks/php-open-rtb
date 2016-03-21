@@ -82,8 +82,7 @@ class Assets implements Arrayable
      */
     public function setId($id)
     {
-        $this->validateInt($id, __LINE__);
-        $this->id = $id;
+        $this->id = $this->validateInt($id, __LINE__);
         return $this;
     }
 
@@ -102,8 +101,7 @@ class Assets implements Arrayable
      */
     public function setRequired($required)
     {
-        $this->validateInt($required, __LINE__);
-        $this->required = $required;
+        $this->required = $this->validateInt($required, __LINE__);
         return $this;
     }
 

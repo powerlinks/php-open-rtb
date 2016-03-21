@@ -97,35 +97,6 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
         ];
     }
 
-    public function testValidateFloat()
-    {
-        $this->assertTrue(AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateFloat', [1.0, 1]));
-        $this->assertTrue(AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateFloat', [12.34, 1]));
-        $this->assertTrue(AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateFloat', [0.0, 1]));
-        $this->assertTrue(AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateFloat', [-12.34, 1]));
-    }
-
-    /**
-     * @expectedException PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
-     * @dataProvider ValidateFloatExceptionProvider
-     */
-    public function testValidateFloatException($value)
-    {
-        AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateFloat', [$value, 1]);
-    }
-
-    public function ValidateFloatExceptionProvider()
-    {
-        return [
-            ['test'],
-            [1],
-            [0],
-            [-1],
-            [new \stdClass],
-            [null]
-        ];
-    }
-
     public function testValidatePositiveFloat()
     {
         $this->assertTrue(

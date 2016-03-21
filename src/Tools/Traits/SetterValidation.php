@@ -14,23 +14,26 @@ use PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue;
 trait SetterValidation
 {
     /**
-     * @param string $string
+     * @param mixed $string
      * @param string $line
-     * @return bool
+     * @return string
      * @throws ExceptionInvalidValue
      */
-    protected function validateNumericString($string, $line = '')
+    protected function validateVersion($string, $line = '')
     {
         if (is_numeric($string)) {
-            $string = (string)$string;
+            $string = (string) $string;
         }
 
         if ( ! is_string($string)) {
             throw new ExceptionInvalidValue(
-                sprintf('Argument\'s value (%s of type %s) is not a string - %s : %s', $string, gettype($string), __CLASS__, $line)
+                vsprintf(
+                    'Argument\'s value (%s of type %s) is not a string - %s : %s',
+                    $this->argumentsForError($string, $line)
+                )
             );
         }
-        return true;
+        return $string;
     }
 
     /**
@@ -43,7 +46,10 @@ trait SetterValidation
     {
         if ( ! is_string($string)) {
             throw new ExceptionInvalidValue(
-                sprintf('Argument\'s value (%s of type %s) is not a string - %s : %s', $string, gettype($string), __CLASS__, $line)
+                vsprintf(
+                    'Argument\'s value (%s of type %s) is not a string - %s : %s',
+                    $this->argumentsForError($string, $line)
+                )
             );
         }
         return true;
@@ -57,16 +63,19 @@ trait SetterValidation
      */
     protected function validateInt($int, $line = '')
     {
-        if (is_numeric($int)) {
-            $int = (int)$int;
+        if (is_numeric($int) && ! is_float($int)) {
+            $int = (int) $int;
         }
 
         if ( ! is_int($int)) {
             throw new ExceptionInvalidValue(
-                sprintf('Argument\'s value (%s of type %s) is not an integer - %s : %s', $int, gettype($int), __CLASS__, $line)
+                vsprintf(
+                    'Argument\'s value (%s of type %s) is not an integer - %s : %s',
+                    $this->argumentsForError($int, $line)
+                )
             );
         }
-        return true;
+        return $int;
     }
 
     /**
@@ -77,16 +86,19 @@ trait SetterValidation
      */
     protected function validatePositiveInt($int, $line = '')
     {
-        if (is_numeric($int)) {
-            $int = (int)$int;
+        if (is_numeric($int) && ! is_float($int)) {
+            $int = (int) $int;
         }
 
         if ( ! is_int($int) || $int < 0) {
             throw new ExceptionInvalidValue(
-                sprintf('Argument\'s value (%s of type %s) is not a valid integer - %s : %s', $int, gettype($int), __CLASS__, $line)
+                vsprintf(
+                    'Argument\'s value (%s of type %s) is not a valid integer - %s : %s',
+                    $this->argumentsForError($int, $line)
+                )
             );
         }
-        return true;
+        return $int;
     }
 
     /**
@@ -103,26 +115,13 @@ trait SetterValidation
 
         if ( ! is_float($float)) {
             throw new ExceptionInvalidValue(
-                sprintf('Argument\'s value (%s of type %s) is not a float - %s : %s', $float, gettype($float), __CLASS__, $line)
+                vsprintf(
+                    'Argument\'s value (%s of type %s) is not a float - %s : %s',
+                    $this->argumentsForError($float, $line)
+                )
             );
         }
         return $float;
-    }
-
-    /**
-     * @param float $float
-     * @param string $line
-     * @return bool
-     * @throws ExceptionInvalidValue
-     */
-    protected function validateFloat($float, $line = '')
-    {
-        if ( ! is_float($float)) {
-            throw new ExceptionInvalidValue(
-                sprintf('Argument\'s value (%s of type %s) is not a float - %s : %s', $float, gettype($float), __CLASS__, $line)
-            );
-        }
-        return true;
     }
 
     /**
@@ -139,10 +138,13 @@ trait SetterValidation
 
         if ( ! is_float($float) || $float < 0) {
             throw new ExceptionInvalidValue(
-                sprintf('Argument\'s value (%s of type %s) is not a positive float - %s : %s', $float, gettype($float), __CLASS__, $line)
+                vsprintf(
+                    'Argument\'s value (%s of type %s) is not a positive float - %s : %s',
+                    $this->argumentsForError($float, $line)
+                )
             );
         }
-        return true;
+        return $float;
     }
 
     /**
@@ -156,7 +158,10 @@ trait SetterValidation
     {
         if ( ! in_array($value, $values)) {
             throw new ExceptionInvalidValue(
-                sprintf('Argument\'s value (%s of type %s) is not allowed - %s : %s : %s', $value, gettype($value), __CLASS__, __METHOD__, $line)
+                vsprintf(
+                    'Argument\'s value (%s of type %s) is not allowed - %s : %s',
+                    $this->argumentsForError($value, $line)
+                )
             );
         }
         return true;
@@ -208,5 +213,20 @@ trait SetterValidation
             );
         }
         return true;
+    }
+
+    /**
+     * @param mixed $variable
+     * @param int $line
+     * @return array
+     */
+    private function argumentsForError($variable, $line)
+    {
+        return [
+            $variable,
+            gettype($variable),
+            __CLASS__,
+            $line
+        ];
     }
 }

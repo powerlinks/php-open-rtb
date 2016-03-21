@@ -22,5 +22,7 @@ class NativeLayout
     const CAROUSEL = 5;
     const CONTENT_STREAM = 6;
     const GRID_ADJOINING_THE_CONTENT = 7;
+
     //500+ Reserved for Exchange specific layouts.
+    const UNSPECIFIED = 500;
 }

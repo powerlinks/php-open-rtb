@@ -460,8 +460,7 @@ class Device implements Arrayable
      */
     public function setH($h)
     {
-        $this->validatePositiveInt($h, __LINE__);
-        $this->h = $h;
+        $this->h = $this->validatePositiveInt($h, __LINE__);
         return $this;
     }
 
@@ -480,8 +479,7 @@ class Device implements Arrayable
      */
     public function setW($w)
     {
-        $this->validatePositiveInt($w, __LINE__);
-        $this->w = $w;
+        $this->w = $this->validatePositiveInt($w, __LINE__);
         return $this;
     }
 
@@ -500,8 +498,7 @@ class Device implements Arrayable
      */
     public function setPpi($ppi)
     {
-        $this->validatePositiveInt($ppi, __LINE__);
-        $this->ppi = $ppi;
+        $this->ppi = $this->validatePositiveInt($ppi, __LINE__);
         return $this;
     }
 
@@ -520,8 +517,7 @@ class Device implements Arrayable
      */
     public function setPxratio($pxratio)
     {
-        $this->validateNumericToFloat($pxratio, __LINE__);
-        $this->pxratio = $pxratio;
+        $this->pxratio = $this->validateNumericToFloat($pxratio, __LINE__);
         return $this;
     }
 

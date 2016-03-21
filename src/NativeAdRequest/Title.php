@@ -45,8 +45,7 @@ class Title implements Arrayable
      */
     public function setLen($len)
     {
-        $this->validatePositiveInt($len, __LINE__);
-        $this->len = $len;
+        $this->len = $this->validatePositiveInt($len, __LINE__);
         return $this;
     }
 

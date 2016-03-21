@@ -9,9 +9,7 @@
 
 namespace PowerLinks\OpenRtb\NativeAdRequest;
 
-use PowerLinks\OpenRtb\NativeAdRequest\Specification\Custom\CustomNativeLayout;
 use PowerLinks\OpenRtb\NativeAdRequest\Specification\NativeAdUnit;
-use PowerLinks\OpenRtb\NativeAdRequest\Specification\Custom\CustomNativeAdUnit;
 use PowerLinks\OpenRtb\Tools\Classes\ArrayCollection;
 use PowerLinks\OpenRtb\NativeAdRequest\Specification\NativeLayout;
 use PowerLinks\OpenRtb\Tools\Interfaces\Arrayable;
@@ -99,8 +97,7 @@ class NativeAdRequest implements Arrayable
      */
     public function setVer($ver)
     {
-        $this->validateNumericString($ver, __LINE__);
-        $this->ver = $ver;
+        $this->ver = $this->validateVersion($ver, __LINE__);
         return $this;
     }
 
@@ -119,7 +116,7 @@ class NativeAdRequest implements Arrayable
      */
     public function setLayout($layout)
     {
-        $this->validateIn($layout, NativeLayout::getAll() + CustomNativeLayout::getAll(), __LINE__);
+        $this->validateIn($layout, NativeLayout::getAll(), __LINE__);
         $this->layout = $layout;
         return $this;
     }
@@ -139,7 +136,7 @@ class NativeAdRequest implements Arrayable
      */
     public function setAdunit($adunit)
     {
-        $this->validateIn($adunit, NativeAdUnit::getAll() + CustomNativeAdUnit::getAll(), __LINE__);
+        $this->validateIn($adunit, NativeAdUnit::getAll(), __LINE__);
         $this->adunit = $adunit;
         return $this;
     }
@@ -159,8 +156,7 @@ class NativeAdRequest implements Arrayable
      */
     public function setPlcmtcnt($plcmtcnt)
     {
-        $this->validateInt($plcmtcnt, __LINE__);
-        $this->plcmtcnt = $plcmtcnt;
+        $this->plcmtcnt = $this->validateInt($plcmtcnt, __LINE__);
         return $this;
     }
 
@@ -179,8 +175,7 @@ class NativeAdRequest implements Arrayable
      */
     public function setSeq($seq)
     {
-        $this->validateInt($seq, __LINE__);
-        $this->seq = $seq;
+        $this->seq = $this->validateInt($seq, __LINE__);
         return $this;
     }
 
