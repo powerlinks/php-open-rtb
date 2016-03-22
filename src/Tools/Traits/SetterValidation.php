@@ -177,7 +177,10 @@ trait SetterValidation
     {
         if ( ! is_string($md5) || ! (bool) preg_match('/^[0-9a-f]{32}$/i', $md5)) {
             throw new ExceptionInvalidValue(
-                sprintf('Argument\'s value (%s) is not an MD5 - %s : %s', $md5, __CLASS__, $line)
+                vsprintf(
+                    'Argument\'s value (%s of type %s) is not MD5 - %s : %s',
+                    $this->argumentsForError($md5, $line)
+                )
             );
         }
         return true;
@@ -193,7 +196,10 @@ trait SetterValidation
     {
         if ( ! is_string($sha1) || ! (bool) preg_match('/^[0-9a-f]{40}$/i', $sha1)) {
             throw new ExceptionInvalidValue(
-                sprintf('Argument\'s value (%s) is not a SHA1 - %s : %s', $sha1, __CLASS__, $line)
+                vsprintf(
+                    'Argument\'s value (%s of type %s) is not SHA1 - %s : %s',
+                    $this->argumentsForError($sha1, $line)
+                )
             );
         }
         return true;
@@ -209,7 +215,10 @@ trait SetterValidation
     {
         if ( ! is_string($ip) || ! (bool) preg_match('/^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$/', $ip)) {
             throw new ExceptionInvalidValue(
-                sprintf('Argument\'s value (%s) is not a valid IP - %s : %s', $ip, __CLASS__, $line)
+                vsprintf(
+                    'Argument\'s value (%s of type %s) is not a valid IP - %s : %s',
+                    $this->argumentsForError($ip, $line)
+                )
             );
         }
         return true;
@@ -223,7 +232,7 @@ trait SetterValidation
     private function argumentsForError($variable, $line)
     {
         return [
-            $variable,
+            is_scalar($variable) ? $variable : get_class($variable),
             gettype($variable),
             __CLASS__,
             $line
