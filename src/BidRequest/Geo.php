@@ -99,7 +99,7 @@ class Geo implements Arrayable
      */
     public function setLat($lat)
     {
-        $this->lat = $this->validateNumericToFloat($lat, __LINE__);
+        $this->lat = $this->validateNumericToFloat($lat);
         return $this;
     }
 
@@ -118,7 +118,7 @@ class Geo implements Arrayable
      */
     public function setLon($lon)
     {
-        $this->lon = $this->validateNumericToFloat($lon, __LINE__);
+        $this->lon = $this->validateNumericToFloat($lon);
         return $this;
     }
 
@@ -137,7 +137,7 @@ class Geo implements Arrayable
      */
     public function setType($type)
     {
-        $this->validateIn($type, LocationType::getAll(), __LINE__);
+        $this->validateIn($type, LocationType::getAll());
         $this->type = $type;
         return $this;
     }
@@ -157,7 +157,7 @@ class Geo implements Arrayable
      */
     public function setCountry($country)
     {
-        $this->validateString($country, __LINE__);
+        $this->validateString($country);
         $this->country = $country;
         return $this;
     }
@@ -177,7 +177,7 @@ class Geo implements Arrayable
      */
     public function setRegion($region)
     {
-        $this->validateString($region, __LINE__);
+        $this->validateString($region);
         $this->region = $region;
         return $this;
     }
@@ -197,7 +197,7 @@ class Geo implements Arrayable
      */
     public function setRegionfips104($regionfips104)
     {
-        $this->validateString($regionfips104, __LINE__);
+        $this->validateString($regionfips104);
         $this->regionfips104 = $regionfips104;
         return $this;
     }
@@ -217,7 +217,7 @@ class Geo implements Arrayable
      */
     public function setMetro($metro)
     {
-        $this->validateString($metro, __LINE__);
+        $this->validateString($metro);
         $this->metro = $metro;
         return $this;
     }
@@ -237,7 +237,7 @@ class Geo implements Arrayable
      */
     public function setCity($city)
     {
-        $this->validateString($city, __LINE__);
+        $this->validateString($city);
         $this->city = $city;
         return $this;
     }
@@ -257,7 +257,7 @@ class Geo implements Arrayable
      */
     public function setZip($zip)
     {
-        $this->validateString($zip, __LINE__);
+        $this->validateString($zip);
         $this->zip = $zip;
         return $this;
     }
@@ -277,7 +277,7 @@ class Geo implements Arrayable
      */
     public function setUtcoffset($utcoffset)
     {
-        $this->utcoffset = $this->validateInt($utcoffset, __LINE__);
+        $this->utcoffset = $this->validateInt($utcoffset);
         return $this;
     }
 

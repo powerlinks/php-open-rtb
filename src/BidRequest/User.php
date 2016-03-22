@@ -98,7 +98,7 @@ class User implements Arrayable
      */
     public function setId($id)
     {
-        $this->validateString($id, __LINE__);
+        $this->validateString($id);
         $this->id = $id;
         return $this;
     }
@@ -118,7 +118,7 @@ class User implements Arrayable
      */
     public function setBuyerid($buyerid)
     {
-        $this->validateString($buyerid, __LINE__);
+        $this->validateString($buyerid);
         $this->buyerid = $buyerid;
         return $this;
     }
@@ -138,7 +138,7 @@ class User implements Arrayable
      */
     public function setYob($yob)
     {
-        $this->yob = $this->validatePositiveInt($yob, __LINE__);
+        $this->yob = $this->validatePositiveInt($yob);
         return $this;
     }
 
@@ -157,7 +157,7 @@ class User implements Arrayable
      */
     public function setGender($gender)
     {
-        $this->validateIn($gender, Gender::getAll(), __LINE__);
+        $this->validateIn($gender, Gender::getAll());
         $this->gender = $gender;
         return $this;
     }
@@ -177,7 +177,7 @@ class User implements Arrayable
      */
     public function setKeywords($keywords)
     {
-        $this->validateString($keywords, __LINE__);
+        $this->validateString($keywords);
         $this->keywords = $keywords;
         return $this;
     }
@@ -197,7 +197,7 @@ class User implements Arrayable
      */
     public function setCustomdata($customdata)
     {
-        $this->validateString($customdata, __LINE__);
+        $this->validateString($customdata);
         $this->customdata = $customdata;
         return $this;
     }

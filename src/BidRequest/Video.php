@@ -201,7 +201,7 @@ class Video implements Arrayable
      */
     public function addMimes($mimes)
     {
-        $this->validateIn($mimes, VideoMimeType::getAll(), __LINE__);
+        $this->validateIn($mimes, VideoMimeType::getAll());
         $this->mimes[] = $mimes;
         return $this;
     }
@@ -231,7 +231,7 @@ class Video implements Arrayable
      */
     public function setMinduration($minduration)
     {
-        $this->minduration = $this->validateInt($minduration, __LINE__);
+        $this->minduration = $this->validateInt($minduration);
         return $this;
     }
 
@@ -250,7 +250,7 @@ class Video implements Arrayable
      */
     public function setMaxduration($maxduration)
     {
-        $this->maxduration = $this->validateInt($maxduration, __LINE__);
+        $this->maxduration = $this->validateInt($maxduration);
         return $this;
     }
 
@@ -270,7 +270,7 @@ class Video implements Arrayable
      */
     public function setProtocol($protocol)
     {
-        $this->protocol = $this->validateInt($protocol, __LINE__);
+        $this->protocol = $this->validateInt($protocol);
         return $this;
     }
 
@@ -289,7 +289,7 @@ class Video implements Arrayable
      */
     public function addProtocols($protocols)
     {
-        $this->validateIn($protocols, VideoBidResponseProtocols::getAll(), __LINE__);
+        $this->validateIn($protocols, VideoBidResponseProtocols::getAll());
         $this->protocols[] = $protocols;
         return $this;
     }
@@ -319,7 +319,7 @@ class Video implements Arrayable
      */
     public function setW($w)
     {
-        $this->w = $this->validateInt($w, __LINE__);
+        $this->w = $this->validateInt($w);
         return $this;
     }
 
@@ -338,7 +338,7 @@ class Video implements Arrayable
      */
     public function setH($h)
     {
-        $this->h = $this->validateInt($h, __LINE__);
+        $this->h = $this->validateInt($h);
         return $this;
     }
 
@@ -357,7 +357,7 @@ class Video implements Arrayable
      */
     public function setStartdelay($startdelay)
     {
-        $this->startdelay = $this->validateInt($startdelay, __LINE__);
+        $this->startdelay = $this->validateInt($startdelay);
         return $this;
     }
 
@@ -376,7 +376,7 @@ class Video implements Arrayable
      */
     public function setLinearity($linearity)
     {
-        $this->validateIn($linearity, VideoLinearity::getAll(), __LINE__);
+        $this->validateIn($linearity, VideoLinearity::getAll());
         $this->linearity = $linearity;
         return $this;
     }
@@ -396,7 +396,7 @@ class Video implements Arrayable
      */
     public function setSequence($sequence)
     {
-        $this->sequence = $this->validateInt($sequence, __LINE__);
+        $this->sequence = $this->validateInt($sequence);
         return $this;
     }
 
@@ -415,7 +415,7 @@ class Video implements Arrayable
      */
     public function addBattr($battr)
     {
-        $this->validateIn($battr, CreativeAttributes::getAll(), __LINE__);
+        $this->validateIn($battr, CreativeAttributes::getAll());
         $this->battr[] = $battr;
         return $this;
     }
@@ -445,7 +445,7 @@ class Video implements Arrayable
      */
     public function setMaxextended($maxextended)
     {
-        $this->maxextended = $this->validateInt($maxextended, __LINE__);
+        $this->maxextended = $this->validateInt($maxextended);
         return $this;
     }
 
@@ -464,7 +464,7 @@ class Video implements Arrayable
      */
     public function setMinbitrate($minbitrate)
     {
-        $this->minbitrate = $this->validateInt($minbitrate, __LINE__);
+        $this->minbitrate = $this->validateInt($minbitrate);
         return $this;
     }
 
@@ -483,7 +483,7 @@ class Video implements Arrayable
      */
     public function setMaxbitrate($maxbitrate)
     {
-        $this->maxbitrate = $this->validateInt($maxbitrate, __LINE__);
+        $this->maxbitrate = $this->validateInt($maxbitrate);
         return $this;
     }
 
@@ -502,7 +502,7 @@ class Video implements Arrayable
      */
     public function setBoxingallowed($boxingallowed)
     {
-        $this->validateIn($boxingallowed, BitType::getAll(), __LINE__);
+        $this->validateIn($boxingallowed, BitType::getAll());
         $this->boxingallowed = $boxingallowed;
         return $this;
     }
@@ -522,7 +522,7 @@ class Video implements Arrayable
      */
     public function addPlaybackmethod($playbackmethod)
     {
-        $this->validateIn($playbackmethod, VideoPlaybackMethods::getAll(), __LINE__);
+        $this->validateIn($playbackmethod, VideoPlaybackMethods::getAll());
         $this->playbackmethod[] = $playbackmethod;
         return $this;
     }
@@ -552,7 +552,7 @@ class Video implements Arrayable
      */
     public function addDelivery($delivery)
     {
-        $this->validateIn($delivery, ContentDeliveryMethods::getAll(), __LINE__);
+        $this->validateIn($delivery, ContentDeliveryMethods::getAll());
         $this->delivery[] = $delivery;
         return $this;
     }
@@ -582,7 +582,7 @@ class Video implements Arrayable
      */
     public function setPos($pos)
     {
-        $this->validateIn($pos, AdPosition::getAll(), __LINE__);
+        $this->validateIn($pos, AdPosition::getAll());
         $this->pos = $pos;
         return $this;
     }
@@ -630,7 +630,7 @@ class Video implements Arrayable
      */
     public function addApi($api)
     {
-        $this->validateIn($api, ApiFrameworks::getAll(), __LINE__);
+        $this->validateIn($api, ApiFrameworks::getAll());
         $this->api[] = $api;
         return $this;
     }
@@ -660,7 +660,7 @@ class Video implements Arrayable
      */
     public function addCompaniontype($companiontype)
     {
-        $this->validateIn($companiontype, VastCompanionTypes::getAll(), __LINE__);
+        $this->validateIn($companiontype, VastCompanionTypes::getAll());
         $this->companiontype[] = $companiontype;
         return $this;
     }

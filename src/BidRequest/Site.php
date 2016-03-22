@@ -125,7 +125,7 @@ class Site implements Arrayable
      */
     public function setId($id)
     {
-        $this->validateString($id, __LINE__);
+        $this->validateString($id);
         $this->id = $id;
         return $this;
     }
@@ -144,7 +144,7 @@ class Site implements Arrayable
      */
     public function setName($name)
     {
-        $this->validateString($name, __LINE__);
+        $this->validateString($name);
         $this->name = $name;
         return $this;
     }
@@ -163,7 +163,7 @@ class Site implements Arrayable
      */
     public function setDomain($domain)
     {
-        $this->validateString($domain, __LINE__);
+        $this->validateString($domain);
         $this->domain = $domain;
         return $this;
     }
@@ -183,7 +183,7 @@ class Site implements Arrayable
      */
     public function addCat($cat)
     {
-        $this->validateString($cat, __LINE__);
+        $this->validateString($cat);
         $this->cat[] = $cat;
         return $this;
     }
@@ -213,7 +213,7 @@ class Site implements Arrayable
      */
     public function addSectioncat($sectioncat)
     {
-        $this->validateString($sectioncat, __LINE__);
+        $this->validateString($sectioncat);
         $this->sectioncat[] = $sectioncat;
         return $this;
     }
@@ -243,7 +243,7 @@ class Site implements Arrayable
      */
     public function addPagecat($pagecat)
     {
-        $this->validateString($pagecat, __LINE__);
+        $this->validateString($pagecat);
         $this->pagecat[] = $pagecat;
         return $this;
     }
@@ -272,7 +272,7 @@ class Site implements Arrayable
      */
     public function setPage($page)
     {
-        $this->validateString($page, __LINE__);
+        $this->validateString($page);
         $this->page = $page;
         return $this;
     }
@@ -309,7 +309,7 @@ class Site implements Arrayable
      */
     public function setSearch($search)
     {
-        $this->validateString($search, __LINE__);
+        $this->validateString($search);
         $this->search = $search;
         return $this;
     }
@@ -329,7 +329,7 @@ class Site implements Arrayable
      */
     public function setMobile($mobile)
     {
-        $this->validateIn($mobile, BitType::getAll(), __LINE__);
+        $this->validateIn($mobile, BitType::getAll());
         $this->mobile = $mobile;
         return $this;
     }
@@ -349,7 +349,7 @@ class Site implements Arrayable
      */
     public function setPrivacypolicy($privacypolicy)
     {
-        $this->validateIn($privacypolicy, BitType::getAll(), __LINE__);
+        $this->validateIn($privacypolicy, BitType::getAll());
         $this->privacypolicy = $privacypolicy;
         return $this;
     }
@@ -405,7 +405,7 @@ class Site implements Arrayable
      */
     public function setKeywords($keywords)
     {
-        $this->validateString($keywords, __LINE__);
+        $this->validateString($keywords);
         $this->keywords = $keywords;
         return $this;
     }

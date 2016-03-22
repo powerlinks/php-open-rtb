@@ -45,7 +45,7 @@ class Regs implements Arrayable
      */
     public function setCoppa($coppa)
     {
-        $this->validateIn($coppa, BitType::getAll(), __LINE__);
+        $this->validateIn($coppa, BitType::getAll());
         $this->coppa = $coppa;
         return $this;
     }

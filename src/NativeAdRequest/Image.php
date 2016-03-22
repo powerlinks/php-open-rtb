@@ -79,7 +79,7 @@ class Image implements Arrayable
      */
     public function setType($type)
     {
-        $this->validateIn($type, ImageAssetType::getAll(), __LINE__);
+        $this->validateIn($type, ImageAssetType::getAll());
         $this->type = $type;
         return $this;
     }
@@ -99,7 +99,7 @@ class Image implements Arrayable
      */
     public function setW($w)
     {
-        $this->w = $this->validateInt($w, __LINE__);
+        $this->w = $this->validateInt($w);
         return $this;
     }
 
@@ -118,7 +118,7 @@ class Image implements Arrayable
      */
     public function setWmin($wmin)
     {
-        $this->wmin = $this->validateInt($wmin, __LINE__);
+        $this->wmin = $this->validateInt($wmin);
         return $this;
     }
 
@@ -137,7 +137,7 @@ class Image implements Arrayable
      */
     public function setH($h)
     {
-        $this->h = $this->validateInt($h, __LINE__);
+        $this->h = $this->validateInt($h);
         return $this;
     }
 
@@ -156,7 +156,7 @@ class Image implements Arrayable
      */
     public function setHmin($hmin)
     {
-        $this->hmin = $this->validateInt($hmin, __LINE__);
+        $this->hmin = $this->validateInt($hmin);
         return $this;
     }
 
@@ -175,7 +175,7 @@ class Image implements Arrayable
      */
     public function addMimes($mimes)
     {
-        $this->validateIn($mimes, ImageMimeType::getAll(), __LINE__);
+        $this->validateIn($mimes, ImageMimeType::getAll());
         $this->mimes[] = $mimes;
         return $this;
     }

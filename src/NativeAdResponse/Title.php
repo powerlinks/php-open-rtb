@@ -45,7 +45,7 @@ class Title implements Arrayable
      */
     public function setText($text)
     {
-        $this->validateString($text, __LINE__);
+        $this->validateString($text);
         $this->text = $text;
         return $this;
     }

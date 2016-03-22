@@ -40,7 +40,7 @@ class Video implements Arrayable
      */
     public function setVasttag($vasttag)
     {
-        $this->validateString($vasttag, __LINE__);
+        $this->validateString($vasttag);
         $this->vasttag = $vasttag;
         return $this;
     }

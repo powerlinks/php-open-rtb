@@ -32,7 +32,7 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
      */
     public function testValidateStringException($value)
     {
-        AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateString', [$value, 1]);
+        AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateString', [$value]);
     }
 
     public function ValidateStringExceptionProvider()
@@ -47,9 +47,9 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
 
     public function testValidateInt()
     {
-        $this->assertEquals(1, AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateInt', [1, 1]));
-        $this->assertEquals(-1, AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateInt', [-1, 1]));
-        $this->assertEquals(0, AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateInt', [0, 1]));
+        $this->assertEquals(1, AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateInt', [1]));
+        $this->assertEquals(-1, AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateInt', [-1]));
+        $this->assertEquals(0, AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateInt', [0]));
     }
 
     /**
@@ -111,7 +111,7 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
             0.0,
             AccessProtectedMethod::invokeMethod($this->setterValidation, 'validatePositiveFloat', [0, 1])
         );
-        $this->assert(
+        $this->assertEquals(
             1.0,
             AccessProtectedMethod::invokeMethod($this->setterValidation, 'validatePositiveFloat', [1, 1])
         );

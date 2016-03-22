@@ -70,7 +70,7 @@ class Native implements Arrayable
      */
     public function setRequest($request)
     {
-        $this->validateString($request, __LINE__);
+        $this->validateString($request);
         $this->request = $request;
         return $this;
     }
@@ -90,7 +90,7 @@ class Native implements Arrayable
      */
     public function setVer($ver)
     {
-        $this->validateString($ver, __LINE__);
+        $this->validateString($ver);
         $this->ver = $ver;
         return $this;
     }
@@ -110,7 +110,7 @@ class Native implements Arrayable
      */
     public function addApi($api)
     {
-        $this->validateIn($api, ApiFrameworks::getAll(), __LINE__);
+        $this->validateIn($api, ApiFrameworks::getAll());
         $this->api[] = $api;
         return $this;
     }
@@ -140,7 +140,7 @@ class Native implements Arrayable
      */
     public function addBattr($battr)
     {
-        $this->validateIn($battr, CreativeAttributes::getAll(), __LINE__);
+        $this->validateIn($battr, CreativeAttributes::getAll());
         $this->battr[] = $battr;
         return $this;
     }

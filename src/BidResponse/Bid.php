@@ -140,7 +140,7 @@ class Bid implements Arrayable
      */
     public function setId($id)
     {
-        $this->validateString($id, __LINE__);
+        $this->validateString($id);
         $this->id = $id;
         return $this;
     }
@@ -160,7 +160,7 @@ class Bid implements Arrayable
      */
     public function setImpid($impid)
     {
-        $this->validateString($impid, __LINE__);
+        $this->validateString($impid);
         $this->impid = $impid;
         return $this;
     }
@@ -180,7 +180,7 @@ class Bid implements Arrayable
      */
     public function setPrice($price)
     {
-        $this->price = $this->validateNumericToFloat($price, __LINE__);
+        $this->price = $this->validateNumericToFloat($price);
         return $this;
     }
 
@@ -199,7 +199,7 @@ class Bid implements Arrayable
      */
     public function setAdid($adid)
     {
-        $this->validateString($adid, __LINE__);
+        $this->validateString($adid);
         $this->adid = $adid;
         return $this;
     }
@@ -219,7 +219,7 @@ class Bid implements Arrayable
      */
     public function setNurl($nurl)
     {
-        $this->validateString($nurl, __LINE__);
+        $this->validateString($nurl);
         $this->nurl = $nurl;
         return $this;
     }
@@ -239,7 +239,7 @@ class Bid implements Arrayable
      */
     public function setAdm($adm)
     {
-        $this->validateString($adm, __LINE__);
+        $this->validateString($adm);
         $this->adm = $adm;
         return $this;
     }
@@ -259,7 +259,7 @@ class Bid implements Arrayable
      */
     public function addAdomain($adomain)
     {
-        $this->validateString($adomain, __LINE__);
+        $this->validateString($adomain);
         $this->adomain[] = $adomain;
         return $this;
     }
@@ -289,7 +289,7 @@ class Bid implements Arrayable
      */
     public function setBundle($bundle)
     {
-        $this->validateString($bundle, __LINE__);
+        $this->validateString($bundle);
         $this->bundle = $bundle;
         return $this;
     }
@@ -309,7 +309,7 @@ class Bid implements Arrayable
      */
     public function setIurl($iurl)
     {
-        $this->validateString($iurl, __LINE__);
+        $this->validateString($iurl);
         $this->iurl = $iurl;
         return $this;
     }
@@ -329,7 +329,7 @@ class Bid implements Arrayable
      */
     public function setCid($cid)
     {
-        $this->validateString($cid, __LINE__);
+        $this->validateString($cid);
         $this->cid = $cid;
         return $this;
     }
@@ -349,7 +349,7 @@ class Bid implements Arrayable
      */
     public function setCrid($crid)
     {
-        $this->validateString($crid, __LINE__);
+        $this->validateString($crid);
         $this->crid = $crid;
         return $this;
     }
@@ -369,7 +369,7 @@ class Bid implements Arrayable
      */
     public function addCat($cat)
     {
-        $this->validateString($cat, __LINE__);
+        $this->validateString($cat);
         $this->cat = $cat;
         return $this;
     }
@@ -399,7 +399,7 @@ class Bid implements Arrayable
      */
     public function addAttr($attr)
     {
-        $this->validateIn($attr, CreativeAttributes::getAll(), __LINE__);
+        $this->validateIn($attr, CreativeAttributes::getAll());
         $this->attr = $attr;
         return $this;
     }
@@ -429,7 +429,7 @@ class Bid implements Arrayable
      */
     public function setDealid($dealid)
     {
-        $this->validateString($dealid, __LINE__);
+        $this->validateString($dealid);
         $this->dealid = $dealid;
         return $this;
     }
@@ -449,7 +449,7 @@ class Bid implements Arrayable
      */
     public function setH($h)
     {
-        $this->h = $this->validateInt($h, __LINE__);
+        $this->h = $this->validateInt($h);
         return $this;
     }
 
@@ -468,7 +468,7 @@ class Bid implements Arrayable
      */
     public function setW($w)
     {
-        $this->w = $this->validateInt($w, __LINE__);
+        $this->w = $this->validateInt($w);
         return $this;
     }
 

@@ -59,7 +59,7 @@ class Publisher implements Arrayable
      */
     public function setId($id)
     {
-        $this->validateString($id, __LINE__);
+        $this->validateString($id);
         $this->id = $id;
         return $this;
     }
@@ -78,7 +78,7 @@ class Publisher implements Arrayable
      */
     public function setName($name)
     {
-        $this->validateString($name, __LINE__);
+        $this->validateString($name);
         $this->name = $name;
         return $this;
     }
@@ -97,7 +97,7 @@ class Publisher implements Arrayable
      */
     public function addCat($cat)
     {
-        $this->validateString($cat, __LINE__);
+        $this->validateString($cat);
         $this->cat[] = $cat;
         return $this;
     }
@@ -126,7 +126,7 @@ class Publisher implements Arrayable
      */
     public function setDomain($domain)
     {
-        $this->validateString($domain, __LINE__);
+        $this->validateString($domain);
         $this->domain = $domain;
         return $this;
     }

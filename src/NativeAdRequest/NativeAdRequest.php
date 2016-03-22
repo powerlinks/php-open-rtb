@@ -97,7 +97,7 @@ class NativeAdRequest implements Arrayable
      */
     public function setVer($ver)
     {
-        $this->ver = $this->validateVersion($ver, __LINE__);
+        $this->ver = $this->validateVersion($ver);
         return $this;
     }
 
@@ -116,7 +116,7 @@ class NativeAdRequest implements Arrayable
      */
     public function setLayout($layout)
     {
-        $this->validateIn($layout, NativeLayout::getAll(), __LINE__);
+        $this->validateIn($layout, NativeLayout::getAll());
         $this->layout = $layout;
         return $this;
     }
@@ -136,7 +136,7 @@ class NativeAdRequest implements Arrayable
      */
     public function setAdunit($adunit)
     {
-        $this->validateIn($adunit, NativeAdUnit::getAll(), __LINE__);
+        $this->validateIn($adunit, NativeAdUnit::getAll());
         $this->adunit = $adunit;
         return $this;
     }
@@ -156,7 +156,7 @@ class NativeAdRequest implements Arrayable
      */
     public function setPlcmtcnt($plcmtcnt)
     {
-        $this->plcmtcnt = $this->validateInt($plcmtcnt, __LINE__);
+        $this->plcmtcnt = $this->validateInt($plcmtcnt);
         return $this;
     }
 
@@ -175,7 +175,7 @@ class NativeAdRequest implements Arrayable
      */
     public function setSeq($seq)
     {
-        $this->seq = $this->validateInt($seq, __LINE__);
+        $this->seq = $this->validateInt($seq);
         return $this;
     }
 

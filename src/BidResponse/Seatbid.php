@@ -98,7 +98,7 @@ class Seatbid implements Arrayable
      */
     public function setSeat($seat)
     {
-        $this->validateString($seat, __LINE__);
+        $this->validateString($seat);
         $this->seat = $seat;
         return $this;
     }
@@ -118,7 +118,7 @@ class Seatbid implements Arrayable
      */
     public function setGroup($group)
     {
-        $this->validateIn($group, BitType::getAll(), __LINE__);
+        $this->validateIn($group, BitType::getAll());
         $this->group = $group;
         return $this;
     }

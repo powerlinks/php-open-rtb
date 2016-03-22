@@ -121,7 +121,7 @@ class Imp implements Arrayable
      */
     public function setId($id)
     {
-        $this->validateString($id, __LINE__);
+        $this->validateString($id);
         $this->id = $id;
         return $this;
     }
@@ -195,7 +195,7 @@ class Imp implements Arrayable
      */
     public function setDisplaymanager($displaymanager)
     {
-        $this->validateString($displaymanager, __LINE__);
+        $this->validateString($displaymanager);
         $this->displaymanager = $displaymanager;
         return $this;
     }
@@ -215,7 +215,7 @@ class Imp implements Arrayable
      */
     public function setDisplaymanagerver($displaymanagerver)
     {
-        $this->validateString($displaymanagerver, __LINE__);
+        $this->validateString($displaymanagerver);
         $this->displaymanagerver = $displaymanagerver;
         return $this;
     }
@@ -235,7 +235,7 @@ class Imp implements Arrayable
      */
     public function setInstl($instl)
     {
-        $this->validateIn($instl, BitType::getAll(), __LINE__);
+        $this->validateIn($instl, BitType::getAll());
         $this->instl = $instl;
         return $this;
     }
@@ -255,7 +255,7 @@ class Imp implements Arrayable
      */
     public function setTagid($tagid)
     {
-        $this->validateString($tagid, __LINE__);
+        $this->validateString($tagid);
         $this->tagid = $tagid;
         return $this;
     }
@@ -275,7 +275,7 @@ class Imp implements Arrayable
      */
     public function setBidfloor($bidfloor)
     {
-        $this->bidfloor = $this->validateNumericToFloat($bidfloor, __LINE__);
+        $this->bidfloor = $this->validateNumericToFloat($bidfloor);
         return $this;
     }
 
@@ -294,7 +294,7 @@ class Imp implements Arrayable
      */
     public function setBidfloorcur($bidfloorcur)
     {
-        $this->validateString($bidfloorcur, __LINE__);
+        $this->validateString($bidfloorcur);
         $this->bidfloorcur = $bidfloorcur;
         return $this;
     }
@@ -314,7 +314,7 @@ class Imp implements Arrayable
      */
     public function setSecure($secure)
     {
-        $this->validateIn($secure, BitType::getAll(), __LINE__);
+        $this->validateIn($secure, BitType::getAll());
         $this->secure = $secure;
         return $this;
     }
@@ -334,7 +334,7 @@ class Imp implements Arrayable
      */
     public function addIframebuster($iframebuster)
     {
-        $this->validateString($iframebuster, __LINE__);
+        $this->validateString($iframebuster);
         $this->iframebuster[] = $iframebuster;
         return $this;
     }

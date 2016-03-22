@@ -59,7 +59,7 @@ class Image implements Arrayable
      */
     public function setUrl($url)
     {
-        $this->validateString($url, __LINE__);
+        $this->validateString($url);
         $this->url = $url;
         return $this;
     }
@@ -79,7 +79,7 @@ class Image implements Arrayable
      */
     public function setW($w)
     {
-        $this->w = $this->validateInt($w, __LINE__);
+        $this->w = $this->validateInt($w);
         return $this;
     }
 
@@ -98,7 +98,7 @@ class Image implements Arrayable
      */
     public function setH($h)
     {
-        $this->h = $this->validateInt($h, __LINE__);
+        $this->h = $this->validateInt($h);
         return $this;
     }
 

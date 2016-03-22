@@ -76,7 +76,7 @@ class Deal implements Arrayable
      */
     public function setId($id)
     {
-        $this->validateString($id, __LINE__);
+        $this->validateString($id);
         $this->id = $id;
         return $this;
     }
@@ -96,7 +96,7 @@ class Deal implements Arrayable
      */
     public function setBidfloor($bidfloor)
     {
-        $this->bidfloor = $this->validatePositiveFloat($bidfloor, __LINE__);
+        $this->bidfloor = $this->validatePositiveFloat($bidfloor);
         return $this;
     }
 
@@ -115,7 +115,7 @@ class Deal implements Arrayable
      */
     public function setBidfloorcur($bidfloorcur)
     {
-        $this->validateString($bidfloorcur, __LINE__);
+        $this->validateString($bidfloorcur);
         $this->bidfloorcur = $bidfloorcur;
         return $this;
     }
@@ -135,7 +135,7 @@ class Deal implements Arrayable
      */
     public function setAt($at)
     {
-        $this->at = $this->validateInt($at, __LINE__);
+        $this->at = $this->validateInt($at);
         return $this;
     }
 
@@ -154,7 +154,7 @@ class Deal implements Arrayable
      */
     public function addWseat($wseat)
     {
-        $this->validateString($wseat, __LINE__);
+        $this->validateString($wseat);
         $this->wseat[] = $wseat;
         return $this;
     }
@@ -184,7 +184,7 @@ class Deal implements Arrayable
      */
     public function addWadomain($wadomain)
     {
-        $this->validateString($wadomain, __LINE__);
+        $this->validateString($wadomain);
         $this->wadomain[] = $wadomain;
         return $this;
     }

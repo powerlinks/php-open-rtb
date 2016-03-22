@@ -62,7 +62,7 @@ class Pmp implements Arrayable
      */
     public function setPrivateAuction($private_auction)
     {
-        $this->validateIn($private_auction, BitType::getAll(), __LINE__);
+        $this->validateIn($private_auction, BitType::getAll());
         $this->private_auction = $private_auction;
         return $this;
     }

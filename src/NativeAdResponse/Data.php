@@ -51,7 +51,7 @@ class Data implements Arrayable
      */
     public function setLabel($label)
     {
-        $this->validateString($label, __LINE__);
+        $this->validateString($label);
         $this->label = $label;
         return $this;
     }
@@ -71,7 +71,7 @@ class Data implements Arrayable
      */
     public function setValue($value)
     {
-        $this->validateString($value, __LINE__);
+        $this->validateString($value);
         $this->value = $value;
         return $this;
     }

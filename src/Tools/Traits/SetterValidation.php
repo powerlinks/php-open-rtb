@@ -15,11 +15,10 @@ trait SetterValidation
 {
     /**
      * @param mixed $string
-     * @param string $line
      * @return string
      * @throws ExceptionInvalidValue
      */
-    protected function validateVersion($string, $line = '')
+    protected function validateVersion($string)
     {
         if (is_numeric($string)) {
             $string = (string) $string;
@@ -28,8 +27,8 @@ trait SetterValidation
         if ( ! is_string($string)) {
             throw new ExceptionInvalidValue(
                 vsprintf(
-                    'Argument\'s value (%s of type %s) is not a string - %s : %s',
-                    $this->argumentsForError($string, $line)
+                    'Argument\'s value (%s of type %s) is not a string',
+                    $this->argumentsForError($string)
                 )
             );
         }
@@ -38,17 +37,16 @@ trait SetterValidation
 
     /**
      * @param string $string
-     * @param string $line
      * @return bool
      * @throws ExceptionInvalidValue
      */
-    protected function validateString($string, $line = '')
+    protected function validateString($string)
     {
         if ( ! is_string($string)) {
             throw new ExceptionInvalidValue(
                 vsprintf(
-                    'Argument\'s value (%s of type %s) is not a string - %s : %s',
-                    $this->argumentsForError($string, $line)
+                    'Argument\'s value (%s of type %s) is not a string',
+                    $this->argumentsForError($string)
                 )
             );
         }
@@ -57,11 +55,10 @@ trait SetterValidation
 
     /**
      * @param int $int
-     * @param string $line
      * @return bool
      * @throws ExceptionInvalidValue
      */
-    protected function validateInt($int, $line = '')
+    protected function validateInt($int)
     {
         if (is_numeric($int) && ! is_float($int)) {
             $int = (int) $int;
@@ -70,8 +67,8 @@ trait SetterValidation
         if ( ! is_int($int)) {
             throw new ExceptionInvalidValue(
                 vsprintf(
-                    'Argument\'s value (%s of type %s) is not an integer - %s : %s',
-                    $this->argumentsForError($int, $line)
+                    'Argument\'s value (%s of type %s) is not an integer',
+                    $this->argumentsForError($int)
                 )
             );
         }
@@ -80,11 +77,10 @@ trait SetterValidation
 
     /**
      * @param int $int
-     * @param string $line
      * @return bool
      * @throws ExceptionInvalidValue
      */
-    protected function validatePositiveInt($int, $line = '')
+    protected function validatePositiveInt($int)
     {
         if (is_numeric($int) && ! is_float($int)) {
             $int = (int) $int;
@@ -93,8 +89,8 @@ trait SetterValidation
         if ( ! is_int($int) || $int < 0) {
             throw new ExceptionInvalidValue(
                 vsprintf(
-                    'Argument\'s value (%s of type %s) is not a valid integer - %s : %s',
-                    $this->argumentsForError($int, $line)
+                    'Argument\'s value (%s of type %s) is not a valid integer',
+                    $this->argumentsForError($int)
                 )
             );
         }
@@ -103,11 +99,10 @@ trait SetterValidation
 
     /**
      * @param float|int $float
-     * @param string $line
      * @return bool
      * @throws ExceptionInvalidValue
      */
-    protected function validateNumericToFloat($float, $line = '')
+    protected function validateNumericToFloat($float)
     {
         if (is_numeric($float)) {
             $float = (float) $float;
@@ -116,8 +111,8 @@ trait SetterValidation
         if ( ! is_float($float)) {
             throw new ExceptionInvalidValue(
                 vsprintf(
-                    'Argument\'s value (%s of type %s) is not a float - %s : %s',
-                    $this->argumentsForError($float, $line)
+                    'Argument\'s value (%s of type %s) is not a float',
+                    $this->argumentsForError($float)
                 )
             );
         }
@@ -126,11 +121,10 @@ trait SetterValidation
 
     /**
      * @param float $float
-     * @param string $line
      * @return bool
      * @throws ExceptionInvalidValue
      */
-    protected function validatePositiveFloat($float, $line = '')
+    protected function validatePositiveFloat($float)
     {
         if (is_numeric($float)) {
             $float = (float) $float;
@@ -139,8 +133,8 @@ trait SetterValidation
         if ( ! is_float($float) || $float < 0) {
             throw new ExceptionInvalidValue(
                 vsprintf(
-                    'Argument\'s value (%s of type %s) is not a positive float - %s : %s',
-                    $this->argumentsForError($float, $line)
+                    'Argument\'s value (%s of type %s) is not a positive float',
+                    $this->argumentsForError($float)
                 )
             );
         }
@@ -150,17 +144,16 @@ trait SetterValidation
     /**
      * @param mixed $value
      * @param array $values
-     * @param string $line
      * @return bool
      * @throws ExceptionInvalidValue
      */
-    protected function validateIn($value, array $values, $line = '')
+    protected function validateIn($value, array $values)
     {
         if ( ! in_array($value, $values)) {
             throw new ExceptionInvalidValue(
                 vsprintf(
-                    'Argument\'s value (%s of type %s) is not allowed - %s : %s',
-                    $this->argumentsForError($value, $line)
+                    'Argument\'s value (%s of type %s) is not allowed',
+                    $this->argumentsForError($value)
                 )
             );
         }
@@ -169,17 +162,16 @@ trait SetterValidation
 
     /**
      * @param string $md5
-     * @param string $line
      * @return bool
      * @throws ExceptionInvalidValue
      */
-    protected function validateMd5($md5, $line = '')
+    protected function validateMd5($md5)
     {
         if ( ! is_string($md5) || ! (bool) preg_match('/^[0-9a-f]{32}$/i', $md5)) {
             throw new ExceptionInvalidValue(
                 vsprintf(
-                    'Argument\'s value (%s of type %s) is not MD5 - %s : %s',
-                    $this->argumentsForError($md5, $line)
+                    'Argument\'s value (%s of type %s) is not MD5',
+                    $this->argumentsForError($md5)
                 )
             );
         }
@@ -188,17 +180,16 @@ trait SetterValidation
 
     /**
      * @param string $sha1
-     * @param string $line
      * @return bool
      * @throws ExceptionInvalidValue
      */
-    protected function validateSha1($sha1, $line = '')
+    protected function validateSha1($sha1)
     {
         if ( ! is_string($sha1) || ! (bool) preg_match('/^[0-9a-f]{40}$/i', $sha1)) {
             throw new ExceptionInvalidValue(
                 vsprintf(
-                    'Argument\'s value (%s of type %s) is not SHA1 - %s : %s',
-                    $this->argumentsForError($sha1, $line)
+                    'Argument\'s value (%s of type %s) is not SHA1',
+                    $this->argumentsForError($sha1)
                 )
             );
         }
@@ -207,17 +198,16 @@ trait SetterValidation
 
     /**
      * @param string $ip
-     * @param string $line
      * @return bool
      * @throws ExceptionInvalidValue
      */
-    protected function validateIp($ip, $line = '')
+    protected function validateIp($ip)
     {
         if ( ! is_string($ip) || ! (bool) preg_match('/^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$/', $ip)) {
             throw new ExceptionInvalidValue(
                 vsprintf(
-                    'Argument\'s value (%s of type %s) is not a valid IP - %s : %s',
-                    $this->argumentsForError($ip, $line)
+                    'Argument\'s value (%s of type %s) is not a valid IP',
+                    $this->argumentsForError($ip)
                 )
             );
         }
@@ -226,16 +216,13 @@ trait SetterValidation
 
     /**
      * @param mixed $variable
-     * @param int $line
      * @return array
      */
-    private function argumentsForError($variable, $line)
+    private function argumentsForError($variable)
     {
         return [
             is_scalar($variable) ? $variable : get_class($variable),
-            gettype($variable),
-            __CLASS__,
-            $line
+            gettype($variable)
         ];
     }
 }

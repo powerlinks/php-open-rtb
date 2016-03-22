@@ -53,7 +53,7 @@ class Segment implements Arrayable
      */
     public function setId($id)
     {
-        $this->validateString($id, __LINE__);
+        $this->validateString($id);
         $this->id = $id;
         return $this;
     }
@@ -73,7 +73,7 @@ class Segment implements Arrayable
      */
     public function setName($name)
     {
-        $this->validateString($name, __LINE__);
+        $this->validateString($name);
         $this->name = $name;
         return $this;
     }
@@ -93,7 +93,7 @@ class Segment implements Arrayable
      */
     public function setValue($value)
     {
-        $this->validateString($value, __LINE__);
+        $this->validateString($value);
         $this->value = $value;
         return $this;
     }

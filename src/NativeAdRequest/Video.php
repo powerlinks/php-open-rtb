@@ -68,7 +68,7 @@ class Video implements Arrayable
      */
     public function addMimes($mimes)
     {
-        $this->validateIn($mimes, VideoMimeType::getAll(), __LINE__);
+        $this->validateIn($mimes, VideoMimeType::getAll());
         $this->mimes = $mimes;
         return $this;
     }
@@ -98,7 +98,7 @@ class Video implements Arrayable
      */
     public function setMinduration($minduration)
     {
-        $this->minduration = $this->validateInt($minduration, __LINE__);
+        $this->minduration = $this->validateInt($minduration);
         return $this;
     }
 
@@ -117,7 +117,7 @@ class Video implements Arrayable
      */
     public function setMaxduration($maxduration)
     {
-        $this->maxduration = $this->validateInt($maxduration, __LINE__);
+        $this->maxduration = $this->validateInt($maxduration);
         return $this;
     }
 
@@ -136,7 +136,7 @@ class Video implements Arrayable
      */
     public function addProtocols($protocols)
     {
-        $this->validateIn($protocols, VideoBidResponseProtocols::getAll(), __LINE__);
+        $this->validateIn($protocols, VideoBidResponseProtocols::getAll());
         $this->protocols[] = $protocols;
         return $this;
     }

@@ -222,7 +222,7 @@ class Device implements Arrayable
      */
     public function setUa($ua)
     {
-        $this->validateString($ua, __LINE__);
+        $this->validateString($ua);
         $this->ua = $ua;
         return $this;
     }
@@ -260,7 +260,7 @@ class Device implements Arrayable
      */
     public function setDnt($dnt)
     {
-        $this->validateIn($dnt, BitType::getAll(), __LINE__);
+        $this->validateIn($dnt, BitType::getAll());
         $this->dnt = $dnt;
         return $this;
     }
@@ -280,7 +280,7 @@ class Device implements Arrayable
      */
     public function setLmt($lmt)
     {
-        $this->validateIn($lmt, BitType::getAll(), __LINE__);
+        $this->validateIn($lmt, BitType::getAll());
         $this->lmt = $lmt;
         return $this;
     }
@@ -300,7 +300,7 @@ class Device implements Arrayable
      */
     public function setIp($ip)
     {
-        $this->validateIp($ip, __LINE__);
+        $this->validateIp($ip);
         $this->ip = $ip;
         return $this;
     }
@@ -320,7 +320,7 @@ class Device implements Arrayable
      */
     public function setIpv6($ipv6)
     {
-        $this->validateString($ipv6, __LINE__);
+        $this->validateString($ipv6);
         $this->ipv6 = $ipv6;
         return $this;
     }
@@ -340,7 +340,7 @@ class Device implements Arrayable
      */
     public function setDevicetype($devicetype)
     {
-        $this->validateIn($devicetype, DeviceType::getAll(), __LINE__);
+        $this->validateIn($devicetype, DeviceType::getAll());
         $this->devicetype = $devicetype;
         return $this;
     }
@@ -360,7 +360,7 @@ class Device implements Arrayable
      */
     public function setMake($make)
     {
-        $this->validateString($make, __LINE__);
+        $this->validateString($make);
         $this->make = $make;
         return $this;
     }
@@ -380,7 +380,7 @@ class Device implements Arrayable
      */
     public function setModel($model)
     {
-        $this->validateString($model, __LINE__);
+        $this->validateString($model);
         $this->model = $model;
         return $this;
     }
@@ -400,7 +400,7 @@ class Device implements Arrayable
      */
     public function setOs($os)
     {
-        $this->validateString($os, __LINE__);
+        $this->validateString($os);
         $this->os = $os;
         return $this;
     }
@@ -420,7 +420,7 @@ class Device implements Arrayable
      */
     public function setOsv($osv)
     {
-        $this->validateString($osv, __LINE__);
+        $this->validateString($osv);
         $this->osv = $osv;
         return $this;
     }
@@ -440,7 +440,7 @@ class Device implements Arrayable
      */
     public function setHwv($hwv)
     {
-        $this->validateString($hwv, __LINE__);
+        $this->validateString($hwv);
         $this->hwv = $hwv;
         return $this;
     }
@@ -460,7 +460,7 @@ class Device implements Arrayable
      */
     public function setH($h)
     {
-        $this->h = $this->validatePositiveInt($h, __LINE__);
+        $this->h = $this->validatePositiveInt($h);
         return $this;
     }
 
@@ -479,7 +479,7 @@ class Device implements Arrayable
      */
     public function setW($w)
     {
-        $this->w = $this->validatePositiveInt($w, __LINE__);
+        $this->w = $this->validatePositiveInt($w);
         return $this;
     }
 
@@ -498,7 +498,7 @@ class Device implements Arrayable
      */
     public function setPpi($ppi)
     {
-        $this->ppi = $this->validatePositiveInt($ppi, __LINE__);
+        $this->ppi = $this->validatePositiveInt($ppi);
         return $this;
     }
 
@@ -517,7 +517,7 @@ class Device implements Arrayable
      */
     public function setPxratio($pxratio)
     {
-        $this->pxratio = $this->validateNumericToFloat($pxratio, __LINE__);
+        $this->pxratio = $this->validateNumericToFloat($pxratio);
         return $this;
     }
 
@@ -536,7 +536,7 @@ class Device implements Arrayable
      */
     public function setJs($js)
     {
-        $this->validateIn($js, BitType::getAll(), __LINE__);
+        $this->validateIn($js, BitType::getAll());
         $this->js = $js;
         return $this;
     }
@@ -556,7 +556,7 @@ class Device implements Arrayable
      */
     public function setFlashver($flashver)
     {
-        $this->validateString($flashver, __LINE__);
+        $this->validateString($flashver);
         $this->flashver = $flashver;
         return $this;
     }
@@ -576,7 +576,7 @@ class Device implements Arrayable
      */
     public function setLanguage($language)
     {
-        $this->validateString($language, __LINE__);
+        $this->validateString($language);
         $this->language = $language;
         return $this;
     }
@@ -596,7 +596,7 @@ class Device implements Arrayable
      */
     public function setCarrier($carrier)
     {
-        $this->validateString($carrier, __LINE__);
+        $this->validateString($carrier);
         $this->carrier = $carrier;
         return $this;
     }
@@ -616,7 +616,7 @@ class Device implements Arrayable
      */
     public function setConnectiontype($connectiontype)
     {
-        $this->validateIn($connectiontype, ConnectionType::getAll(), __LINE__);
+        $this->validateIn($connectiontype, ConnectionType::getAll());
         $this->connectiontype = $connectiontype;
         return $this;
     }
@@ -636,7 +636,7 @@ class Device implements Arrayable
      */
     public function setIfa($ifa)
     {
-        $this->validateString($ifa, __LINE__);
+        $this->validateString($ifa);
         $this->ifa = $ifa;
         return $this;
     }
@@ -656,7 +656,7 @@ class Device implements Arrayable
      */
     public function setDidsha1($didsha1)
     {
-        $this->validateString($didsha1, __LINE__);
+        $this->validateString($didsha1);
         $this->didsha1 = $didsha1;
         return $this;
     }
@@ -676,7 +676,7 @@ class Device implements Arrayable
      */
     public function setDidmd5($didmd5)
     {
-        $this->validateString($didmd5, __LINE__);
+        $this->validateString($didmd5);
         $this->didmd5 = $didmd5;
         return $this;
     }
@@ -696,7 +696,7 @@ class Device implements Arrayable
      */
     public function setDpidsha1($dpidsha1)
     {
-        $this->validateString($dpidsha1, __LINE__);
+        $this->validateString($dpidsha1);
         $this->dpidsha1 = $dpidsha1;
         return $this;
     }
@@ -716,7 +716,7 @@ class Device implements Arrayable
      */
     public function setDpidmd5($dpidmd5)
     {
-        $this->validateString($dpidmd5, __LINE__);
+        $this->validateString($dpidmd5);
         $this->dpidmd5 = $dpidmd5;
         return $this;
     }
@@ -736,7 +736,7 @@ class Device implements Arrayable
      */
     public function setMacsha1($macsha1)
     {
-        $this->validateString($macsha1, __LINE__);
+        $this->validateString($macsha1);
         $this->macsha1 = $macsha1;
         return $this;
     }
@@ -756,7 +756,7 @@ class Device implements Arrayable
      */
     public function setMacmd5($macmd5)
     {
-        $this->validateString($macmd5, __LINE__);
+        $this->validateString($macmd5);
         $this->macmd5 = $macmd5;
         return $this;
     }

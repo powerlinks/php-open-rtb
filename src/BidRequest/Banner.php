@@ -118,7 +118,7 @@ class Banner implements Arrayable
      */
     public function setW($w)
     {
-        $this->w = $this->validatePositiveInt($w, __LINE__);
+        $this->w = $this->validatePositiveInt($w);
         return $this;
     }
 
@@ -137,7 +137,7 @@ class Banner implements Arrayable
      */
     public function setH($h)
     {
-        $this->h = $this->validatePositiveInt($h, __LINE__);
+        $this->h = $this->validatePositiveInt($h);
         return $this;
     }
 
@@ -156,7 +156,7 @@ class Banner implements Arrayable
      */
     public function setWmax($wmax)
     {
-        $this->wmax = $this->validatePositiveInt($wmax, __LINE__);
+        $this->wmax = $this->validatePositiveInt($wmax);
         return $this;
     }
 
@@ -175,7 +175,7 @@ class Banner implements Arrayable
      */
     public function setHmax($hmax)
     {
-        $this->hmax = $this->validatePositiveInt($hmax, __LINE__);
+        $this->hmax = $this->validatePositiveInt($hmax);
         return $this;
     }
 
@@ -194,7 +194,7 @@ class Banner implements Arrayable
      */
     public function setWmin($wmin)
     {
-        $this->wmin = $this->validatePositiveInt($wmin, __LINE__);
+        $this->wmin = $this->validatePositiveInt($wmin);
         return $this;
     }
 
@@ -213,7 +213,7 @@ class Banner implements Arrayable
      */
     public function setHmin($hmin)
     {
-        $this->hmin = $this->validatePositiveInt($hmin, __LINE__);
+        $this->hmin = $this->validatePositiveInt($hmin);
         return $this;
     }
 
@@ -232,7 +232,7 @@ class Banner implements Arrayable
      */
     public function setId($id)
     {
-        $this->validateString($id, __LINE__);
+        $this->validateString($id);
         $this->id = $id;
         return $this;
     }
@@ -252,7 +252,7 @@ class Banner implements Arrayable
      */
     public function addBtype($btype)
     {
-        $this->btype[] = $this->validateInt($btype, __LINE__);
+        $this->btype[] = $this->validateInt($btype);
         return $this;
     }
 
@@ -281,7 +281,7 @@ class Banner implements Arrayable
      */
     public function addBattr($battr)
     {
-        $this->battr[] = $this->validateInt($battr, __LINE__);
+        $this->battr[] = $this->validateInt($battr);
         return $this;
     }
 
@@ -310,7 +310,7 @@ class Banner implements Arrayable
      */
     public function setPos($pos)
     {
-        $this->pos = $this->validateInt($pos, __LINE__);
+        $this->pos = $this->validateInt($pos);
         return $this;
     }
 
@@ -329,7 +329,7 @@ class Banner implements Arrayable
      */
     public function addMimes($mimes)
     {
-        $this->validateIn($mimes, BannerMimeType::getAll(), __LINE__);
+        $this->validateIn($mimes, BannerMimeType::getAll());
         $this->mimes[] = $mimes;
         return $this;
     }
@@ -359,7 +359,7 @@ class Banner implements Arrayable
      */
     public function setTopframe($topframe)
     {
-        $this->topframe = $this->validateInt($topframe, __LINE__);
+        $this->topframe = $this->validateInt($topframe);
         return $this;
     }
 
@@ -378,7 +378,7 @@ class Banner implements Arrayable
      */
     public function addExpdir($expdir)
     {
-        $this->expdir[] = $this->validateInt($expdir, __LINE__);
+        $this->expdir[] = $this->validateInt($expdir);
         return $this;
     }
 
@@ -407,7 +407,7 @@ class Banner implements Arrayable
      */
     public function addApi($api)
     {
-        $this->api[] = $this->validateInt($api, __LINE__);
+        $this->api[] = $this->validateInt($api);
         return $this;
     }
 

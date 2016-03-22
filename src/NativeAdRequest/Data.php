@@ -52,7 +52,7 @@ class Data implements Arrayable
      */
     public function setType($type)
     {
-        $this->validateIn($type, DataAssetType::getAll(), __LINE__);
+        $this->validateIn($type, DataAssetType::getAll());
         $this->type = $type;
         return $this;
     }
@@ -72,7 +72,7 @@ class Data implements Arrayable
      */
     public function setLen($len)
     {
-        $this->len = $this->validatePositiveInt($len, __LINE__);
+        $this->len = $this->validatePositiveInt($len);
         return $this;
     }
 

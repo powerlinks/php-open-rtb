@@ -160,7 +160,7 @@ class Content implements Arrayable
      */
     public function setId($id)
     {
-        $this->validateString($id, __LINE__);
+        $this->validateString($id);
         $this->id = $id;
         return $this;
     }
@@ -179,7 +179,7 @@ class Content implements Arrayable
      */
     public function setEpisode($episode)
     {
-        $this->episode = $this->validatePositiveInt($episode, __LINE__);
+        $this->episode = $this->validatePositiveInt($episode);
         return $this;
     }
 
@@ -197,7 +197,7 @@ class Content implements Arrayable
      */
     public function setTitle($title)
     {
-        $this->validateString($title, __LINE__);
+        $this->validateString($title);
         $this->title = $title;
         return $this;
     }
@@ -216,7 +216,7 @@ class Content implements Arrayable
      */
     public function setSeries($series)
     {
-        $this->validateString($series, __LINE__);
+        $this->validateString($series);
         $this->series = $series;
         return $this;
     }
@@ -235,7 +235,7 @@ class Content implements Arrayable
      */
     public function setSeason($season)
     {
-        $this->validateString($season, __LINE__);
+        $this->validateString($season);
         $this->season = $season;
         return $this;
     }
@@ -272,7 +272,7 @@ class Content implements Arrayable
      */
     public function setUrl($url)
     {
-        $this->validateString($url, __LINE__);
+        $this->validateString($url);
         $this->url = $url;
         return $this;
     }
@@ -291,7 +291,7 @@ class Content implements Arrayable
      */
     public function addCat($cat)
     {
-        $this->validateString($cat, __LINE__);
+        $this->validateString($cat);
         $this->cat[] = $cat;
         return $this;
     }
@@ -320,7 +320,7 @@ class Content implements Arrayable
      */
     public function setVideoquality($videoquality)
     {
-        $this->videoquality = $this->validateInt($videoquality, __LINE__);
+        $this->videoquality = $this->validateInt($videoquality);
         return $this;
     }
 
@@ -338,7 +338,7 @@ class Content implements Arrayable
      */
     public function setContext($context)
     {
-        $this->validateIn($context, ContentContext::getAll(), __LINE__);
+        $this->validateIn($context, ContentContext::getAll());
         $this->context = $context;
         return $this;
     }
@@ -357,7 +357,7 @@ class Content implements Arrayable
      */
     public function setContentrating($contentrating)
     {
-        $this->validateString($contentrating, __LINE__);
+        $this->validateString($contentrating);
         $this->contentrating = $contentrating;
         return $this;
     }
@@ -376,7 +376,7 @@ class Content implements Arrayable
      */
     public function setUserrating($userrating)
     {
-        $this->validateString($userrating, __LINE__);
+        $this->validateString($userrating);
         $this->userrating = $userrating;
         return $this;
     }
@@ -396,7 +396,7 @@ class Content implements Arrayable
      */
     public function setQagmediarating($qagmediarating)
     {
-        $this->validateIn($qagmediarating, QagMediaRatings::getAll(), __LINE__);
+        $this->validateIn($qagmediarating, QagMediaRatings::getAll());
         $this->qagmediarating = $qagmediarating;
         return $this;
     }
@@ -415,7 +415,7 @@ class Content implements Arrayable
      */
     public function setKeywords($keywords)
     {
-        $this->validateString($keywords, __LINE__);
+        $this->validateString($keywords);
         $this->keywords = $keywords;
         return $this;
     }
@@ -434,7 +434,7 @@ class Content implements Arrayable
      */
     public function setLivestream($livestream)
     {
-        $this->validateIn($livestream, BitType::getAll(), __LINE__);
+        $this->validateIn($livestream, BitType::getAll());
         $this->livestream = $livestream;
         return $this;
     }
@@ -453,7 +453,7 @@ class Content implements Arrayable
      */
     public function setSourcerelationship($sourcerelationship)
     {
-        $this->validateIn($sourcerelationship, BitType::getAll(), __LINE__);
+        $this->validateIn($sourcerelationship, BitType::getAll());
         $this->sourcerelationship = $sourcerelationship;
         return $this;
     }
@@ -472,7 +472,7 @@ class Content implements Arrayable
      */
     public function setLen($len)
     {
-        $this->len = $this->validatePositiveInt($len, __LINE__);
+        $this->len = $this->validatePositiveInt($len);
         return $this;
     }
 
@@ -490,7 +490,7 @@ class Content implements Arrayable
      */
     public function setLanguage($language)
     {
-        $this->validateString($language, __LINE__);
+        $this->validateString($language);
         $this->language = $language;
         return $this;
     }
@@ -509,7 +509,7 @@ class Content implements Arrayable
      */
     public function setEmbeddable($embeddable)
     {
-        $this->validateIn($embeddable, BitType::getAll(), __LINE__);
+        $this->validateIn($embeddable, BitType::getAll());
         $this->embeddable = $embeddable;
         return $this;
     }

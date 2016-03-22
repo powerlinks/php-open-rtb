@@ -96,7 +96,7 @@ class BidResponse implements Arrayable
      */
     public function setId($id)
     {
-        $this->validateString($id, __LINE__);
+        $this->validateString($id);
         $this->id = $id;
         return $this;
     }
@@ -144,7 +144,7 @@ class BidResponse implements Arrayable
      */
     public function setBidid($bidid)
     {
-        $this->validateString($bidid, __LINE__);
+        $this->validateString($bidid);
         $this->bidid = $bidid;
         return $this;
     }
@@ -164,7 +164,7 @@ class BidResponse implements Arrayable
      */
     public function setCur($cur)
     {
-        $this->validateString($cur, __LINE__);
+        $this->validateString($cur);
         $this->cur = $cur;
         return $this;
     }
@@ -184,7 +184,7 @@ class BidResponse implements Arrayable
      */
     public function setCustomdata($customdata)
     {
-        $this->validateString($customdata, __LINE__);
+        $this->validateString($customdata);
         $this->customdata = $customdata;
         return $this;
     }
@@ -204,7 +204,7 @@ class BidResponse implements Arrayable
      */
     public function setNbr($nbr)
     {
-        $this->validateIn($nbr, NoBidReason::getAll(), __LINE__);
+        $this->validateIn($nbr, NoBidReason::getAll());
         $this->nbr = $nbr;
         return $this;
     }

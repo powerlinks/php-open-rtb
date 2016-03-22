@@ -65,7 +65,7 @@ class Data implements Arrayable
      */
     public function setId($id)
     {
-        $this->validateString($id, __LINE__);
+        $this->validateString($id);
         $this->id = $id;
         return $this;
     }
@@ -85,7 +85,7 @@ class Data implements Arrayable
      */
     public function setName($name)
     {
-        $this->validateString($name, __LINE__);
+        $this->validateString($name);
         $this->name = $name;
         return $this;
     }

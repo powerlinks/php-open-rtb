@@ -83,7 +83,7 @@ class Native implements Arrayable
      */
     public function setVer($ver)
     {
-        $this->ver = $this->validateInt($ver, __LINE__);
+        $this->ver = $this->validateInt($ver);
         return $this;
     }
 
@@ -148,7 +148,7 @@ class Native implements Arrayable
      */
     public function addImptrackers($imptrackers)
     {
-        $this->validateString($imptrackers, __LINE__);
+        $this->validateString($imptrackers);
         $this->imptrackers[] = $imptrackers;
         return $this;
     }
@@ -178,7 +178,7 @@ class Native implements Arrayable
      */
     public function setJstracker($jstracker)
     {
-        $this->validateString($jstracker, __LINE__);
+        $this->validateString($jstracker);
         $this->jstracker = $jstracker;
         return $this;
     }

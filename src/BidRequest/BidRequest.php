@@ -165,7 +165,7 @@ class BidRequest implements Arrayable
      */
     public function setId($id)
     {
-        $this->validateString($id, __LINE__);
+        $this->validateString($id);
         $this->id = $id;
         return $this;
     }
@@ -306,7 +306,7 @@ class BidRequest implements Arrayable
      */
     public function setTest($test)
     {
-        $this->validateIn($test, BitType::getAll(), __LINE__);
+        $this->validateIn($test, BitType::getAll());
         $this->test = $test;
         return $this;
     }
@@ -325,7 +325,7 @@ class BidRequest implements Arrayable
      */
     public function setAt($at)
     {
-        $this->at = $this->validateInt($at, __LINE__);
+        $this->at = $this->validateInt($at);
         return $this;
     }
 
@@ -344,7 +344,7 @@ class BidRequest implements Arrayable
      */
     public function setTmax($tmax)
     {
-        $this->tmax = $this->validatePositiveInt($tmax, __LINE__);
+        $this->tmax = $this->validatePositiveInt($tmax);
         return $this;
     }
 
@@ -363,7 +363,7 @@ class BidRequest implements Arrayable
      */
     public function addWseat($wseat)
     {
-        $this->validateString($wseat, __LINE__);
+        $this->validateString($wseat);
         $this->wseat[] = $wseat;
         return $this;
     }
@@ -393,7 +393,7 @@ class BidRequest implements Arrayable
      */
     public function setAllimps($allimps)
     {
-        $this->validateIn($allimps, BitType::getAll(), __LINE__);
+        $this->validateIn($allimps, BitType::getAll());
         $this->allimps = $allimps;
         return $this;
     }
@@ -413,7 +413,7 @@ class BidRequest implements Arrayable
      */
     public function addCur($cur)
     {
-        $this->validateString($cur, __LINE__);
+        $this->validateString($cur);
         $this->cur[] = $cur;
         return $this;
     }
@@ -443,7 +443,7 @@ class BidRequest implements Arrayable
      */
     public function addBcat($bcat)
     {
-        $this->validateString($bcat, __LINE__);
+        $this->validateString($bcat);
         $this->bcat[] = $bcat;
         return $this;
     }
@@ -473,7 +473,7 @@ class BidRequest implements Arrayable
      */
     public function addBadv($badv)
     {
-        $this->validateString($badv, __LINE__);
+        $this->validateString($badv);
         $this->badv[] = $badv;
         return $this;
     }

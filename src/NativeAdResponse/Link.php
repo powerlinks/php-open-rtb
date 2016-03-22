@@ -58,7 +58,7 @@ class Link implements Arrayable
      */
     public function setUrl($url)
     {
-        $this->validateString($url, __LINE__);
+        $this->validateString($url);
         $this->url = $url;
         return $this;
     }
@@ -78,7 +78,7 @@ class Link implements Arrayable
      */
     public function addClicktrackers($clicktrackers)
     {
-        $this->validateString($clicktrackers, __LINE__);
+        $this->validateString($clicktrackers);
         $this->clicktrackers[] = $clicktrackers;
         return $this;
     }
@@ -108,7 +108,7 @@ class Link implements Arrayable
      */
     public function setFallback($fallback)
     {
-        $this->validateString($fallback, __LINE__);
+        $this->validateString($fallback);
         $this->fallback = $fallback;
         return $this;
     }

@@ -134,7 +134,7 @@ class App implements Arrayable
      */
     public function setId($id)
     {
-        $this->validateString($id, __LINE__);
+        $this->validateString($id);
         $this->id = $id;
         return $this;
     }
@@ -154,7 +154,7 @@ class App implements Arrayable
      */
     public function setName($name)
     {
-        $this->validateString($name, __LINE__);
+        $this->validateString($name);
         $this->name = $name;
         return $this;
     }
@@ -174,7 +174,7 @@ class App implements Arrayable
      */
     public function setBundle($bundle)
     {
-        $this->validateString($bundle, __LINE__);
+        $this->validateString($bundle);
         $this->bundle = $bundle;
         return $this;
     }
@@ -194,7 +194,7 @@ class App implements Arrayable
      */
     public function setDomain($domain)
     {
-        $this->validateString($domain, __LINE__);
+        $this->validateString($domain);
         $this->domain = $domain;
         return $this;
     }
@@ -214,7 +214,7 @@ class App implements Arrayable
      */
     public function setStoreurl($storeurl)
     {
-        $this->validateString($storeurl, __LINE__);
+        $this->validateString($storeurl);
         $this->storeurl = $storeurl;
         return $this;
     }
@@ -234,7 +234,7 @@ class App implements Arrayable
      */
     public function addCat($cat)
     {
-        $this->validateString($cat, __LINE__);
+        $this->validateString($cat);
         $this->cat[] = $cat;
         return $this;
     }
@@ -264,7 +264,7 @@ class App implements Arrayable
      */
     public function addSectioncat($sectioncat)
     {
-        $this->validateString($sectioncat, __LINE__);
+        $this->validateString($sectioncat);
         $this->sectioncat[] = $sectioncat;
         return $this;
     }
@@ -294,7 +294,7 @@ class App implements Arrayable
      */
     public function addPagecat($pagecat)
     {
-        $this->validateString($pagecat, __LINE__);
+        $this->validateString($pagecat);
         $this->pagecat[] = $pagecat;
         return $this;
     }
@@ -324,7 +324,7 @@ class App implements Arrayable
      */
     public function setVer($ver)
     {
-        $this->validateString($ver, __LINE__);
+        $this->validateString($ver);
         $this->ver = $ver;
         return $this;
     }
@@ -344,7 +344,7 @@ class App implements Arrayable
      */
     public function setPrivacypolicy($privacypolicy)
     {
-        $this->validateIn($privacypolicy, BitType::getAll(), __LINE__);
+        $this->validateIn($privacypolicy, BitType::getAll());
         $this->privacypolicy = $privacypolicy;
         return $this;
     }
@@ -364,7 +364,7 @@ class App implements Arrayable
      */
     public function setPaid($paid)
     {
-        $this->validateIn($paid, BitType::getAll(), __LINE__);
+        $this->validateIn($paid, BitType::getAll());
         $this->paid = $paid;
         return $this;
     }
@@ -420,7 +420,7 @@ class App implements Arrayable
      */
     public function setKeywords($keywords)
     {
-        $this->validateString($keywords, __LINE__);
+        $this->validateString($keywords);
         $this->keywords = $keywords;
         return $this;
     }
