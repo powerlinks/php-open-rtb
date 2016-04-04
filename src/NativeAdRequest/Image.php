@@ -79,7 +79,7 @@ class Image implements Arrayable
      */
     public function setType($type)
     {
-        $this->validateIn($type, ImageAssetType::getAll());
+        $this->validateInWithCustom500Values($type, ImageAssetType::getAll());
         $this->type = $type;
         return $this;
     }

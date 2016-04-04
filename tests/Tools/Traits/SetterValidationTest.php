@@ -27,7 +27,7 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      * @dataProvider ValidateStringExceptionProvider
      */
     public function testValidateStringException($value)
@@ -53,7 +53,7 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      * @dataProvider ValidateIntExceptionProvider
      */
     public function testValidateIntException($value)
@@ -78,7 +78,7 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      * @dataProvider ValidatePositiveIntExceptionProvider
      */
     public function testValidatePositiveIntException($value)
@@ -118,7 +118,7 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      * @dataProvider ValidatePositiveFloatExceptionProvider
      */
     public function testValidatePositiveFloatException($value)
@@ -148,7 +148,7 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      * @dataProvider ValidateInExceptionProvider
      */
     public function testValidateInException($value, $validValues)
@@ -184,7 +184,7 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      * @dataProvider ValidateInWithCustom500ValuesExceptionProvider
      */
     public function testValidateInWithCustom500ValuesException($value, $validValues)
@@ -210,7 +210,7 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      * @dataProvider ValidateMd5ExceptionProvider
      */
     public function testValidateMd5Exception($value)
@@ -237,7 +237,7 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      * @dataProvider ValidateSha1ExceptionProvider
      */
     public function testValidateSha1Exception($value)

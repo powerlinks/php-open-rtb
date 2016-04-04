@@ -52,7 +52,7 @@ class Data implements Arrayable
      */
     public function setType($type)
     {
-        $this->validateIn($type, DataAssetType::getAll());
+        $this->validateInWithCustom500Values($type, DataAssetType::getAll());
         $this->type = $type;
         return $this;
     }
