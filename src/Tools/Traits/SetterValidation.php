@@ -161,6 +161,27 @@ trait SetterValidation
     }
 
     /**
+     * @param mixed $value
+     * @param array $values
+     * @return bool
+     * @throws ExceptionInvalidValue
+     * Taking into account custom 500+ values, which are legal according to the spec, though
+     * we may not have a representation of them
+     */
+    protected function validateInWithCustom500Values($value, array $values)
+    {
+        if ( ! in_array($value, $values) && ! (is_int($value) && $value >= 500) ) {
+            throw new ExceptionInvalidValue(
+                vsprintf(
+                    'Argument\'s value (%s of type %s) is not allowed',
+                    $this->argumentsForError($value)
+                )
+            );
+        }
+        return true;
+    }
+
+    /**
      * @param string $md5
      * @return bool
      * @throws ExceptionInvalidValue

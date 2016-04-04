@@ -165,6 +165,45 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
         ];
     }
 
+    public function testValidateInWithCustom500Values()
+    {
+        $this->assertTrue(
+            AccessProtectedMethod::invokeMethod(
+                $this->setterValidation,
+                'validateInWithCustom500Values',
+                [501, [1 ,2, 3], 1]
+            )
+        );
+        $this->assertTrue(
+            AccessProtectedMethod::invokeMethod(
+                $this->setterValidation,
+                'validateInWithCustom500Values',
+                [599, [1 ,2, 3], 1]
+            )
+        );
+    }
+
+    /**
+     * @expectedException PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     * @dataProvider ValidateInWithCustom500ValuesExceptionProvider
+     */
+    public function testValidateInWithCustom500ValuesException($value, $validValues)
+    {
+        AccessProtectedMethod::invokeMethod(
+            $this->setterValidation,
+            'validateInWithCustom500Values',
+            [$value, $validValues, 1]
+        );
+    }
+
+    public function ValidateInWithCustom500ValuesExceptionProvider()
+    {
+        return [
+            [99, [1, 2, 3]],
+            [499, [1, 2, 3]]
+        ];
+    }
+
     public function testValidateMd5()
     {
         $this->assertTrue(AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateMd5', [md5(1), 1]));
