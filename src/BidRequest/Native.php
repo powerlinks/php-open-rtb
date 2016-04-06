@@ -90,7 +90,7 @@ class Native implements Arrayable
      */
     public function setVer($ver)
     {
-        $this->validateString($ver);
+        $this->validateVersion($ver);
         $this->ver = $ver;
         return $this;
     }
