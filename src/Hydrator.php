@@ -87,7 +87,6 @@ class Hydrator
         if( ! $classExists) {
             throw new \Exception(sprintf('Class %s does not exist', $newClassName));
         }
-
         return new $newClassName;
     }
 
