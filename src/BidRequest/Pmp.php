@@ -50,7 +50,7 @@ class Pmp implements Arrayable
     /**
      * @return int
      */
-    public function getPrivateAuction()
+    public function getPrivate_auction()
     {
         return $this->private_auction;
     }
@@ -60,7 +60,7 @@ class Pmp implements Arrayable
      * @return $this
      * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
-    public function setPrivateAuction($private_auction)
+    public function setPrivate_auction($private_auction)
     {
         $this->validateIn($private_auction, BitType::getAll());
         $this->private_auction = $private_auction;
