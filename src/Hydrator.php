@@ -75,9 +75,19 @@ class Hydrator
     protected static function getDependencyObject($objectDescriptor, $key, $getClassNameFromAnnotation = true)
     {
         $newClassName = self::getDependencyClassName($objectDescriptor, $key, $getClassNameFromAnnotation);
+        $classExists = false;
         if ( ! class_exists($newClassName)) {
+            if (substr($newClassName, -1) === 's' && class_exists(substr($newClassName, 0, -1))) {
+                $classExists = true;
+                $newClassName = substr($newClassName, 0, -1);
+            }
+        } else {
+            $classExists = true;
+        }
+        if( ! $classExists) {
             throw new \Exception(sprintf('Class %s does not exist', $newClassName));
         }
+
         return new $newClassName;
     }
 
