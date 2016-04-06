@@ -170,7 +170,7 @@ trait SetterValidation
      */
     protected function validateInWithCustom500Values($value, array $values)
     {
-        if ( ! in_array($value, $values) && ! (is_int($value) && $value >= 500) ) {
+        if ( ! in_array($value, $values) && ! (is_numeric($value) && $value >= 500) ) {
             throw new ExceptionInvalidValue(
                 vsprintf(
                     'Argument\'s value (%s of type %s) is not allowed',
