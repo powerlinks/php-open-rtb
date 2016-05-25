@@ -57,6 +57,7 @@ class HydratorTest extends PHPUnit_Framework_TestCase
         Hydrator::hydrate(json_decode($json, true), $object);
 
         $this->assertEquals('[ID]', $object->getId());
+        $this->assertEquals('cpc', $object->getExt()->get('pmodel') );
         $this->assertTrue(is_string($object->getImp()->current()->getNative()->getRequest()));
 
         $native = Hydrator::hydrate(json_decode($object->getImp()->current()->getNative()->getRequest(), true)['native'], new NativeAdRequest());

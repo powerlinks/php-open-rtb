@@ -47,6 +47,8 @@ class Hydrator
                 self::set($object, $key, self::hydrate($value, self::getDependencyObject($objectDescriptor, $key)));
             } elseif ($objectDescriptor->properties->has($key)) {
                 self::set($object, $key, $value);
+            } elseif ($object instanceof \PowerLinks\OpenRtb\Tools\Classes\Ext) {
+                $object->set($key, $value);
             }
         }
         return $object;
