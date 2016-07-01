@@ -9,6 +9,7 @@
 
 namespace PowerLinks\OpenRtb;
 
+use PowerLinks\OpenRtb\Tools\ObjectAnalyzer\ObjectDescriberFactory;
 use PowerLinks\OpenRtb\Tools\ObjectAnalyzer\ObjectDescriber;
 
 class Hydrator
@@ -21,7 +22,7 @@ class Hydrator
      */
     public static function hydrate(array $data, $object)
     {
-        $objectDescriptor = ObjectDescriber::factory($object);
+        $objectDescriptor = ObjectDescriberFactory::create($object);
         $data = self::checkFirstArrayKey($data, $objectDescriptor);
 
         foreach ($data as $key => $value) {
@@ -56,27 +57,27 @@ class Hydrator
 
     /**
      * @param array $data
-     * @param ObjectDescriber $objectDescriptor
+     * @param ObjectDescriber $objectDescriber
      * @return array
      */
-    protected static function checkFirstArrayKey(array $data, $objectDescriptor)
+    protected static function checkFirstArrayKey(array $data, ObjectDescriber $objectDescriber)
     {
-        if (strtolower(current(array_keys($data))) == strtolower($objectDescriptor->getClassNameWithoutNamespace())) {
+        if (strtolower(current(array_keys($data))) == strtolower($objectDescriber->getClassNameWithoutNamespace())) {
             return current($data);
         }
         return $data;
     }
 
     /**
-     * @param ObjectDescriber $objectDescriptor
+     * @param ObjectDescriber $objectDescriber
      * @param string $key
      * @param bool $getClassNameFromAnnotation
      * @return mixed
      * @throws \Exception
      */
-    protected static function getDependencyObject($objectDescriptor, $key, $getClassNameFromAnnotation = true)
+    protected static function getDependencyObject(ObjectDescriber $objectDescriber, $key, $getClassNameFromAnnotation = true)
     {
-        $newClassName = self::getDependencyClassName($objectDescriptor, $key, $getClassNameFromAnnotation);
+        $newClassName = self::getDependencyClassName($objectDescriber, $key, $getClassNameFromAnnotation);
         if ( ! class_exists($newClassName)) {
             $newClassName = self::tryPluralDependencyObject($newClassName);
         }
@@ -97,20 +98,20 @@ class Hydrator
     }
 
     /**
-     * @param ObjectDescriber $objectDescriptor
+     * @param ObjectDescriber $objectDescriber
      * @param string $key
      * @param bool $getClassNameFromAnnotation
      * @return string
      */
-    protected static function getDependencyClassName($objectDescriptor, $key, $getClassNameFromAnnotation = true)
+    protected static function getDependencyClassName(ObjectDescriber $objectDescriber, $key, $getClassNameFromAnnotation = true)
     {
         if ($getClassNameFromAnnotation) {
-            $key = $objectDescriptor->properties->get($key)->get('var');
+            $key = $objectDescriber->properties->get($key)->get('var');
         }
         if ($key == 'ArrayCollection') {
             return 'PowerLinks\OpenRtb\Tools\Classes\ArrayCollection';
         }
-        return $objectDescriptor->getNamespace().'\\'.$key;
+        return $objectDescriber->getNamespace().'\\'.$key;
     }
 
     /**

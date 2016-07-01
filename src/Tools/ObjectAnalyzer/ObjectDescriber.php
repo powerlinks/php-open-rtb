@@ -9,14 +9,12 @@
 
 namespace PowerLinks\OpenRtb\Tools\ObjectAnalyzer;
 
-use ReflectionClass;
-
 class ObjectDescriber
 {
     /**
-     * @var ReflectionClass
+     * @var string
      */
-    protected $reflectionClass;
+    public $name;
 
     /**
      * @var ParametersBag
@@ -29,22 +27,12 @@ class ObjectDescriber
     public $methods;
 
     /**
-     * @param object $className
+     * ObjectDescriber constructor.
      */
-    public function __construct($className)
+    public function __construct()
     {
-        $this->initialize($className);
-    }
-
-    /**
-     * @param object $className
-     */
-    public function initialize($className)
-    {
-
-        $this->reflectionClass = new ReflectionClass($className);
-        $this->properties = $this->createPropertiesBag($this->reflectionClass);
-        $this->methods = $this->createMethodsBag($this->reflectionClass);
+        $this->properties = new ParametersBag();
+        $this->methods = new ParametersBag();
     }
 
     /**
@@ -52,7 +40,9 @@ class ObjectDescriber
      */
     public function getNamespace()
     {
-        return $this->reflectionClass->getNamespaceName();
+        $nameSpaceExploded = explode('\\', $this->name);
+        array_pop($nameSpaceExploded);
+        return implode('\\', $nameSpaceExploded);
     }
 
     /**
@@ -60,7 +50,7 @@ class ObjectDescriber
      */
     public function getClassName()
     {
-        return $this->reflectionClass->getName();
+        return $this->name;
     }
 
     /**
@@ -68,49 +58,6 @@ class ObjectDescriber
      */
     public function getClassNameWithoutNamespace()
     {
-        return current(array_reverse(explode('\\', $this->reflectionClass->getName())));
-    }
-
-    /**
-     * @param ReflectionClass $reflectionClass
-     * @return ParametersBag
-     */
-    public static function createPropertiesBag($reflectionClass)
-    {
-        $properties = new ParametersBag();
-        foreach ($reflectionClass->getProperties() as $property) {
-            $properties->set(
-                $property->getName(),
-                new AnnotationsBag($property)
-            );
-        }
-        return $properties;
-    }
-
-    /**
-     * @param ReflectionClass $reflectionClass
-     * @return ParametersBag
-     */
-    public static function createMethodsBag($reflectionClass)
-    {
-        $methods = new ParametersBag();
-        foreach ($reflectionClass->getMethods() as $method) {
-            $methods->set(
-                $method->getName(),
-                $method
-            );
-        }
-        return $methods;
-    }
-
-    public static function factory($className)
-    {
-        if (is_object($className)) {
-            $className = get_class($className);
-        }
-        if ( ! class_exists($className)) {
-            throw new \Exception('Class does not exist');
-        }
-        return new self($className);
+        return array_pop(explode('\\', $this->name));
     }
 }

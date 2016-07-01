@@ -10,7 +10,7 @@
 namespace PowerLinks\OpenRtb\Tools\Traits;
 
 use PowerLinks\OpenRtb\Tools\Exceptions\ExceptionMissingRequiredField;
-use PowerLinks\OpenRtb\Tools\ObjectAnalyzer\ObjectDescriber;
+use PowerLinks\OpenRtb\Tools\ObjectAnalyzer\ObjectDescriberFactory;
 
 trait ToArray
 {
@@ -48,7 +48,7 @@ trait ToArray
      */
     private function getProperties()
     {
-        $objectDescriptor = ObjectDescriber::factory(__CLASS__);
+        $objectDescriptor = ObjectDescriberFactory::create(__CLASS__);
         return $objectDescriptor->properties;
     }
 

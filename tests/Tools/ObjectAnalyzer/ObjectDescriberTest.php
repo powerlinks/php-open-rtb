@@ -11,12 +11,13 @@ namespace PowerLinks\OpenRtb\Tests\Tools\ObjectAnalyzer;
 
 use PHPUnit_Framework_TestCase;
 use PowerLinks\OpenRtb\Tools\ObjectAnalyzer\ObjectDescriber;
+use PowerLinks\OpenRtb\Tools\ObjectAnalyzer\ObjectDescriberFactory;
 
 class ObjectDescriberTest extends PHPUnit_Framework_TestCase
 {
     public function testConstructor()
     {
-        $descriptor = new ObjectDescriber('PowerLinks\OpenRtb\BidRequest\BidRequest');
+        $descriptor = ObjectDescriberFactory::create('PowerLinks\OpenRtb\BidRequest\BidRequest');
 
         $this->assertEquals('PowerLinks\OpenRtb\BidRequest\BidRequest', $descriptor->getClassName());
         $this->assertEquals('PowerLinks\OpenRtb\BidRequest', $descriptor->getNamespace());
