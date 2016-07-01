@@ -32,7 +32,7 @@ class ObjectDescriberFactory
         $objectDescriber->properties->add(self::createPropertiesBag($reflectionClass));
         $objectDescriber->methods->add(self::createMethodsBag($reflectionClass));
 
-        if (self::cacheHas($className)) {
+        if (self::apcuExists($className)) {
             apcu_store($className, $objectDescriber);
         }
 
