@@ -9,11 +9,14 @@
 
 namespace PowerLinks\OpenRtb\Tools\ObjectAnalyzer;
 
+use PowerLinks\OpenRtb\Tools\Traits\Cache;
 use ReflectionClass;
 use ReflectionProperty;
 
 class ObjectDescriberFactory
 {
+    use Cache;
+
     /**
      * @param $className
      * @return ObjectDescriber
@@ -32,10 +35,7 @@ class ObjectDescriberFactory
         $objectDescriber->properties->add(self::createPropertiesBag($reflectionClass));
         $objectDescriber->methods->add(self::createMethodsBag($reflectionClass));
 
-        if (self::apcuExists($className)) {
-            apcu_store($className, $objectDescriber);
-        }
-
+        self::cacheStore($className, $objectDescriber);
         return $objectDescriber;
     }
 
@@ -53,26 +53,6 @@ class ObjectDescriberFactory
             throw new \Exception('Class does not exist');
         }
         return $className;
-    }
-
-    /**
-     * @param $className
-     * @return bool
-     */
-    private static function cacheHas($className)
-    {
-        if (self::apcuExists()) {
-            return apcu_exists($className);
-        }
-        return false;
-    }
-
-    /**
-     * @return bool
-     */
-    private static function apcuExists()
-    {
-        return extension_loaded("apcu");
     }
 
     /**
