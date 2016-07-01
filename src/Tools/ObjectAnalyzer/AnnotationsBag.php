@@ -9,19 +9,12 @@
 
 namespace PowerLinks\OpenRtb\Tools\ObjectAnalyzer;
 
-use ReflectionProperty;
-
 class AnnotationsBag extends ParametersBag
 {
     /**
      * @var array
      */
     protected $parameters;
-
-    /**
-     * @var ReflectionProperty
-     */
-    protected $reflectionProperty;
 
     /**
      * @var array
@@ -34,24 +27,11 @@ class AnnotationsBag extends ParametersBag
     ];
 
     /**
-     * @param ReflectionProperty $reflectionProperty
-     */
-    public function __construct(ReflectionProperty $reflectionProperty = null)
-    {
-        if ( ! is_null($reflectionProperty)) {
-            $this->reflectionProperty = $reflectionProperty;
-            $this->initialize($reflectionProperty);
-        }
-    }
-
-    /**
-     * @param ReflectionProperty $reflectionProperty
+     * @param string $doc
      * @return $this
      */
-    public function initialize(ReflectionProperty $reflectionProperty)
+    public function initializeDoc($doc)
     {
-        $doc = $reflectionProperty->getDocComment();
-        $this->set('name', $reflectionProperty->getName());
         preg_match_all('/@(.*)/', $doc, $matches);
         foreach ($matches[1] as $annotation) {
             $annotation = trim($annotation);

@@ -58,6 +58,6 @@ class ObjectDescriber
      */
     public function getClassNameWithoutNamespace()
     {
-        return array_pop(explode('\\', $this->name));
+        return current(array_reverse(explode('\\', $this->name)));
     }
 }

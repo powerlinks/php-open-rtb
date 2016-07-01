@@ -10,6 +10,7 @@
 namespace PowerLinks\OpenRtb\Tools\ObjectAnalyzer;
 
 use ReflectionClass;
+use ReflectionProperty;
 
 class ObjectDescriberFactory
 {
@@ -82,7 +83,7 @@ class ObjectDescriberFactory
     {
         $result = [];
         foreach ($reflectionClass->getProperties() as $property) {
-            $result[$property->getName()] = new AnnotationsBag($property);
+            $result[$property->getName()] = self::createPropertyAnnotationsBag($property);
         }
         return $result;
     }
@@ -98,5 +99,17 @@ class ObjectDescriberFactory
             $result[$method->getName()] = $method;
         }
         return $result;
+    }
+
+    /**
+     * @param ReflectionProperty $reflectionProperty
+     * @return AnnotationsBag
+     */
+    private static function createPropertyAnnotationsBag(ReflectionProperty $reflectionProperty)
+    {
+        $annotationsBag = new AnnotationsBag();
+        return $annotationsBag
+            ->set('name', $reflectionProperty->getName())
+            ->initializeDoc($reflectionProperty->getDocComment());
     }
 }
