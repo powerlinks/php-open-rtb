@@ -38,5 +38,10 @@ class ObjectDescriberTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Traversable', $descriptor->methods);
         $this->assertTrue($descriptor->methods->has('setId'));
         $this->assertTrue($descriptor->methods->has('getId'));
+        $this->assertTrue($descriptor->methods->get('setId'));
+        $this->assertTrue($descriptor->methods->get('getId'));
+
+        $this->assertTrue($descriptor->methods->has('getArrayFromObject'));
+        $this->assertFalse($descriptor->methods->get('getArrayFromObject'));
     }
 }

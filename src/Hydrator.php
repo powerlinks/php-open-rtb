@@ -34,7 +34,7 @@ class Hydrator
             ) {
                 self::set($object, $key, self::getDependencyObject($objectDescriptor, $key));
                 $method = 'add'.ucfirst($key);
-                if ( ! $objectDescriptor->methods->has($method)) {
+                if ( ! $objectDescriptor->methods->has($method) || ! $objectDescriptor->methods->get($method)) {
                     throw new \Exception(sprintf('Method %s does not exist', $method));
                 }
                 foreach ($value as $item) {

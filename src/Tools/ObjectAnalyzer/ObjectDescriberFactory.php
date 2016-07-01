@@ -96,7 +96,7 @@ class ObjectDescriberFactory
     {
         $result = [];
         foreach ($reflectionClass->getMethods() as $method) {
-            $result[$method->getName()] = $method;
+            $result[$method->getName()] = $method->isPublic();
         }
         return $result;
     }
