@@ -28,14 +28,14 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
-     * @dataProvider ValidateStringExceptionProvider
+     * @dataProvider validateStringExceptionProvider
      */
     public function testValidateStringException($value)
     {
         AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateString', [$value]);
     }
 
-    public function ValidateStringExceptionProvider()
+    public function validateStringExceptionProvider()
     {
         return [
             [1],
@@ -54,14 +54,14 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
-     * @dataProvider ValidateIntExceptionProvider
+     * @dataProvider validateIntExceptionProvider
      */
     public function testValidateIntException($value)
     {
         AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateInt', [$value, 1]);
     }
 
-    public function ValidateIntExceptionProvider()
+    public function validateIntExceptionProvider()
     {
         return [
             ['test'],
@@ -79,14 +79,14 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
-     * @dataProvider ValidatePositiveIntExceptionProvider
+     * @dataProvider validatePositiveIntExceptionProvider
      */
     public function testValidatePositiveIntException($value)
     {
         AccessProtectedMethod::invokeMethod($this->setterValidation, 'validatePositiveInt', [$value, 1]);
     }
 
-    public function ValidatePositiveIntExceptionProvider()
+    public function validatePositiveIntExceptionProvider()
     {
         return [
             ['test'],
@@ -119,14 +119,14 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
-     * @dataProvider ValidatePositiveFloatExceptionProvider
+     * @dataProvider validatePositiveFloatExceptionProvider
      */
     public function testValidatePositiveFloatException($value)
     {
         AccessProtectedMethod::invokeMethod($this->setterValidation, 'validatePositiveFloat', [$value, 1]);
     }
 
-    public function ValidatePositiveFloatExceptionProvider()
+    public function validatePositiveFloatExceptionProvider()
     {
         return [
             ['test'],
@@ -149,14 +149,14 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
-     * @dataProvider ValidateInExceptionProvider
+     * @dataProvider validateInExceptionProvider
      */
     public function testValidateInException($value, $validValues)
     {
         AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateIn', [$value, $validValues, 1]);
     }
 
-    public function ValidateInExceptionProvider()
+    public function validateInExceptionProvider()
     {
         return [
             ['test', ['alpha', 'bravo']],
@@ -185,7 +185,7 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
-     * @dataProvider ValidateInWithCustom500ValuesExceptionProvider
+     * @dataProvider validateInWithCustom500ValuesExceptionProvider
      */
     public function testValidateInWithCustom500ValuesException($value, $validValues)
     {
@@ -196,7 +196,7 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    public function ValidateInWithCustom500ValuesExceptionProvider()
+    public function validateInWithCustom500ValuesExceptionProvider()
     {
         return [
             [99, [1, 2, 3]],
@@ -211,14 +211,14 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
-     * @dataProvider ValidateMd5ExceptionProvider
+     * @dataProvider validateMd5ExceptionProvider
      */
     public function testValidateMd5Exception($value)
     {
         AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateMd5', [$value, 1]);
     }
 
-    public function ValidateMd5ExceptionProvider()
+    public function validateMd5ExceptionProvider()
     {
         return [
             ['g4ca4238a0b923820dcc509a6f75849b'],
@@ -238,14 +238,14 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
-     * @dataProvider ValidateSha1ExceptionProvider
+     * @dataProvider validateSha1ExceptionProvider
      */
     public function testValidateSha1Exception($value)
     {
         AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateSha1', [$value, 1]);
     }
 
-    public function ValidateSha1ExceptionProvider()
+    public function validateSha1ExceptionProvider()
     {
         return [
             ['g4ca4238a0b923820dcc509a6f75849b509a6f75'],
@@ -255,6 +255,49 @@ class SetterValidationTest extends PHPUnit_Framework_TestCase
             [1.234],
             [new \stdClass],
             [null]
+        ];
+    }
+
+    /**
+    * @dataProvider validateIpProvider
+    */
+    public function testValidateIp($ip)
+    {
+        $this->assertTrue(AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateIp', [$ip]));
+    }
+
+    public function validateIpProvider()
+    {
+        return [
+            ['2001:cdba:0000:0000:0000:0000:3257:9652'],
+            ['2001:cdba:0:0:0:0:3257:9652'],
+            ['2001:cdba::3257:9652'],
+            ['192.168.0.1'],
+            ['188.200.88.12'],
+            ['0.0.0.0'],
+            ['8.8.8.8']
+        ];
+    }
+
+    /**
+     * @expectedException \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
+     * @dataProvider validateIpExceptionProvider
+     */
+    public function testValidateIpException($ip)
+    {
+        $this->assertTrue(AccessProtectedMethod::invokeMethod($this->setterValidation, 'validateIp', [$ip]));
+    }
+
+    public function validateIpExceptionProvider()
+    {
+        return [
+            ['zzzz:cdba:0000:0000:0000:0000:3257:9652'],
+            ['2001:cdba:0:0:0:0:zzzz:9652'],
+            ['2001:cdba3257:9652'],
+            ['192.168.0.256'],
+            ['188.200.88'],
+            ['0.0.0.1000'],
+            ['8.8.8.800']
         ];
     }
 }

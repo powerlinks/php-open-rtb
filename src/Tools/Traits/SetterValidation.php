@@ -224,7 +224,7 @@ trait SetterValidation
      */
     protected function validateIp($ip)
     {
-        if ( ! is_string($ip) || ! (bool) preg_match('/^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$/', $ip)) {
+        if (filter_var($ip, FILTER_VALIDATE_IP) === false) {
             throw new ExceptionInvalidValue(
                 vsprintf(
                     'Argument\'s value (%s of type %s) is not a valid IP',
