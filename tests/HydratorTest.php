@@ -11,6 +11,7 @@ namespace PowerLinks\OpenRtb\Tests;
 
 use PHPUnit_Framework_TestCase;
 use PowerLinks\OpenRtb\BidRequest\BidRequest;
+use PowerLinks\OpenRtb\BidRequest\Native;
 use PowerLinks\OpenRtb\Hydrator;
 use PowerLinks\OpenRtb\NativeAdRequest\NativeAdRequest;
 
@@ -57,11 +58,33 @@ class HydratorTest extends PHPUnit_Framework_TestCase
         Hydrator::hydrate(json_decode($json, true), $object);
 
         $this->assertEquals('[ID]', $object->getId());
-        $this->assertEquals('cpc', $object->getExt()->get('pmodel') );
+        $this->assertEquals('cpc', $object->getExt()->get('pmodel'));
         $this->assertTrue(is_string($object->getImp()->current()->getNative()->getRequest()));
 
         $native = Hydrator::hydrate(json_decode($object->getImp()->current()->getNative()->getRequest(), true)['native'], new NativeAdRequest());
         $this->assertEquals($object->getImp()->current()->getNative()->getRequest(), $native->getRequest());
+    }
+
+    public function testHydrateWithExtraFakeFields()
+    {
+        $native = [
+            'request' => '{}',
+            'ver' => '1.1',
+            'api' => [],
+            'battr' => [],
+            'ext' => [],
+            // fields that don't exist
+            'plcmtcnt' => 'fake',
+            'assets' => 'fake',
+            'adunit' => 3,
+            'layout' => 'fake'
+        ];
+        $object = new Native();
+
+        Hydrator::hydrate($native, $object);
+
+        $this->assertEquals('1.1', $object->getVer());
+        $this->assertEquals('{}', $object->getRequest());
     }
 
     /**
