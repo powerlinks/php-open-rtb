@@ -224,6 +224,10 @@ trait SetterValidation
      */
     protected function validateIp($ip)
     {
+        /**
+         * TODO According to the spec, if the regs.coppa field is set to 1, then the IP's last octet should be
+         * truncated. So we may receive a valid IP like 192.168.1. Handle this edge case.
+         */
         if (filter_var($ip, FILTER_VALIDATE_IP) === false) {
             throw new ExceptionInvalidValue(
                 vsprintf(
