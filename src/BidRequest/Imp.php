@@ -236,7 +236,7 @@ class Imp implements Arrayable
     public function setInstl($instl)
     {
         $this->validateIn($instl, BitType::getAll());
-        $this->instl = $instl;
+        $this->instl = (int) $instl;
         return $this;
     }
 
@@ -315,7 +315,7 @@ class Imp implements Arrayable
     public function setSecure($secure)
     {
         $this->validateIn($secure, BitType::getAll());
-        $this->secure = $secure;
+        $this->secure = (int) $secure;
         return $this;
     }
 
