@@ -130,6 +130,52 @@ JSON;
         $this->assertInstanceOf(Banner::class, $object->getImp()->current()->getVideo()->getCompanionad()->current());
     }
 
+    public function testHydrateWithNonskippableVideo()
+    {
+        $json = <<< JSON
+{
+    "id": "foo",
+    "imp": [
+        {
+            "id": "1",
+            "video": {
+                "skip": false
+            }
+        }
+    ]
+}
+JSON;
+
+        $object = new BidRequest();
+
+        Hydrator::hydrate(json_decode($json, true), $object);
+
+        $this->assertFalse($object->getImp()->current()->getVideo()->getSkip());
+    }
+
+    public function testHydrateWithSkippableVideo()
+    {
+        $json = <<< JSON
+{
+    "id": "foo",
+    "imp": [
+        {
+            "id": "1",
+            "video": {
+                "skip": true
+            }
+        }
+    ]
+}
+JSON;
+
+        $object = new BidRequest();
+
+        Hydrator::hydrate(json_decode($json, true), $object);
+
+        $this->assertTrue($object->getImp()->current()->getVideo()->getSkip());
+    }
+
     public function jsonProvider()
     {
         return [
