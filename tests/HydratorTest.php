@@ -10,6 +10,7 @@
 namespace PowerLinks\OpenRtb\Tests;
 
 use PHPUnit_Framework_TestCase;
+use PowerLinks\OpenRtb\BidRequest\Banner;
 use PowerLinks\OpenRtb\BidRequest\BidRequest;
 use PowerLinks\OpenRtb\BidRequest\Native;
 use PowerLinks\OpenRtb\Hydrator;
@@ -93,6 +94,40 @@ class HydratorTest extends PHPUnit_Framework_TestCase
     public function testHydrateRecursive($json)
     {
         Hydrator::hydrate(json_decode($json, true), new BidRequest());
+    }
+
+    public function testHydrateWithCompanionad()
+    {
+        $json = <<< JSON
+{
+    "id": "foo",
+    "imp": [
+        {
+            "id": "1",
+            "video": {
+                "companionad": [
+                    {
+                        "w": 0,
+                        "h": 0,
+                        "mimes": [
+                            "image/gif",
+                            "image/jpeg",
+                            "image/png",
+                            "video/x-flv"
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
+JSON;
+
+        $object = new BidRequest();
+
+        Hydrator::hydrate(json_decode($json, true), $object);
+
+        $this->assertInstanceOf(Banner::class, $object->getImp()->current()->getVideo()->getCompanionad()->current());
     }
 
     public function jsonProvider()
