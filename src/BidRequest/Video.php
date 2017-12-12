@@ -172,7 +172,7 @@ class Video implements Arrayable
     protected $companiontype;
 
     /**
-     * @var bool
+     * @var int
      */
     protected $skip;
 
@@ -699,7 +699,7 @@ class Video implements Arrayable
     }
 
     /**
-     * @return bool
+     * @return int
      */
     public function getSkip()
     {
@@ -707,7 +707,7 @@ class Video implements Arrayable
     }
 
     /**
-     * @param bool $skip
+     * @param int $skip
      * @return $this
      */
     public function setSkip($skip)

@@ -139,7 +139,7 @@ JSON;
         {
             "id": "1",
             "video": {
-                "skip": false
+                "skip": 0
             }
         }
     ]
@@ -150,7 +150,7 @@ JSON;
 
         Hydrator::hydrate(json_decode($json, true), $object);
 
-        $this->assertFalse($object->getImp()->current()->getVideo()->getSkip());
+        $this->assertEquals(0, $object->getImp()->current()->getVideo()->getSkip());
     }
 
     public function testHydrateWithSkippableVideo()
@@ -162,7 +162,7 @@ JSON;
         {
             "id": "1",
             "video": {
-                "skip": true
+                "skip": 1
             }
         }
     ]
@@ -173,7 +173,7 @@ JSON;
 
         Hydrator::hydrate(json_decode($json, true), $object);
 
-        $this->assertTrue($object->getImp()->current()->getVideo()->getSkip());
+        $this->assertEquals(1, $object->getImp()->current()->getVideo()->getSkip());
     }
 
     public function jsonProvider()
