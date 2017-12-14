@@ -130,6 +130,29 @@ JSON;
         $this->assertInstanceOf(Banner::class, $object->getImp()->current()->getVideo()->getCompanionad()->current());
     }
 
+    public function testHydrateWithBuyeruid()
+    {
+        $json = <<< JSON
+{
+    "id": "foo",
+    "imp": [
+        {
+            "id": "1"
+        }
+    ],
+    "user": {
+        "buyeruid": "foo"
+    }
+}
+JSON;
+
+        $object = new BidRequest();
+
+        Hydrator::hydrate(json_decode($json, true), $object);
+
+        $this->assertEquals('foo', $object->getUser()->getBuyeruid());
+    }
+
     public function testHydrateWithNonskippableVideo()
     {
         $json = <<< JSON
