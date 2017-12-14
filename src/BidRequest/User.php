@@ -30,7 +30,7 @@ class User implements Arrayable
      * @recommended
      * @var string
      */
-    protected $buyerid;
+    protected $buyeruid;
 
     /**
      * Year of birth
@@ -106,20 +106,20 @@ class User implements Arrayable
     /**
      * @return string
      */
-    public function getBuyerid()
+    public function getBuyeruid()
     {
-        return $this->buyerid;
+        return $this->buyeruid;
     }
 
     /**
-     * @param string $buyerid
+     * @param string $buyeruid
      * @return $this
      * @throws \PowerLinks\OpenRtb\Tools\Exceptions\ExceptionInvalidValue
      */
-    public function setBuyerid($buyerid)
+    public function setBuyeruid($buyeruid)
     {
-        $this->validateString($buyerid);
-        $this->buyerid = $buyerid;
+        $this->validateString($buyeruid);
+        $this->buyeruid = $buyeruid;
         return $this;
     }
 
