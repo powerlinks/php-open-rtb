@@ -10,6 +10,7 @@
 namespace PowerLinks\OpenRtb\Tests;
 
 use PHPUnit_Framework_TestCase;
+use PowerLinks\OpenRtb\BidRequest\Banner;
 use PowerLinks\OpenRtb\BidRequest\BidRequest;
 use PowerLinks\OpenRtb\BidRequest\Native;
 use PowerLinks\OpenRtb\Hydrator;
@@ -93,6 +94,109 @@ class HydratorTest extends PHPUnit_Framework_TestCase
     public function testHydrateRecursive($json)
     {
         Hydrator::hydrate(json_decode($json, true), new BidRequest());
+    }
+
+    public function testHydrateWithCompanionad()
+    {
+        $json = <<< JSON
+{
+    "id": "foo",
+    "imp": [
+        {
+            "id": "1",
+            "video": {
+                "companionad": [
+                    {
+                        "w": 0,
+                        "h": 0,
+                        "mimes": [
+                            "image/gif",
+                            "image/jpeg",
+                            "image/png",
+                            "video/x-flv"
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
+JSON;
+
+        $object = new BidRequest();
+
+        Hydrator::hydrate(json_decode($json, true), $object);
+
+        $this->assertInstanceOf(Banner::class, $object->getImp()->current()->getVideo()->getCompanionad()->current());
+    }
+
+    public function testHydrateWithBuyeruid()
+    {
+        $json = <<< JSON
+{
+    "id": "foo",
+    "imp": [
+        {
+            "id": "1"
+        }
+    ],
+    "user": {
+        "buyeruid": "foo"
+    }
+}
+JSON;
+
+        $object = new BidRequest();
+
+        Hydrator::hydrate(json_decode($json, true), $object);
+
+        $this->assertEquals('foo', $object->getUser()->getBuyeruid());
+    }
+
+    public function testHydrateWithNonskippableVideo()
+    {
+        $json = <<< JSON
+{
+    "id": "foo",
+    "imp": [
+        {
+            "id": "1",
+            "video": {
+                "skip": 0
+            }
+        }
+    ]
+}
+JSON;
+
+        $object = new BidRequest();
+
+        Hydrator::hydrate(json_decode($json, true), $object);
+
+        $this->assertEquals(0, $object->getImp()->current()->getVideo()->getSkip());
+    }
+
+    public function testHydrateWithSkippableVideo()
+    {
+        $json = <<< JSON
+{
+    "id": "foo",
+    "imp": [
+        {
+            "id": "1",
+            "video": {
+                "skip": 1
+            }
+        }
+    ]
+}
+JSON;
+
+        $object = new BidRequest();
+
+        Hydrator::hydrate(json_decode($json, true), $object);
+
+        $this->assertEquals(1, $object->getImp()->current()->getVideo()->getSkip());
     }
 
     public function jsonProvider()

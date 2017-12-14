@@ -9,6 +9,7 @@
 
 namespace PowerLinks\OpenRtb;
 
+use PowerLinks\OpenRtb\BidRequest\Banner;
 use PowerLinks\OpenRtb\Tools\ObjectAnalyzer\ObjectDescriberFactory;
 use PowerLinks\OpenRtb\Tools\ObjectAnalyzer\ObjectDescriber;
 
@@ -111,6 +112,10 @@ class Hydrator
         if ($key == 'ArrayCollection') {
             return 'PowerLinks\OpenRtb\Tools\Classes\ArrayCollection';
         }
+        if ($key == 'Companionad') {
+            return Banner::class;
+        }
+
         return $objectDescriber->getNamespace().'\\'.$key;
     }
 

@@ -172,6 +172,11 @@ class Video implements Arrayable
     protected $companiontype;
 
     /**
+     * @var int
+     */
+    protected $skip;
+
+    /**
      * @var Ext
      */
     protected $ext;
@@ -690,6 +695,24 @@ class Video implements Arrayable
     public function setExt(Ext $ext)
     {
         $this->ext = $ext;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSkip()
+    {
+        return $this->skip;
+    }
+
+    /**
+     * @param int $skip
+     * @return $this
+     */
+    public function setSkip($skip)
+    {
+        $this->skip = $skip;
         return $this;
     }
 }
