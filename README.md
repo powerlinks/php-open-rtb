@@ -1,2 +1,2 @@
-# php-open-rtp
+# php-open-rtb
 iab, RTB Project, OpenRTB Specification
